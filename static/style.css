@@ -1,0 +1,18 @@
+html,
+body {
+	 font-family: Garamond, Book Antiqua, Helvetica;
+	 word-wrap: break-word;
+}
+.green {
+	color: #059135;
+}
+.bg-green {
+	background-color: #059135;
+}
+/*.bg-green {
+	background-color: #008000;
+}
+.bg-green {
+	background-color: #009747;
+}
+*/
