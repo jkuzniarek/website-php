@@ -2,7 +2,7 @@
 $menu_items = [
     [ 'a' => $sRoot.'archive.php', 'text' => 'Archive'],
     [ 'a' => $sRoot.'static/resume.pdf', 'text' => 'Resumé'],
-    [ 'a' => 'www.github.com/jkuzniarek', 'text' => 'GitHub']
+    [ 'a' => 'http://www.github.com/jkuzniarek', 'text' => 'GitHub']
 ];
 ?><!-- Sidebar -->
 <body class="h-100" style="word-wrap: break-word;">
