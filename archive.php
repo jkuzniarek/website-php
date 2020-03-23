@@ -14,7 +14,7 @@ while($row = $stmt->fetchArray()){
 <div class="row py-3"> <!-- Title Row-->
   <div class="col-sm-4"></div>
   <div class="col-sm-8 border-bottom border-dark">
-    <h1><em>Archive</em></h1>
+    <h1><em>Archive</em><?=$icon?></h1>
   </div>
 </div>
 <br>

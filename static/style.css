@@ -1,7 +1,8 @@
 html,
 body {
 	 font-family: Garamond, Book Antiqua, Helvetica;
-	 word-wrap: break-word;
+   word-wrap: break-word;
+   background-color: inherit;
 }
 .green {
 	color: #059135;
