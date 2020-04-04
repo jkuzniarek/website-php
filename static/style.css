@@ -5,12 +5,44 @@ body {
    background-color: inherit;
 }
 .green {
+	color: rgb(0, 155, 58);
+}
+.bg-green {
+	background-color: rgb(0, 155, 58);
+}
+
+.gold {
+	color: rgb(255, 199, 44);
+}
+.bg-gold {
+	background-color: rgb(255, 199, 44);
+}
+
+.bg-none {
+	background-color: inherit;
+}
+
+a {
+	color: rgb(0, 155, 58);
+}
+a:hover {
+	color: rgb(255, 199, 44);
+}
+a:visited {
+	color: rgb(0, 155, 58);
+}
+a.nostyle-link {
+  color: inherit;
+}
+
+/*
+.green {
 	color: #059135;
 }
 .bg-green {
 	background-color: #059135;
 }
-/*.bg-green {
+.bg-green {
 	background-color: #008000;
 }
 .bg-green {

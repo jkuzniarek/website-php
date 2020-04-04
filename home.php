@@ -18,17 +18,18 @@ $latest = $stmt->fetchArray();
 <div class="row py-3"> <!-- Latest Row-->
   <div class="col-sm-10">
     <br>
-    <div class="card shadow">
+    <div class="card  bg-none">
       <div class="card-body">
-        <h4 class="card-title">
-          <?=$latest['date_ID']?>: <small>
-          <a href="post.php?id=<?=$latest['date_ID']?>">
+        <h4>
+          <?=$latest['date_ID']?>: 
+          <a href="post.php?id=<?=$latest['date_ID']?>" class="btn btn-lg btn-light stretched-link">
           <?=$latest['title']?>
-          </a></small>
-        </h4><hr>
+        </a>
+        </h4>
+        <hr class="mt-0">
         <p>
           <?=$latest['description']?> 
-          <a href="post.php?id=<?=$latest['date_ID']?>"><small>Read More</small></a>
+          <!-- <a href="post.php?id=<?=$latest['date_ID']?>"><small>Read More</small></a> -->
         </p>
       </div>
     </div>
@@ -39,11 +40,11 @@ $latest = $stmt->fetchArray();
 
 <div class="row py-3"> <!-- Content Row-->
   <div class="col-sm-10">
-    <div class="media border p-3">
-      <div class="media-body">
+    <!-- <div class="media border p-3">
+      <div class="media-body"> -->
         <p>
           Hi, my name is Julien Kuzniarek and I'm a Web Developer at the 
-          <a href="www.usf.edu">University of South Florida</a> 
+          <a href="http://www.usf.edu">University of South Florida</a> 
           in Tampa where I build and maintain the Department of Research & Innovation's internal web applications. 
         </p>
         <p>
@@ -61,8 +62,8 @@ $latest = $stmt->fetchArray();
           perspectives people hold on their actions and decisions, and the
           cascading effects that can occur from small changes to a system.
         </p>
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
   </div>
 </div>
 <?php include $sRoot.'templates/footer.php'; ?>

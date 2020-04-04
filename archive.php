@@ -23,7 +23,7 @@ while($row = $stmt->fetchArray()){
     <div class="list-group list-group-flush">
     <?php
     foreach($posts as $post){ ?>
-      <a href="post.php?id=<?=$post['date_ID']?>" class="list-group-item list-group-item-action">
+      <a href="post.php?id=<?=$post['date_ID']?>" class="list-group-item list-group-item-action nostyle-link">
       <strong><?=$post['date_ID']?></strong> - <?=$post['title']?><br>
       <?=$post['description']?>
       </a>

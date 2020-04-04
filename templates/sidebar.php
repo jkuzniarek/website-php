@@ -1,7 +1,8 @@
 <?php
 $menu_items = [
-    [ 'a' => $sRoot.'archive.php', 'text' => 'Archive'],
-    [ 'a' => $sRoot.'static/resume.pdf', 'text' => 'Resumé'],
+    [ 'a' => 'projects/', 'text' => 'Projects'],
+    [ 'a' => 'archive.php', 'text' => 'Archive'],
+    [ 'a' => 'static/resume.pdf', 'text' => 'Resumé'],
     [ 'a' => 'http://www.github.com/jkuzniarek', 'text' => 'GitHub']
 ];
 ?><!-- Sidebar -->
@@ -11,13 +12,14 @@ $menu_items = [
       <!-- standard sidebar -->
       <div class="col-md-2 bg-green sidebar d-none d-lg-block h-100 shadow" style="position: fixed; top: 0; z-index: 1030;">
         <nav class="navbar navbar-light border-bottom border-dark" style="padding-left: 0;">
-          <a class="navbar-brand" href="./<?=$sRoot?>"><h2><span class="small">Home</span><?=$icon?></h2></a>
+          <a class="navbar-brand" href="./<?=$sRoot?>"><h2>Home</h2></a>
+          <a class="" href="./<?=$sRoot?>"><h2><?=$icon?></h2></a>
         </nav>
         <nav class="navbar navbar-light">
           <ul class="navbar-nav">
             <?php foreach($menu_items as $item){ ?>
-            <li class="nav-item">
-              <a class="nav-link" href="<?=$item['a']?>"><h3><?=$item['text']?></h3></a>
+            <li class="nav-item<?=strpos($_SERVER['REQUEST_URI'], $item['a']) !== false ? ' active': ''?>">
+              <a class="nav-link" href="<?=$item['text'] == 'GitHub'? $item['a']: $sRoot.$item['a']?>"><h3><?=$item['text']?></h3></a>
             </li>
             <?php }?>
           </ul>
