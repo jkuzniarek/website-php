@@ -63,7 +63,7 @@ include $sRoot.'templates/sidebar.php';
       <li>Trailing vowels are spelled differently from Normal and Lone vowels, depending on their placement.</li>
       <li>Trailing vowels are used at the end of the word after the last consonant.</li>
       <li>The Lone vowel ee is an exception among Trailing vowels and is used where a Trailing vowel would be when the vowel in question is the only vowel in the word.</li>
-      <li>The Lone vowel ee is the same as the Normal vowel ee, and primarly exists to ease the transition to MASS for English speakers.</li>
+      <li>The Lone vowel ee is the same as the Normal vowel ee, and primarly exists to ease the transition to SASS for English speakers.</li>
     </ul>
 
     <div class="row">

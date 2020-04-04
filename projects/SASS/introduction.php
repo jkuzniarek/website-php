@@ -19,7 +19,7 @@ include $sRoot.'templates/sidebar.php';
     <hr>
 
     <p>
-      The <strong>Standardized American Spelling System</strong> 
+      The <strong>Structured American Spelling System</strong> 
       (SASS) is my attempt at transforming American English into a form where words are truly spelled the way they sound.
     </p>
     
@@ -105,7 +105,7 @@ include $sRoot.'templates/sidebar.php';
       Silent letters without a phonetic purpose should be eliminated. (through => thru)
     </p>
     <p>
-      Because I hope people will use the Standardized American Spelling System, I will attempt to follow all the strategies outlined above. 
+      Because I hope people will use the Structured American Spelling System, I will attempt to follow all the strategies outlined above. 
     </p>
 
     <hr>
