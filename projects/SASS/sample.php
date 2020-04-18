@@ -18,7 +18,7 @@ include $sRoot.'templates/sidebar.php';
     <a href="sample.php" class="btn btn-light active">Sample</a>
     <hr>
 
-    <h3>8th Grade Level Sample</h3>
+    <h3>Short Sample</h3>
     <br>
     <div class="row">
       <div class="col">
@@ -27,11 +27,11 @@ include $sRoot.'templates/sidebar.php';
           Spaess exploraeshin iz an importint wae tu invent masheenz tu maek lievz eezeeur for uss.
           Spaess exploraeshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
           Olthoe spaess exploraeshin iz kostli aand mae meen harm tu ar envieurnment,
-          tha rewords ar mae help uss proetekt it or privent eevin naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
-          Spaess exploraeshin kaan bee daenjurus tu tha ixplorur bekuz tha spaess lakss uv graaviti aand oxijin for heuminz tu breeth.
+          tha rewords ar thaat it mae help uss proetekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
+          Spaess exploraeshin kaan bee daenjurus tu tha ixplorur bekuz spaess lakss graaviti aand oxijin for heuminz tu breeth.
           Sieintistss kaan bee lost in spaess or run out uv feul aand drift intu tha empti spaess forevur.
           Olthoe kountliss daenjurz can ukur in spaess, tha rewords uv nolij ar priesliss.
-          Spaess exploraeshin iz kostli aand daenjurus, but meni rewords awaetss uss. 
+          Spaess exploraeshin iz kostli aand daenjurus, but meni rewords awaet uss. 
         </p>
       </div>
       <div class="col">
@@ -40,16 +40,17 @@ include $sRoot.'templates/sidebar.php';
           Space exploration is an important way to invent machines to make lives easier for us. 
           Space exploration helps humans discover the universe and what dwells within it other than ourselves.  
           Although space exploration is costly and may mean harm to our environment, 
-          the rewards are may help us protect it or prevent even natural disasters that will mean harm to humans and animals.  
-          Space exploration can be dangerous to the explorer because the space lacks of gravity and oxygen for humans to breathe.  
+          the rewards are that it may help us protect it or even prevent natural disasters that will mean harm to humans and animals.  
+          Space exploration can be dangerous to the explorer because space lacks gravity and oxygen for humans to breathe.  
           Scientists can be lost in space or run out of fuel and drift into the empty space forever.  
           Although countless dangers can occur in space, the rewards of knowledge are priceless.  
-          Space exploration is costly, dan and dangerous, but many rewards awaits us.
+          Space exploration is costly and dangerous, but many rewards await us.
         </p>
       </div>
     </div>
+    <!--
     <br>
-    <h3>12th Grade Level Sample</h3>
+    <h3>Long Sample</h3>
     <br>
     <div class="row">
       <div class="col">
@@ -111,7 +112,7 @@ include $sRoot.'templates/sidebar.php';
         </p>
       </div>
     <div>
-
+-->
 
   </div>
 </div>
