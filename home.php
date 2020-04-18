@@ -16,9 +16,9 @@ $latest = $stmt->fetchArray();
 </div>
 
 <div class="row py-3"> <!-- Latest Row-->
-  <div class="col-sm-10">
+  <div class="col-lg-10">
     <br>
-    <div class="card  bg-none">
+    <div class="card bg-none">
       <div class="card-body">
         <h4>
           <?=$latest['date_ID']?>: 
@@ -33,15 +33,8 @@ $latest = $stmt->fetchArray();
         </p>
       </div>
     </div>
+    <br>
 
-  </div>
-</div>
-<br>
-
-<div class="row py-3"> <!-- Content Row-->
-  <div class="col-sm-10">
-    <!-- <div class="media border p-3">
-      <div class="media-body"> -->
         <p>
           Hi, my name is Julien Kuzniarek and I'm a Web Developer at the 
           <a href="http://www.usf.edu">University of South Florida</a> 
@@ -62,8 +55,7 @@ $latest = $stmt->fetchArray();
           perspectives people hold on their actions and decisions, and the
           cascading effects that can occur from small changes to a system.
         </p>
-      <!-- </div>
-    </div> -->
+        
   </div>
 </div>
 <?php include $sRoot.'templates/footer.php'; ?>

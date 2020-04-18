@@ -19,7 +19,7 @@ $post = $stmt->fetchArray();
 </div>
 <br>
 <div class="row"> <!-- Content Row-->
-  <div class="col-sm-10">
+  <div class="col-lg-10">
     <?=$post['body']?>
   </div>
 </div>

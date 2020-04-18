@@ -12,7 +12,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 <div class="row"> <!-- Content Row-->
-  <div class="col-sm-10">
+  <div class="col-lg-10">
     <a href="introduction.php" class="btn btn-light">Introduction</a>
     <a href="pronunciation.php" class="btn btn-light">Pronunciation</a>
     <a href="sample.php" class="btn btn-light active">Sample</a>

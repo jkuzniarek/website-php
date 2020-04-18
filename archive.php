@@ -19,7 +19,7 @@ while($row = $stmt->fetchArray()){
 </div>
 <br>
 <div class="row"> <!-- Content Row-->
-  <div class="col-sm-10">
+  <div class="col-lg-10">
     <div class="list-group list-group-flush">
     <?php
     foreach($posts as $post){ ?>

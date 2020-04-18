@@ -12,7 +12,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 <div class="row"> <!-- Content Row-->
-  <div class="col-sm-10">
+  <div class="col-lg-10">
       <div class="card-columns">
 
         <div class="card bg-none">
