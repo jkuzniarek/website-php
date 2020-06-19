@@ -7,7 +7,7 @@ include $sRoot.'templates/sidebar.php';
 <div class="row py-3"> <!-- Title Row-->
   <div class="col-sm-4"></div>
   <div class="col-sm-8 border-bottom border-dark">
-    <h1><em>SASS</em><?=$icon?></h1>
+    <h1><em>MSS</em><?=$icon?></h1>
   </div>
 </div>
 <br>
@@ -19,8 +19,8 @@ include $sRoot.'templates/sidebar.php';
     <hr>
 
     <p>
-      The <strong>Structured American Spelling System</strong> 
-      (SASS) is my attempt at transforming American English into a form where words are truly spelled the way they sound.
+      The <strong>Millennium Spelling System</strong> 
+      (MSS) is my attempt at transforming American English into a form where words are truly spelled the way they sound.
     </p>
     
     <p>
@@ -49,7 +49,7 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      In order to understand how SASS works and perhaps more importantly, why the present English language is so dysfunctional and needs reform,
+      In order to understand how MSS works and perhaps more importantly, why the present English language is so dysfunctional and needs reform,
       it is vital that we understand a few fundamental facts about written English before we begin.
     </p>
 
@@ -63,7 +63,7 @@ include $sRoot.'templates/sidebar.php';
         This is also, unfortunately, not the case. 
         If you (presumably a <em>fluent English speaker</em>) take the time to examine the 
         <a href="https://en.wikipedia.org/wiki/English_orthography#Spelling-to-sound_correspondences" >English Spelling to Sound Correspondence</a> 
-        you will quickly notice that there almost <em>isn't any</em>.
+        you will quickly notice that there <em>almost isn't any</em>.
       </li>
       <li>
         Prior to the Norman invasion of England the English language (now refered to as Old English) was very similar to Danish and Old Norse
@@ -74,6 +74,12 @@ include $sRoot.'templates/sidebar.php';
         This fusion between French and Old English (a Germanic and a Romance language) 
         and the fact that nobody bothered to keep the complex original conjugations and inflections is primarily responsible 
         for the English language's move to an analytic grammar and the consistently inconsistent spelling system.
+      </li>
+      <li>
+        The Normans invaded England in 1066, almost 1000 years ago! 
+        In all that time the English language's spelling problem has still not been corrected 
+        despite not only its spread across the globe by both the British and American Empires, 
+        but also the formation of regional dialects and accents such as that used in Britain, The Northern US, The Southern US, The Caribbean, and Australia.
       </li>
     </ul>
 
@@ -105,7 +111,7 @@ include $sRoot.'templates/sidebar.php';
       Silent letters without a phonetic purpose should be eliminated. (through => thru)
     </p>
     <p>
-      Because I hope people will use the Structured American Spelling System, I will attempt to follow all the strategies outlined above. 
+      Because a structured spelling system is a thousand years overdue for English, I'm calling it the Millennium Spelling System. 
     </p>
 
     <hr>

@@ -7,7 +7,7 @@ include $sRoot.'templates/sidebar.php';
 <div class="row py-3"> <!-- Title Row-->
   <div class="col-sm-4"></div>
   <div class="col-sm-8 border-bottom border-dark">
-    <h1><em>SASS</em><?=$icon?></h1>
+    <h1><em>MSS</em><?=$icon?></h1>
   </div>
 </div>
 <br>
@@ -20,7 +20,7 @@ include $sRoot.'templates/sidebar.php';
 
 
     <p>
-      Below is the alphabet sans the letter Q, and the vowel and consonant sounds as each are spelled in SASS.
+      Below is the alphabet sans the letter Q, and the vowel and consonant sounds as each are spelled in MSS.
       The letter Q has been removed because phonetically speaking it is entirely redundant and keeping it would only serve as a source of confusion for English speakers.
       You'll also notice that for the same reason as Q the letter C no longer has its own sound anymore and is only used as a letter in the CH sound.
     </p>
@@ -53,17 +53,17 @@ include $sRoot.'templates/sidebar.php';
 
     <p>
       There are three types of vowels: Normal vowels, Trailing vowels, and a Lone vowel. 
-      Understanding these is not necessary for English speakers that are only <em>reading</em> SASS 
+      Understanding these is not necessary for English speakers that are only <em>reading</em> MSS 
       as these reflect some spelling patterns that English speaking are already accustomed to and have 
-      been preserved in order to make the initial transition to SASS easier for them. 
-      However, learning them is essential for anyone who aims to be able to spell words in SASS based on their pronunciation alone.
+      been preserved in order to make the initial transition to MSS easier for them. 
+      However, learning them is essential for anyone who aims to be able to spell words in MSS based on their pronunciation alone.
     </p>
     <ul>
       <li>Normal vowels are as specified above in Vowel Sounds.</li>
       <li>Trailing vowels are spelled differently from Normal and Lone vowels, depending on their placement.</li>
       <li>Trailing vowels are used at the end of the word after the last consonant.</li>
       <li>The Lone vowel ee is an exception among Trailing vowels and is used where a Trailing vowel would be when the vowel in question is the only vowel in the word.</li>
-      <li>The Lone vowel ee is the same as the Normal vowel ee, and primarly exists to ease the transition to SASS for English speakers.</li>
+      <li>The Lone vowel ee is the same as the Normal vowel ee, and primarly exists to ease the transition to MSS for English speakers.</li>
     </ul>
 
     <div class="row">
@@ -274,7 +274,7 @@ beige > baezh</pre>
         If it's not clear where phonemes begin or end (particularly vowels)
         then apostrophes can be used to clearly separate them in order to clarify pronunciation.
         <br>(around > a'round)
-        This is rarely necessary and is best used for aiding those learning SASS. 
+        This is rarely necessary and is best used for aiding those learning MSS. 
       </li>
       <li>
         If there are no apostrophes for clarification, 

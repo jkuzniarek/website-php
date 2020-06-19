@@ -7,7 +7,7 @@ include $sRoot.'templates/sidebar.php';
 <div class="row py-3"> <!-- Title Row-->
   <div class="col-sm-4"></div>
   <div class="col-sm-8 border-bottom border-dark">
-    <h1><em>SASS</em><?=$icon?></h1>
+    <h1><em>MSS</em><?=$icon?></h1>
   </div>
 </div>
 <br>
@@ -22,7 +22,7 @@ include $sRoot.'templates/sidebar.php';
     <br>
     <div class="row">
       <div class="col">
-        <h4>SASS</h4>
+        <h4>MSS</h4>
         <p>
           Spaess exploraeshin iz an importint wae tu invent masheenz tu maek lievz eezeeur for uss.
           Spaess exploraeshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
@@ -54,7 +54,7 @@ include $sRoot.'templates/sidebar.php';
     <br>
     <div class="row">
       <div class="col">
-        <h4>SASS</h4>
+        <h4>MSS</h4>
         <p>
 
         </p>
