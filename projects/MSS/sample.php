@@ -24,14 +24,14 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <h4>MSS</h4>
         <p>
-          Spaess exploraeshin iz an importint wae tu invent masheenz tu maek lievz eezeeur for uss.
-          Spaess exploraeshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
-          Olthoe spaess exploraeshin iz kostli aand mae meen harm tu ar envieurnment,
-          tha rewords ar thaat it mae help uss proetekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
-          Spaess exploraeshin kaan bee daenjurus tu tha ixplorur bekuz spaess lakss graaviti aand oxijin for heuminz tu breeth.
-          Sieintistss kaan bee lost in spaess or run out uv feul aand drift intu tha empti spaess forevur.
-          Olthoe kountliss daenjurz can ukur in spaess, tha rewords uv nolij ar priesliss.
-          Spaess exploraeshin iz kostli aand daenjurus, but meni rewords awaet uss. 
+          Spayss explorayshin iz an importint way tu invent masheenz tu mayk lyvz eezeeur for uss.
+          Spayss explorayshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
+          Olthoe spayss explorayshin iz kostli aand may meen harm tu ar envyurnment,
+          tha rewords ar thaat it may help uss proetekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
+          Spayss explorayshin kaan bee daynjurus tu tha ixplorur bekuz spayss lakss graaviti aand oxijin for heuminz tu breeth.
+          Syintistss kaan bee lost in spayss or run out uv feul aand drift intu tha empti spayss forevur.
+          Olthoe kountliss daynjurz can ukur in spayss, tha rewords uv nolij ar prysliss.
+          Spayss explorayshin iz kostli aand daynjurus, but meni rewords awayt uss. 
         </p>
       </div>
       <div class="col">

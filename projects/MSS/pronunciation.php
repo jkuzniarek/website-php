@@ -35,8 +35,8 @@ include $sRoot.'templates/sidebar.php';
       </div>
       <div class="col">
         <h4>Vowel sounds (18)</h4>
-        <pre>a/u e i o ie</pre> 
-        <pre>aa ae ee eu</pre>
+        <pre>a/u e i o y</pre> 
+        <pre>aa ay ee eu</pre>
         <pre>oe oi oo ou</pre> 
         <pre>uu ar ur or</pre> 
         <pre>er/eir/air</pre>
@@ -110,9 +110,9 @@ AA
 and > aand
 happy > haapi
 
-AE	
-late > laet
-resume > rezoomae</pre>
+AY	
+late > layt
+resume > rezoomay</pre>
 </td>
         <td><pre>EE
 fleece > fleess
@@ -122,9 +122,9 @@ EU
 Europe > Eurup
 utopia > eutoepia
 
-IE
-lie > lie
-light > liet
+Y
+lie > ly
+light > lyt
 
 OE 
 though > thoe
@@ -152,7 +152,7 @@ arc > ark
 
 UR
 her > hur
-fire > fieur
+fire > fyur
 
 OR
 more > mor
@@ -256,7 +256,7 @@ TH
 thin > thin	
 
 ZH
-beige > baezh</pre>
+beige > bayzh</pre>
 </td>
       </tr>
     </table>
