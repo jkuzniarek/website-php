@@ -20,21 +20,21 @@ include $sRoot.'templates/sidebar.php';
 
 
     <p>
-      Below is the alphabet sans the letter Q, and the vowel and consonant sounds as each are spelled in MSS.
-      The letter Q has been removed because phonetically speaking it is entirely redundant and keeping it would only serve as a source of confusion for English speakers.
-      You'll also notice that for the same reason as Q the letter C no longer has its own sound anymore and is only used as a letter in the CH sound.
+      Below is the alphabet and the vowel and consonant sounds as each are spelled in MSS.
+      The letter Q has been retained despite its phonetic redundancy because visually speaking it is unique enough that eliminating it would only serve as a source of confusion for English speakers.
+      You'll also notice that the letter C no longer has its own sound anymore and is only used as a letter in the CH sound. 
     </p>
     <div class="row">
       <div class="col">
-        <h4>Alphabet (25)</h4>
+        <h4>Alphabet</h4>
         <pre>a b c d e</pre> 
         <pre>f g h i j</pre> 
         <pre>k l m n o</pre> 
-        <pre>p r s t u</pre> 
-        <pre>v w x y z</pre>
+        <pre>p q r s t</pre> 
+        <pre>u v w x y z</pre>
       </div>
       <div class="col">
-        <h4>Vowel sounds (18)</h4>
+        <h4>Vowel sounds</h4>
         <pre>a/u e i o y</pre> 
         <pre>aa ay ee eu</pre>
         <pre>oe oi oo ou</pre> 
@@ -42,9 +42,9 @@ include $sRoot.'templates/sidebar.php';
         <pre>er/eir/air</pre>
       </div>
       <div class="col">
-        <h4>Consonant sounds (23)</h4>
+        <h4>Consonant sounds</h4>
         <pre>b ch d f g</pre>
-        <pre>h j k l m</pre>
+        <pre>h j k/q l m</pre>
         <pre>n p r s/ss</pre>
         <pre>sh t th v</pre>
         <pre>w x y z zh</pre>
@@ -207,8 +207,8 @@ hat > haat
 J
 jam > jaam</pre>
 </td>
-        <td><pre>K
-locks > loks
+        <td><pre>K/Q
+quick > qwik
 
 L
 lip > lip
@@ -269,6 +269,10 @@ beige > bayzh</pre>
         In order to prevent confusion for English speakers who are used to many words ending in an s but having a z sound instead,
         S is doubled at the ends of words after vowels. Due to the vast irregularities in English sound to spelling correspondence (or more precisely the lack thereof) 
         this does not completely eliminate all potential sources of confusion, but it does significantly reduce them since many are the consequences of grammatical changes.
+      </li>
+      <li>
+        The letter Q is preserved, but the U that typically follows is changed to conform to the word's pronunciation. 
+        <br>(quick > qwik, queue > qeu)
       </li>
       <li>
         If it's not clear where phonemes begin or end (particularly vowels)

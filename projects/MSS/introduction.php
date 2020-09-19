@@ -107,7 +107,7 @@ include $sRoot.'templates/sidebar.php';
     </p>
     <p>
       Because spelling changes in casual American English such as L33tspeak and others emphasize them, changes should be guided by the following 2 points:
-      When spelling use the rule that words should be spelled with the letters that show the way they sound. (Light => liet)
+      When spelling use the rule that words should be spelled with the letters that show the way they sound. (Light => lyt)
       Silent letters without a phonetic purpose should be eliminated. (through => thru)
     </p>
     <p>
