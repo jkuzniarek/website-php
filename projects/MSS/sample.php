@@ -16,6 +16,7 @@ include $sRoot.'templates/sidebar.php';
     <a href="introduction.php" class="btn btn-light">Introduction</a>
     <a href="pronunciation.php" class="btn btn-light">Pronunciation</a>
     <a href="sample.php" class="btn btn-light active">Sample</a>
+    <a href="wordlist.php" class="btn btn-light">Fundamental Words</a>
     <hr>
 
     <h3>Short Sample</h3>

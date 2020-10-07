@@ -16,6 +16,7 @@ include $sRoot.'templates/sidebar.php';
     <a href="introduction.php" class="btn btn-light">Introduction</a>
     <a href="pronunciation.php" class="btn btn-light active">Pronunciation</a>
     <a href="sample.php" class="btn btn-light">Sample</a>
+    <a href="wordlist.php" class="btn btn-light">Fundamental Words</a>
     <hr>
 
 
@@ -68,7 +69,7 @@ include $sRoot.'templates/sidebar.php';
 
     <div class="row">
       <div class="col">
-        <h4>Trailing Vowels (6)</h4>
+        <h4>Trailing Vowels</h4>
         <pre>a/uh aw u</pre> <pre>i ow oy</pre>
       </div>
       <div class="col">
@@ -288,6 +289,11 @@ beige > bayzh</pre>
       <li>
         Contractions are accomplished by simply removing the unspoken letters.
         <br>(cannot > kaanot, can't > kaant)
+      </li>
+      <li>
+        Lengthening a sound can be done by adding a hyphen after it.
+        This is primarily useful when recording dialog.
+        <br>(Nooooo > Noe----, yasss > yass-)
       </li>
     </ul>
 
