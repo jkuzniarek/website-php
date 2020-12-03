@@ -301,6 +301,7 @@ beige > bayzh</pre>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
     <a href="pronunciation.php" class="btn btn-light active">Pronunciation</a>
     <a href="sample.php" class="btn btn-light">Sample</a>
+    <a href="wordlist.php" class="btn btn-light">Fundamental Words</a>
 
   </div>
 </div>

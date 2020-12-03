@@ -112,13 +112,14 @@ include $sRoot.'templates/sidebar.php';
       Silent letters without a phonetic purpose should be eliminated. (through => thru)
     </p>
     <p>
-      Because a structured spelling system is a thousand years overdue for English, I'm calling it the Millennium Spelling System. 
+      Because a structured spelling system is a thousand years overdue for English, I call it the Millennium Spelling System. 
     </p>
 
     <hr>
     <a href="introduction.php" class="btn btn-light active">Introduction</a>
     <a href="pronunciation.php" class="btn btn-light">Pronunciation</a>
     <a href="sample.php" class="btn btn-light">Sample</a>
+    <a href="wordlist.php" class="btn btn-light">Fundamental Words</a>
     
   </div>
 </div>
