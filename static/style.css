@@ -49,3 +49,10 @@ a.nostyle-link {
 	background-color: #009747;
 }
 */
+
+pre.code {
+  border: 1px solid #888;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: .25rem;
+}
