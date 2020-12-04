@@ -42,6 +42,53 @@ include $sRoot.'templates/sidebar.php';
       Though I am still working on a functioning implementation of EON, I have arrived at a fairly stable specification of what it will look like. 
     </p>   
 
+    <p>
+      The EON <strong>Object Model</strong> underlies not just an eon object's structure, but the architecture of the programming language itself because like in Lisp, code is data too.
+      Every EON object has 3 sections: the type, the index, and the body. These are shown in the example below in green, blue, and yellow respectively.
+    </p>
+    <p>
+      <table class="mx-auto">
+        <tr class="text-center">
+          <td></td>
+          <td class="border-right border-left"><span class="badge badge-success">Type</span></td>
+          <td class="text-info border-right"><span class="badge badge-info">Index</span></td>
+          <td class="text-warning border-right"><span class="badge badge-warning">Body</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>&lt;</td>
+          <td class="text-success border-right border-left">title &nbsp;</td>
+          <td class="text-info border-right">lang:"en" &nbsp;</td>
+          <td class="text-warning border-right">"Harry Potter"</td>
+          <td>&gt;</td>
+        </tr>
+      </table>
+    </p>
+
+    <ul>
+      <li>
+        As expected, the <span class="badge badge-success">Type</span> indicates the object's type. 
+        Objects may only have a single type or may be untyped.
+        The type must always be a string of characters terminated by whitespace.
+      </li>
+      <li>
+        The <span class="badge badge-info">Index</span> stores an object's keys and key-value pairs.
+        Objects may have as many keys and key-value pairs as desired.
+      </li>
+      <li>
+        The <span class="badge badge-warning">Body</span> stores an object's primary contents either as a single value, another object, list, or array.
+        Objects may only have a single body or no body at all.
+        The body must always be the last item in an object. 
+        If the last character of the body itself is a <code>}</code>, <code>]</code>, or <code>)</code> then the object's closing <code>&gt;</code> may be omitted.
+      </li>
+      <li>
+        If an object has no <span class="badge badge-success">Type</span> and no <span class="badge badge-info">Index</span>,
+        then the object's opening <code>&lt;</code> and closing <code>&gt;</code> may be omitted.
+      </li>
+    </ul>
+
+    <p>An example of a nested EON object is shown below in comparison to an equivalent XML object.</p>
+
     <div class="row">
       <div class="col">
       <label>EON</label>
