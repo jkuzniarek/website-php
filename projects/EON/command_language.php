@@ -47,7 +47,7 @@ Hello World!
 
 <div class="row">
   <div class="col">
-    Functions are labeled sets of commands that are executed when accessed.
+    Procedures are labeled sets of commands that are executed when accessed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_var: "World"
@@ -64,12 +64,29 @@ HelloWorld!
 </div>
 <br>
 
-<p>It is idomatic to use camelCase to label functions and snake_case to label objects.</p>
+<div class="row">
+  <div class="col">
+  The <code>fn</code> keyword does the same thing as <code>do</code>, but after each execution it records the procedure's input and output 
+  so that future calls to the procedure can skip execution for duplicate inputs.
+  This increases program speed when a procedure is known to be deterministic like in mathematical functions.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('add5: fn print(in + 5)
+add5 5
+/* prints: 
+10
+*/')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<p>It is idomatic to use camelCase to label procedures and snake_case to label objects.</p>
 <p>Capitalized labels are Public and all other labels are private (similar to Golang)</p>
 
 <div class="row">
   <div class="col">
-    Creating a function with <code>:?</code> passes the input in to the function by a pointing reference instead of by copying it, which is what happens normally.
+    Creating a procedure with <code>:?</code> passes the input in to the procedure by a pointing reference instead of by copying it, which is what happens normally.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('print:? "Hello World!"')?></code></pre>
@@ -151,7 +168,7 @@ or(
 
 <div class="row">
   <div class="col">
-    In addition to <code>if</code>, the <code>or</code> keyword can be used with all functions and keywords whose execution might be interrupted by a <code>void</code>.
+    In addition to <code>if</code>, the <code>or</code> keyword can be used with all procedures and keywords whose execution might be interrupted by a <code>void</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('returnVoid
@@ -350,7 +367,7 @@ my_object.message
 
 <div class="row">
   <div class="col">
-    The <code>in</code> keyword is actually a reserved label to the object passed into a function.
+    The <code>in</code> keyword is actually a reserved label to the object passed into a procedure.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('printName: do(
@@ -367,8 +384,8 @@ printName myName
 
 <div class="row">
   <div class="col">
-    The <code>out</code> keyword is actually a reserved label to the object a function returns.
-    It can be used to not only set the function's output, but to reference it within the function, and modify it prior to the end of the function.
+    The <code>out</code> keyword is actually a reserved label to the object a procedure returns.
+    It can be used to not only set the procedure's output, but to reference it within the procedure, and modify it prior to the end of the procedure.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('echo: do(
@@ -384,7 +401,7 @@ echo "Hello"
 
 <div class="row">
   <div class="col">
-    The <code>type</code> keyword creates a type (similar to a Golang interface) from the list of defined functions for the specified tag.
+    The <code>type</code> keyword creates a type (similar to a Golang interface) from the list of defined procedures for the specified tag.
     The <code>src</code> keyword accesses the object with the tag the type is implementing.
   </div>
   <div class="col">
