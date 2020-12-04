@@ -28,28 +28,44 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = action | initialization | object | 
-  (expression { operator, expression}) | (expression { "(", expression, ")"}) | 
-  ( "(", expression, ")" { expression } ) | (expression, "|", expression);
-action = accessor [ expression] ("\n" | ";");
-initialization = accessor, initializer, expression, ("\n" | ";");
+      <pre><?=htmlspecialchars('expression = command | prefix | infix;
 
-object = literal | accessor | object_body | ("<", [ TYPE] ( { property} ( [ object_body] | ">" )));
-operator = "," | "+" | "-" | "*" | "/" | "**" | "%" | "!" | "#=" | "==" | "!=" | "<" | "<=" | 
+command = [object], accessor, [object], (eol | ";");
+
+prefix = operator, expression;
+
+infix = expression, {operator, expression};
+
+initialization = accessor, initializer, (object | command);
+
+object = literal | sequence | ("<", [TYPE], [index], (sequence | ([object], ">") ) );
+
+eol = "\n";
+
+operator = "|" | "+" | "-" | "*" | "/" | "**" | "%" | "!" | "#=" | "==" | "!=" | "<" | "<=" | 
   ">" | ">=" | ":+" | ":-" | ":*" | ":/" | ":#" | ":,";
-accessor = LABEL { ("." | "/") LABEL};
+
+accessor = NAME, { ("." | ","), [NAME] };
 
 initializer = ":" | "::" | ":&" | ":?";
+
 literal = INTEGER | decimal | STRING;
-object_body = (list_object | array_object | struct_object);
 
-property = LABEL | initialization;
-decimal = INTEGER, "." [ INTEGER];
-list_object = "{" { expression } "}";
+sequence = (list | array | struct );
 
-array_object = [ INTEGER, ] "[" ({ fixed_object} | ("<", TYPE, ">")) "]";
-struct_object = "~{" { fixed_object} "}";
-fixed_object = literal | struct_object | array_object | ("<" [ TYPE] [ fixed_object ] ">" );
+index = {(ws | ";"), (NAME | initialization)}, (ws | ";");
+
+decimal = INTEGER, ".", [INTEGER];
+
+list = ( "{", {object}, "}" ) | ( "(", {STRING, [eol]}, ")" );
+
+array = [INTEGER], "[", ({fixed_object} | ("<", TYPE, ">")), "]";
+
+struct = "~{", {fixed_object}, "}";
+
+ws = " " | eol | "\t" | "\r";
+
+fixed_object = literal | struct | array | ("<", [TYPE], [fixed_object], ">");
 ')?></pre>
     </p>
 

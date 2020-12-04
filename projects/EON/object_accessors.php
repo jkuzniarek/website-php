@@ -48,13 +48,13 @@ include $sRoot.'templates/sidebar.php';
   <employee blue_team name: "Pam Beesly" title: "Office Administrator">
 }')?></code></pre>
 <p>
-  The object accessor examples below use the above object labeled <code>tree</code>.
+  The object accessor examples below use the above object named <code>tree</code>.
 </p>
 <hr>
 
 <div class="row">
   <div class="col">
-    Key-values in the head are accessed using <code>.</code> followed by their name.
+    Key-value pairs in the index are accessed using <code>.</code> followed by their name.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree.name
@@ -96,10 +96,10 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An object's listed items are accessed using <code>/</code> followed by the item index.
+    An object's listed items are accessed using <code>,</code> followed by the item index.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/1 
+<pre class="code"><code><?=htmlspecialchars('tree,1 
 /* returns: 
 {employee 
   red_team
@@ -118,8 +118,8 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('list: {"hello" "world"}
-list/0 // returns: 2
-<>/0 // returns: 0')?></code></pre>
+list,0 // returns: 2
+<>,0 // returns: 0')?></code></pre>
     </code>
   </div>
 </div>
@@ -127,12 +127,12 @@ list/0 // returns: 2
 
 <div class="row">
   <div class="col">
-    The body of an object can be retrieved without any tags by using the <code>/</code> accessor.
+    The body of an object can be retrieved without any tags by using the <code>,</code> accessor.
     If the object is a primitive this will convert the primitive to a byte array.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('integer: 511
-integer/
+integer,
 // returns [255 1]')?></code></pre>
     </code>
   </div>
@@ -144,7 +144,7 @@ integer/
     The entire list that is the body of the example object can be retrieved like so.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/ 
+<pre class="code"><code><?=htmlspecialchars('tree, 
 /* returns the entire list: 
 {
   <employee red_team name: "Dwight Scrute" title: "Ass. Regional Mgr">
@@ -214,7 +214,7 @@ true/false with this example returning true)
     So to see a list of the names of jim's employees:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/2#employee.name 
+<pre class="code"><code><?=htmlspecialchars('tree,2#employee.name 
 /* returns: 
 {"Andy Bernard" "Phyllis Lapin"}
 */')?></code></pre>
@@ -230,7 +230,7 @@ true/false with this example returning true)
     So to see a list of jim's employees' top customer lists:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/2@top_customers
+<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers
 /* returns: 
 {
   {
@@ -254,7 +254,7 @@ true/false with this example returning true)
     So to see a single list of the top customers of Jim's employees:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/2@top_customers^
+<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers^
 /* returns: 
 {
   <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >

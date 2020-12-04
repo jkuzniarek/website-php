@@ -33,12 +33,44 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>do</code> keyword executes the commands in the object to it's right (usually a list of strings).
+  The <code>do</code> keyword executes the commands in the object to it's right.
+  The key-value pairs in the object's index become the variables accessible from within the list of strings that gets executed as code.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('do ( print "Hello World!")
+<pre class="code"><code><?=htmlspecialchars('do < 
+  message: "Hello World!"
+  name: "Hello Bob!"
+  {
+    "print message"
+    "print name"
+}
 /* prints: 
-Hello World!
+Hello World!Hello Bob!
+*/')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<p>However, manually constructing objects to execute code like in the example above is cumbersome, 
+  so there is a more convenient shorthand to accomplish the same thing.</p>
+<br>
+
+<div class="row">
+  <div class="col">
+    A ready to execute list of strings may be created by placing the code between <code>()</code>.
+    During string generation, the <code>\n</code> delimiters are preserved as the last character in each string.
+    This can also be useful for large blocks of preformatted text.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('do ( 
+  message: "Hello World!"
+  name: "Hello Bob!"
+  print message
+  print name
+)
+/* prints: 
+Hello World!Hello Bob!
 */')?></code></pre>
     </code>
   </div>
@@ -47,7 +79,7 @@ Hello World!
 
 <div class="row">
   <div class="col">
-    Procedures are labeled sets of commands that are executed when accessed.
+    Procedures are named sets of commands that are executed when accessed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_var: "World"
@@ -81,8 +113,9 @@ add5 5
 </div>
 <br>
 
-<p>It is idomatic to use camelCase to label procedures and snake_case to label objects.</p>
-<p>Capitalized labels are Public and all other labels are private (similar to Golang)</p>
+<p>It is idomatic to use camelCase to name procedures and snake_case to name objects.</p>
+<p>Capitalized keys are Public and all other keys are private (similar to Golang)</p>
+<br>
 
 <div class="row">
   <div class="col">
@@ -114,7 +147,7 @@ add5 5
     You can check if an object is a primitive or array.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('"string"/[]
+<pre class="code"><code><?=htmlspecialchars('"string",[]
 // if yes, then execution continues
 // if no, then the void keyword is returned')?></code></pre>
     </code>
@@ -127,7 +160,7 @@ add5 5
     You can check if an object is a list.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<tag1 tag2>/{}
+<pre class="code"><code><?=htmlspecialchars('<tag1 tag2>,{}
 // if yes, then execution continues
 // if no, then the void keyword is returned')?></code></pre>
     </code>
@@ -253,7 +286,7 @@ or(
 <div class="row">
   <div class="col">
     To loop through a list's objects use the <code>loop</code> interface. 
-    In each iteration the current key and its value will be referenced by the reserved labels <code>key</code> and <code>val</code>.
+    In each iteration the current key and its value will be referenced by the reserved names <code>key</code> and <code>val</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('list = [ "hello" "world" ]
@@ -290,7 +323,7 @@ list1.loop(
 
 <div class="row">
   <div class="col">
-    Attempting to use an undefined label returns a <code>void</code> instead of an object.
+    Attempting to access an undefined name returns a <code>void</code> instead of an object.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('if(
@@ -307,15 +340,26 @@ or(
 
 <div class="row">
   <div class="col">
-    The <code>,</code> operator concatenates two objects of the same type and merges their tags and labels. 
-    The content of duplicate labels is combined into a list <code>{}</code>.
+    The <code>$</code> operator concatenates a list of objects of the same type and merges their indexes. 
+    This operator works well with <code>()</code> to easily generate large blocks of preformatted text.
+    The content of duplicate keys is combined into a list <code>{}</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('"Hello ","World"
+<pre class="code"><code><?=htmlspecialchars('${"Hello " "World"}
 // combines into "Hello World"
-< tag1 label: "Hello" >,< tag2 label: "World" >
+$(Carry on,
+My "wayward" Son!)
+// combines into 
+// `Carry on,
+// My "wayward" Son!`
+${
+  < tag1 key1: "Hello">
+  < tag2 key1: "World">
+}
 // combines into: 
-// < tag1 tag2 label: {"Hello" "World"} >')?></code></pre>
+// < tag1 tag2 
+//   key1: {"Hello" "World"}
+// >')?></code></pre>
     </code>
   </div>
 </div>
@@ -333,7 +377,7 @@ or(
   )
 (
   init (
-    var: var,"!"
+    var: ${var "!"}
   )
 )
 my_object.message
@@ -355,7 +399,7 @@ my_object.message
   )
 (
   dest (
-    var: var,"!"
+    var: ${var "!"}
   )
 )
 my_object.message
@@ -367,7 +411,7 @@ my_object.message
 
 <div class="row">
   <div class="col">
-    The <code>in</code> keyword is actually a reserved label to the object passed into a procedure.
+    The <code>in</code> keyword is actually a reserved name to the object passed into a procedure.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('printName: do(
@@ -384,13 +428,13 @@ printName myName
 
 <div class="row">
   <div class="col">
-    The <code>out</code> keyword is actually a reserved label to the object a procedure returns.
+    The <code>out</code> keyword is actually a reserved name to the object a procedure returns.
     It can be used to not only set the procedure's output, but to reference it within the procedure, and modify it prior to the end of the procedure.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('echo: do(
   out: in
-  out: out,"!"
+  out: ${out "!"}
 )
 echo "Hello"
 // returns "Hello!"')?></code></pre>
@@ -454,11 +498,37 @@ isBreakfast: do(
 
 <div class="row">
   <div class="col">
-    The <code>os</code> keyword is a reserved label that provides an interface with the host operating system's API similar to a terminal or CLI.
+  The <code>import</code> keyword opens the designated .eon library and returns it as an object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('os.cd "../project/"
-os.git.commit <a m "commit message"
+<pre class="code"><code><?=htmlspecialchars('myLib: import "./libraries/myLibrary.eon"
+// imported code is now available using myLib 
+// as library name. ie: myLib.printName("Bob")')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+  The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the code for immediate execution.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('insert "./helloWorld.eon"
+// prints Hello World!')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    The <code>os</code> library provides an interface with the host operating system's API similar to a terminal or CLI.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('os: import "os"
+os.cd "../project/"
+os.git.commit < a m "commit message"
 // in Powershell this is equivalent to:
 // cd ../project/
 // git commit -am "commit message" ')?></code></pre>
