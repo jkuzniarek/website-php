@@ -206,7 +206,7 @@ unicode_string: <ustr ["string"]
 number2: <dec ["12.34"]
 float_number: <float ["12.34"]
 double_number: <double ["12.34"]
-// the first 2 strings become decimal types
+// the first 2 numbers become decimal types
 // the third becomes a floating point number
 // the fourth becomes a double')?></code></pre>
     </code>
