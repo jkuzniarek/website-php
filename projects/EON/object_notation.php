@@ -138,8 +138,8 @@ integer: 511
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('string1: "string"
-string2: <str ["string"]
-unicode_string: <ustr ["string"]
+string2: <str "string">
+unicode_string: <ustr "string">
 // the first 2 strings become ascii strings')?></code></pre>
     </code>
   </div>
@@ -203,9 +203,9 @@ unicode_string: <ustr ["string"]
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('number1: 12.34
-number2: <dec ["12.34"]
-float_number: <float ["12.34"]
-double_number: <double ["12.34"]
+number2: <dec 12.34>
+float_number: <float 12.34>
+double_number: <double 12.34>
 // the first 2 numbers become decimal types
 // the third becomes a floating point number
 // the fourth becomes a double')?></code></pre>
