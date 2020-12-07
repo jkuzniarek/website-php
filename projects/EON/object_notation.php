@@ -197,6 +197,25 @@ unicode_string: <ustr ["string"]
 
 <div class="row">
   <div class="col">
+    If not specified, numbers with decimals points default to the <code>dec</code> type, but <code>float</code> and <code>double</code> types can both also be implemented by specifying their type.
+    The <code>dec</code> type is implemented using a byte vector like a string, where each byte is an int representing 2 digits. 
+    Unlike the <code>int</code> type, <code>dec</code>, <code>float</code>, and <code>double</code> numbers may be either positive or negative.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('number1: 12.34
+number2: <dec ["12.34"]
+float_number: <float ["12.34"]
+double_number: <double ["12.34"]
+// the first 2 strings become decimal types
+// the third becomes a floating point number
+// the fourth becomes a double')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
     Keys in an object's index that are not paired with a value are also referred to as tags.
   </div>
   <div class="col">
