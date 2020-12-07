@@ -34,7 +34,7 @@ include $sRoot.'templates/sidebar.php';
 <div class="row">
   <div class="col">
   The <code>do</code> keyword executes the commands in the object to it's right.
-  The key-value pairs in the object's index become the variables accessible from within the list of strings that gets executed as code.
+  The key-value pairs in the object's index are initialized within the new scope of execution prior to command execution and are accessible from within the list of strings that gets executed as code.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('do < 
