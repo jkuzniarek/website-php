@@ -28,7 +28,7 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], [ws], (sequence | (literal, [ws], ">"));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], [ws], (sequence | (object, [ws], ">"));
 
 sequence = (list | array | struct );
 

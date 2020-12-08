@@ -94,19 +94,19 @@ include $sRoot.'templates/sidebar.php';
       <label>EON</label>
 <pre class="code"><code><?=htmlspecialchars('<bookstore {
   <book category:"cooking"
-    title: < lang:"en" {"Everyday Italian"}
+    title: < lang:"en" "Everyday Italian">
     author: "Giada De Laurentiis"
     year: 2005
     price: 30.00
   >
   <book category:"children" 
-    title: < lang:"en" {"Harry Potter"}
+    title: < lang:"en" "Harry Potter">
     author: "J K. Rowling"
     year: 2005
     price: 29.99
   >
   <book category:"web" 
-    title: < lang:"en" {"Learning XML"}
+    title: < lang:"en" "Learning XML">
     author: "Erik T. Ray"
     year: 2003
     price: 39.95
