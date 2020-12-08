@@ -87,7 +87,7 @@ add5 5
 </div>
 <br>
 
-<p>It is idomatic to use camelCase to name procedures and snake_case to name objects.</p>
+<p>It is idiomatic to use camelCase to name procedures and snake_case to name objects.</p>
 <p>Capitalized keys are Public and all other keys are private (similar to Golang)</p>
 <br>
 
