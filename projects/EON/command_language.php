@@ -38,11 +38,11 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
-  name: "Hello Bob!"
-  do( 
-    print message
-    print name
-  )
+name: "Hello Bob!"
+do( 
+  print message
+  print name
+)
 /* prints: 
 Hello World!Hello Bob!
 */')?></code></pre>
