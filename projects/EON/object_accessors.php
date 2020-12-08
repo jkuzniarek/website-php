@@ -82,7 +82,8 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Multiple key-values in an object can be grouped into a list using <code>.</code> followed by a list of the keys.
+    An accessor can target multiple keys, types, or indexes in an object by grouping them into a list using the accessor followed by a list of the keys.
+    This is comparible to a logical OR.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree.{"name" "title"} 
@@ -250,11 +251,11 @@ true/false with this example returning true)
 
 <div class="row">
   <div class="col">
-    A list of lists can be merged into a single list using <code>^</code>.
+    A list of lists can be merged into a single list using <code>$</code>.
     So to see a single list of the top customers of Jim's employees:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers^
+<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers$
 /* returns: 
 {
   <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >

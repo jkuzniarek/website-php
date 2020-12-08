@@ -75,6 +75,22 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
+    Additionally, a list of expressions may be created from the characters between <code>()</code>.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('commands: (
+  print "this"
+  print "that"
+) 
+// the first item in "commands" is
+// the string \'print "this"\'')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
     Arrays can contain only one type of fixed size data.
   </div>
   <div class="col">
@@ -172,24 +188,6 @@ unicode_string: <ustr "string">
   "string""s" 
   `string``s`
 }')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    Additionally, a list of <code>\n</code> delimited strings may be created from the characters between <code>()</code>.
-    The <code>\n</code> delimiters are preserved as the last character in each string.
-    This is useful for preformatted text and uncompiled code saved as text.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('commands: (
-  print "this"
-  print "that"
-) 
-// the first item in "commands" is
-// the string \'print "this"\'')?></code></pre>
     </code>
   </div>
 </div>
@@ -334,11 +332,11 @@ double_number: <double 12.34>
     <row section title:"The End" page: 100>
   }
 {
-  <page section_start heading: "The Beginning" (
-    In the beginning there was nothing...
-    ... which is why there must be something. Otherwise everything would be ...
-    ... however thats impossible, so instead we must conclude that ...
-  )
+  <page section_start heading: "The Beginning" {
+    "In the beginning there was nothing..."
+    "... which is why there must be something. Otherwise everything would be ..."
+    "... however thats impossible, so instead we must conclude that ..."
+  }
   <page "something something something">
   <page "blah blah blah blah">
 }')?></code></pre>

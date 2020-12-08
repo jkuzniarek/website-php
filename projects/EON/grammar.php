@@ -28,44 +28,53 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = command | prefix | infix;
-
-command = [object], accessor, [object], (eol | ";");
-
-prefix = operator, expression;
-
-infix = expression, {operator, expression};
-
-initialization = accessor, initializer, (object | command);
-
-object = literal | sequence | ("<", [TYPE], [index], (sequence | ([object], ">") ) );
-
-eol = "\n";
-
-operator = "|" | "+" | "-" | "*" | "/" | "**" | "%" | "!" | "#=" | "==" | "!=" | "<" | "<=" | 
-  ">" | ">=" | ":+" | ":-" | ":*" | ":/" | ":#" | ":,";
-
-accessor = NAME, { ("." | ","), [NAME] };
-
-initializer = ":" | "::" | ":&" | ":?";
-
-literal = INTEGER | decimal | STRING;
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], [ws], (sequence | (literal, [ws], ">"));
 
 sequence = (list | array | struct );
 
+value = (object | sequence | literal);
+
+expression = ["("], (identifier | action | value | prefix | infix), [")"];
+
+
 index = {(ws | ";"), (NAME | initialization)}, (ws | ";");
 
-decimal = INTEGER, ".", [INTEGER];
+ws = " " | eol | "\t" | "\r";
 
-list = ( "{", {object}, "}" ) | ( "(", {STRING, [eol]}, ")" );
+literal = INTEGER | decimal | STRING;
+
+
+list = ( "{", {object}, "}" ) | ( "(", {expression, [eol | ";"]}, ")" );
 
 array = [INTEGER], "[", ({fixed_object} | ("<", TYPE, ">")), "]";
 
 struct = "~{", {fixed_object}, "}";
 
-ws = " " | eol | "\t" | "\r";
+
+identifier = NAME, { ("." | ","), [INTEGER | NAME], [identifier] };
+
+action = [expression], accessor, ws, [expression];
+
+prefix = operator, expression;
+
+infix = expression, {operator, expression};
+
+
+initialization = identifier, initializer, (expression);
+
+eol = "\n";
+
+decimal = INTEGER, ".", [INTEGER];
 
 fixed_object = literal | struct | array | ("<", [TYPE], [fixed_object], ">");
+
+
+accessor = expression, { ("#" | "*" | "@" | "$"), [sequence | NAME], [accessor] };
+
+operator = "|" | "$" | "!" | "+" | "-" | "*" | "/" | "^" | "%" | "#=" | "==" | "!=" | "<" | "<=" | 
+  ">" | ">=" | ":+" | ":-" | ":*" | ":/" | ":#" | ":,";
+
+initializer = ":" | "::" | ":&" | ":?";
 ')?></pre>
     </p>
 

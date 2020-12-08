@@ -33,42 +33,16 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>do</code> keyword executes the commands in the object to it's right.
-  The key-value pairs in the object's index are initialized within the new scope of execution prior to command execution and are accessible from within the list of strings that gets executed as code.
+  The <code>do</code> keyword executes the commands in the expression list to it's right.
+  The key-value pairs in the parent scope are accessible from within the list of expressions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('do < 
-  message: "Hello World!"
+<pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
   name: "Hello Bob!"
-  {
-    "print message"
-    "print name"
-}
-/* prints: 
-Hello World!Hello Bob!
-*/')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<p>However, manually constructing objects to execute code like in the example above is cumbersome, 
-  so there is a more convenient shorthand to accomplish the same thing.</p>
-<br>
-
-<div class="row">
-  <div class="col">
-    A ready to execute list of strings may be created by placing the code between <code>()</code>.
-    During string generation, the <code>\n</code> delimiters are preserved as the last character in each string.
-    This can also be useful for large blocks of preformatted text.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('do ( 
-  message: "Hello World!"
-  name: "Hello Bob!"
-  print message
-  print name
-)
+  do( 
+    print message
+    print name
+  )
 /* prints: 
 Hello World!Hello Bob!
 */')?></code></pre>
@@ -98,7 +72,7 @@ HelloWorld!
 
 <div class="row">
   <div class="col">
-  The <code>fn</code> keyword does the same thing as <code>do</code>, but after each execution it records the procedure's input and output 
+  The <code>fn</code> keyword is a type of procedure like <code>do</code>, but after each execution it records the procedure's input and output 
   so that future calls to the procedure can skip execution for duplicate inputs.
   This increases program speed when a procedure is known to be deterministic like in mathematical functions.
   </div>
@@ -170,7 +144,7 @@ add5 5
 
 <div class="row">
   <div class="col">
-    The <code>if</code> keyword executes the commands in the object to its right until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
+    The <code>if</code> keyword executes the commands in the list to its right until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('if(
@@ -234,7 +208,7 @@ or(
 
 <div class="row">
   <div class="col">
-    The <code>loop</code> keyword repeatedly executes the commands in the object to its right until the <code>esc</code> keyword is called or the <code>next</code> keyword triggers another iteration.
+    The <code>loop</code> keyword repeatedly executes the commands in the list to its right until the <code>esc</code> keyword is called or the <code>next</code> keyword triggers another iteration.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('loop(
@@ -341,17 +315,11 @@ or(
 <div class="row">
   <div class="col">
     The <code>$</code> operator concatenates a list of objects of the same type and merges their indexes. 
-    This operator works well with <code>()</code> to easily generate large blocks of preformatted text.
     The content of duplicate keys is combined into a list <code>{}</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('${"Hello " "World"}
 // combines into "Hello World"
-$(Carry on,
-My "wayward" Son!)
-// combines into 
-// `Carry on,
-// My "wayward" Son!`
 ${
   < tag1 key1: "Hello">
   < tag2 key1: "World">
@@ -367,19 +335,18 @@ ${
 
 <div class="row">
   <div class="col">
-    The <code>init</code> keyword functions the same as <code>do</code>, except that it is only executed when its parent object is initialized or when a copy of the parent is initialized.
+    The <code>init</code> keyword is a reserved index that is only executed after its parent object is initialized or when a copy of the parent is initialized.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
   var: "Hello"
+  init: do(
+    var: ${var "!"}
+  )
   message: do(
     print var
   )
-(
-  init (
-    var: ${var "!"}
-  )
-)
+>
 my_object.message
 // prints Hello!')?></code></pre>
     </code>
@@ -389,19 +356,18 @@ my_object.message
 
 <div class="row">
   <div class="col">
-  The <code>dest</code> keyword functions the same as <code>do</code>, except that it is only executed when its parent object is destroyed or when a copy of the parent is destroyed.
+  The <code>dest</code> keyword is a reserved index that is only executed immediately before its parent object is destroyed or when a copy of the parent is destroyed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
   var: "Bye"
+  dest: (
+    var: ${var "!"}
+  )
   message: do(
     print var
   )
-(
-  dest (
-    var: ${var "!"}
-  )
-)
+>
 my_object.message
 // prints Bye!')?></code></pre>
     </code>
@@ -446,7 +412,7 @@ echo "Hello"
 <div class="row">
   <div class="col">
     The <code>type</code> keyword creates a type (similar to a Golang interface) from the list of defined procedures for the specified tag.
-    The <code>src</code> keyword accesses the object with the tag the type is implementing.
+    The <code>src</code> keyword accesses the object to the left of the procedure being called.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('type <str 
@@ -465,7 +431,7 @@ echo "Hello"
 
 <div class="row">
   <div class="col">
-    The <code>has</code> interface returns <code>void</code> if the left object does not have the tags, key-value pairs, and body that are in the right object.
+    The <code>has</code> keyword returns <code>void</code> if the left object does not have all the same type, key-value pairs, and body that are in the right object.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('bowl: [ "milk" "cereal" ]
@@ -511,11 +477,27 @@ isBreakfast: do(
 
 <div class="row">
   <div class="col">
-  The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the code for immediate execution.
+  The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the current scope and executes it.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('insert "./helloWorld.eon"
 // prints Hello World!')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    The <code>os</code> library provides an interface with the host operating system's API similar to a terminal or CLI.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('os: import "os"
+os.cd "../project/"
+os.git.commit < a m "commit message"
+// in Powershell this is equivalent to:
+// cd ../project/
+// git commit -am "commit message" ')?></code></pre>
     </code>
   </div>
 </div>
