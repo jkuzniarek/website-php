@@ -28,7 +28,7 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (ws | eol), ((object, [ws], ">") | sequence));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (ws | eol | semi), ((object, [ws | eol], ">") | sequence));
 
 sequence = (list | array | struct );
 
@@ -37,30 +37,33 @@ value = (object | sequence | literal);
 expression = ["("], (NAME | value | prefix | infix), [")"];
 
 
-index = {(ws | ";"), infix};
+index = {(ws | eol | semi), infix};
 
-ws = " " | "\n" | "\t" | "\r";
+ws = " " | "\t" | "\r";
 
 literal = INTEGER | decimal | STRING;
 
 
-list = ( "{", {object}, "}" ) | ( "(", {expression, [eol | ";"]}, ")" );
+list = ( "{", {object}, "}" ) | ( "(", {expression, [eol | semi]}, ")" );
 
 array = [INTEGER], "[", ({fixed_object} | ("<", TYPE, ">")), "]";
 
 struct = "~{", {fixed_object}, "}";
 
 
-prefix = (operator | NAME), [ws], expression;
+prefix = (operator | NAME), [ws | eol], expression;
 
-infix = expression, {operator, [ws], expression};
+infix = expression, {operator, [ws | eol], expression};
 
-eol = "\n" | ";";
+eol = "\n";
 
+
+semi = ";";
 
 decimal = INTEGER, ".", [INTEGER];
 
 fixed_object = literal | struct | array | ("<", [TYPE], [fixed_object], ">");
+
 
 operator = "." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
 "-" | "*" | "/" | "^" | "%" | "<" | ">" | ":" | 
