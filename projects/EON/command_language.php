@@ -506,22 +506,6 @@ os.git.commit < a m "commit message"
 </div>
 <br>
 
-<div class="row">
-  <div class="col">
-    The <code>os</code> library provides an interface with the host operating system's API similar to a terminal or CLI.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('os: import "os"
-os.cd "../project/"
-os.git.commit < a m "commit message"
-// in Powershell this is equivalent to:
-// cd ../project/
-// git commit -am "commit message" ')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
     <hr>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
     <a href="object_notation.php" class="btn btn-light">Object Notation</a>
