@@ -43,10 +43,10 @@ include $sRoot.'templates/sidebar.php';
     All values are some type of object and all objects are derived from an empty object <code>&lt;&gt;</code>.
   </div>
   <div class="col">
-    All lists are pointer vectors and all lists are derived from an empty list <code>{}</code>.
+    All lists are pointer arrays and all lists are derived from an empty list <code>{}</code>.
   </div>
   <div class="col">
-    All primitive values are arrays, all arrays are byte vectors, and all arrays are derived from an empty array <code>[]</code>.
+    All primitive values are arrays, all arrays are byte arrays, and all arrays are derived from an empty array <code>[]</code>.
   </div>
 </div>
 <br>
@@ -197,7 +197,7 @@ unicode_string: <ustr "string">
 <div class="row">
   <div class="col">
     If not specified, numbers with decimals points default to the <code>dec</code> type, but <code>float</code> and <code>double</code> types can both also be implemented by specifying their type.
-    The <code>dec</code> type is implemented using a byte vector like a string, where each byte is an int representing 2 digits. 
+    The <code>dec</code> type is implemented using a byte array like a string, where each byte is an int representing 2 digits. 
     Unlike the <code>int</code> type, <code>dec</code>, <code>float</code>, and <code>double</code> numbers may be either positive or negative.
   </div>
   <div class="col">
