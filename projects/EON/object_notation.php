@@ -136,7 +136,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Character strings and integers strings are automatically implemented as arrays.
+    Character strings and integer strings are automatically implemented as arrays.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('string: "string"
@@ -161,6 +161,7 @@ unicode_string: <ustr "string">
   </div>
 </div>
 <br>
+<!-- implement type casting shown above by using the type-init pattern  -->
 
 <div class="row">
   <div class="col">
@@ -211,6 +212,7 @@ double_number: <double 12.34>
   </div>
 </div>
 <br>
+<!-- implement type casting shown above by using the type-init pattern  -->
 
 <div class="row">
   <div class="col">

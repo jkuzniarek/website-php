@@ -336,6 +336,7 @@ ${
 <div class="row">
   <div class="col">
     The <code>init</code> keyword is a reserved index that is only executed after its parent object is initialized or when a copy of the parent is initialized.
+    Changing an object's type does not trigger <code>init</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
@@ -357,6 +358,7 @@ my_object.message
 <div class="row">
   <div class="col">
   The <code>dest</code> keyword is a reserved index that is only executed immediately before its parent object is destroyed or when a copy of the parent is destroyed.
+  Changing an object's type does not trigger <code>dest</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
@@ -411,7 +413,8 @@ echo "Hello"
 
 <div class="row">
   <div class="col">
-    The <code>type</code> keyword creates a type (similar to a Golang interface) from the list of defined procedures for the specified tag.
+    The <code>type</code> keyword creates a type interface (similar to a Golang interface) from the list of defined procedures for the specified type.
+    This enables defining class-like behaviors for objects based on their type.
     The <code>src</code> keyword accesses the object to the left of the procedure being called.
   </div>
   <div class="col">
