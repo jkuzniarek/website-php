@@ -28,11 +28,9 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (ws | eol | semi), ((object, [ws | eol], ">") | sequence));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (ws | eol | semi), ((object, [ws | eol], ">") | list_sequence | fixed_sequence));
 
-sequence = (list | array | struct );
-
-value = (object | sequence | literal);
+value = (object | list_sequence | fixed_sequence);
 
 expression = ["("], (NAME | value | prefix | infix), [")"];
 
@@ -44,11 +42,11 @@ ws = " " | "\t" | "\r";
 literal = INTEGER | decimal | STRING;
 
 
-list = ( "{", {object}, "}" ) | ( "(", {expression, [eol | semi]}, ")" );
+list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [eol | semi]}, ")" );
 
-array = [INTEGER], "[", ({fixed_object} | ("<", TYPE, ">")), "]";
+array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
 
-struct = "~{", {fixed_object}, "}";
+struct = "~{", {fixed_sequence}, "}";
 
 
 prefix = (operator | NAME), [ws | eol], expression;
@@ -62,7 +60,7 @@ semi = ";";
 
 decimal = INTEGER, ".", [INTEGER];
 
-fixed_object = literal | struct | array | ("<", [TYPE], [fixed_object], ">");
+fixed_sequence = literal | struct | array | ("<", [TYPE], [fixed_sequence], ">");
 
 
 operator = "." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
