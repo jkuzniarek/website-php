@@ -50,6 +50,7 @@ include $sRoot.'templates/sidebar.php';
   </div>
 </div>
 <br>
+<!-- Lists are ONLY linked-lists when executing eon get/set shell functions on an eon file-->
 
 <div class="row">
   <div class="col">

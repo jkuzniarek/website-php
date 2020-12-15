@@ -28,37 +28,30 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (ws | eol | semi), ((object, [ws | eol], ">") | list_sequence | fixed_sequence));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (WS | EOL | SEMI), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
 
 value = (object | list_sequence | fixed_sequence);
 
 expression = ["("], (NAME | value | prefix | infix), [")"];
 
 
-index = {(ws | eol | semi), infix};
-
-ws = " " | "\t" | "\r";
+index = {(WS | EOL | SEMI), infix};
 
 literal = INTEGER | decimal | STRING;
 
+list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL | SEMI]}, ")" );
 
-list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [eol | semi]}, ")" );
 
 array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
 
 struct = "~{", {fixed_sequence}, "}";
 
-
-prefix = (operator | NAME), [ws | eol], expression;
-
-infix = expression, {operator, [ws | eol], expression};
-
-eol = "\n";
+prefix = (operator | NAME), [WS | EOL], expression;
 
 
-semi = ";";
+infix = expression, {operator, [WS | EOL], expression};
 
-decimal = INTEGER, ".", [INTEGER];
+decimal = INTEGER, ".", INTEGER;
 
 fixed_sequence = literal | struct | array | ("<", [TYPE], [fixed_sequence], ">");
 
