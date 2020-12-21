@@ -43,14 +43,14 @@ include $sRoot.'templates/sidebar.php';
     All values are some type of object and all objects are derived from an empty object <code>&lt;&gt;</code>.
   </div>
   <div class="col">
-    All lists are pointer arrays and all lists are derived from an empty list <code>{}</code>.
+    All lists are linked lists and all lists are derived from an empty list <code>{}</code>.
   </div>
   <div class="col">
     All primitive values are arrays, all arrays are byte arrays, and all arrays are derived from an empty array <code>[]</code>.
   </div>
 </div>
 <br>
-<!-- Lists are ONLY linked-lists when executing eon get/set shell functions on an eon file-->
+<!-- Lists are normally linked-lists unless they are fixed (const) in which case they are pointer arrays-->
 
 <div class="row">
   <div class="col">
@@ -252,6 +252,7 @@ double_number: <double 12.34>
 <div class="row">
   <div class="col">
     Key-value pairs can be fixed (like a const variable) so that they return void (or an error or null value depending on reader implementation) if deletion or any change to the pair is attempted.
+    <!-- lists that are made const are saved as a pointer array -->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('< key1: "data" key2:: "constant data">')?></code></pre>

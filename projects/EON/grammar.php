@@ -24,32 +24,34 @@ include $sRoot.'templates/sidebar.php';
       Terms that are all lowercase are nonterminals.<br>
       Terms that are quoted are terminals that match exact lexemes.<br>
       Terms that are in all caps are terminals that are a single lexeme whose text representation may vary.<br>
-      The grammar is in EBNF.
+      The grammar is in EBNF.<br>
+      Only semantically significant whitespace is shown in the grammar.<br>
+      EOL refers to either the end of line character or a semicolon as they are functionally equivalent.
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (WS | EOL | SEMI), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (WS | EOL), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
 
 value = (object | list_sequence | fixed_sequence);
 
 expression = ["("], (NAME | value | prefix | infix), [")"];
 
 
-index = {(WS | EOL | SEMI), infix};
+index = {(WS | EOL), infix};
 
 literal = INTEGER | decimal | STRING;
 
-list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL | SEMI]}, ")" );
+list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL]}, ")" );
 
 
 array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
 
 struct = "~{", {fixed_sequence}, "}";
 
-prefix = (operator | NAME), [WS | EOL], expression;
+prefix = (operator | NAME), [WS], expression;
 
 
-infix = expression, {operator, [WS | EOL], expression};
+infix = expression, {operator, [WS], expression};
 
 decimal = INTEGER, ".", INTEGER;
 
