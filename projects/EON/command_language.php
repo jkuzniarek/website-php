@@ -102,10 +102,18 @@ add5 5
 </div>
 <br>
 
+<p>
+EON does not have null values in the way that most other programming languages do. 
+Instead other constructs are used depending on the particular context and desired behavior.
+Empty, but defined, values return <code><></code>, <code>{}</code>, <code>[]</code>, <code>()</code>, <code>""</code>, or <code>0</code>. 
+Attempting to access an undefined value returns a function <code>void</code>.
+When the <code>void</code> keyword is executed it immediately exits the current scope <code>()</code>.
+</p>
+<br>
+
 <div class="row">
   <div class="col">
     You can check if an object has a specified tag, which may return (and potentially execute) the <code>void</code> keyword.
-    When <code>void</code> is executed it exits the current scope.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<tag1 tag2>.tag_3
