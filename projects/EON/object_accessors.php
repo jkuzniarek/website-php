@@ -97,7 +97,8 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An object's listed items are accessed using <code>,</code> followed by the item index.
+    An object's listed items are accessed using <code>,</code> followed by the item index. 
+    Numerical indexing starts at 1 <strong>not 0</strong> because indexes <strong>are not</strong> offsets.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree,1 
