@@ -46,7 +46,7 @@ list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL]}, ")" );
 
 array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
 
-struct = "~{", {fixed_sequence}, "}";
+struct = "{:", {fixed_sequence}, "}";
 
 prefix = (operator | NAME), [WS], expression;
 
@@ -59,7 +59,7 @@ fixed_sequence = literal | struct | array | ("<", [TYPE], [fixed_sequence], ">")
 
 
 operator = "." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
-"-" | "*" | "/" | "^" | "%" | "<" | ">" | ":" | 
+"-" | "*" | "/" | "^" | "%" | "<" | ">" | ":" | ":~" | 
 "::" | ":&" | ":?"| ":+" | ":-" | ":*" | ":/" | 
 ":#" | ",:" | "#=" | "==" | "!=" | "<=" | ">=";
 ')?></pre>

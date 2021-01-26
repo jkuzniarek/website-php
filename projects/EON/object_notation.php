@@ -126,10 +126,10 @@ include $sRoot.'templates/sidebar.php';
 <div class="row">
   <div class="col">
     Since lists are not fixed size data they cannot be placed in an array.
-    However lists can be initialized as a (numerically indexed) struct which cannot be extended and may therefore be placed in an array.
+    However lists can be initialized as a (numerically indexed) struct which cannot be extended and may therefore be placed in an array of similarly structured elements.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('struct: ~{1 "John" "Doe"}')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('struct: {: 1 "John" "Doe"}')?></code></pre>
     </code>
   </div>
 </div>
@@ -256,6 +256,17 @@ double_number: <double 12.34>
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('< key1: "data" key2:: "constant data">')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    Key-value pairs can be made volatile (like in C) so that they are ignored by a compiler's optimizer.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('< key1: "data" key2:~ "volatile data">')?></code></pre>
     </code>
   </div>
 </div>
