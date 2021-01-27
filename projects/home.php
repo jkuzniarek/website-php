@@ -23,7 +23,7 @@ include $sRoot.'templates/sidebar.php';
             </p>
             <hr>
             <small class="badge badge-light">Initiated: 2019</small>
-            <small class="badge badge-light">Last Updated: Dec 2020</small>
+            <small class="badge badge-light">Last Updated: Jan 2021</small>
             <a href="EON/" class="btn btn-sm btn-light stretched-link float-right">View</a>
           </div>
         </div>
