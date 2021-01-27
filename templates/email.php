@@ -14,14 +14,13 @@ require $sRoot.'plugins/PHPMailer/SMTP.php';
 function sendEmail($Subject, $Message){
 
   // fails silently if missing inputs, so as not to interrupt whatever process calls it
-  if(!empty($To) and !empty($From) and !empty($Subject) and !empty($Message)){
+  if(!empty($Subject) and !empty($Message)){
     $smtp_host = 'smtp.gmail.com';
     //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
     // 465 for ssl
     $smtp_port = 587;
     $smtp_usr = getenv("SMTP_USR");
     $smtp_pwd = getenv("SMTP_PWD");
-
     $mail = new PHPMailer();
     try{
         $mail->isSMTP();
@@ -30,7 +29,7 @@ function sendEmail($Subject, $Message){
         // SMTP::DEBUG_OFF = off (for production use)
         // SMTP::DEBUG_CLIENT = client messages
         // SMTP::DEBUG_SERVER = client and server messages
-        $mail->SMTPDebug = SMTP::DEBUG_OFF; // 3 for extra details
+        $mail->SMTPDebug = 3; //SMTP::DEBUG_OFF; // 3 for extra details
 
         // $mail->Host = $smtp_host;
         // use
