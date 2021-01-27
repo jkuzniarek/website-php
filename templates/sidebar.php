@@ -35,14 +35,14 @@ $menu_items = [
       <!-- standard sidebar -->
       <div class="col-lg-2 bg-green sidebar d-none d-lg-block h-100 shadow" style="position: fixed; top: 0; z-index: 1030;">
         <nav class="navbar navbar-light border-bottom border-dark" style="padding-left: 0;">
-          <a class="navbar-brand" href="./<?=$sRoot?>"><h2>Home</h2></a>
-          <a class="" href="./<?=$sRoot?>"><h2><?=$icon?></h2></a>
+          <a class="navbar-brand" href="./<?=$sRoot?>"><h3>Home</h3></a>
+          <a class="" href="./<?=$sRoot?>"><h3><?=$icon?></h3></a>
         </nav>
         <nav class="navbar navbar-light">
           <ul class="navbar-nav">
             <?php foreach($menu_items as $item){ ?>
             <li class="nav-item<?=strpos($_SERVER['REQUEST_URI'], $item['a']) !== false ? ' active': ''?>">
-              <a class="nav-link" href="<?=$item['text'] == 'GitHub'? $item['a']: $sRoot.$item['a']?>"><h3><?=$item['text']?></h3></a>
+              <a class="nav-link" href="<?=$item['text'] == 'GitHub'? $item['a']: $sRoot.$item['a']?>"><h4><?=$item['text']?></h4></a>
             </li>
             <?php }?>
           </ul>

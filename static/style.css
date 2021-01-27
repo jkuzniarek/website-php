@@ -25,6 +25,9 @@ body {
 a {
 	color: rgb(0, 155, 58);
 }
+a.btn-light {
+	color: rgb(0, 155, 58) !important;
+}
 a:hover {
 	color: rgb(255, 199, 44);
 }
@@ -55,4 +58,19 @@ pre.code {
   border-radius: 3px;
   background-color: #fff;
   padding: .25rem;
+}
+
+.masonry {
+  /* display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox; */
+  display: flex; /* uses flexbox */
+  /* -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap; */
+  flex-wrap: wrap; /* wraps overflowing elements to next line */
+  justify-content: space-between; /* justifies elements but leaves outer edges aligned*/
+}
+.masonry * {
+  margin: 0.2em;
+  flex-grow: 1; /* makes all elements expand to fill*/
 }
