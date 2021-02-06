@@ -11,7 +11,7 @@ $menu_items = [
       <!-- mobile navbar -->
       <nav class="navbar navbar-light bg-green d-lg-none w-100" style="position: fixed; top: 0; z-index: 1030;">
         <a class="navbar-brand" href="<?=$sRoot?>"><img src="<?=$sRoot?>static/favicon.ico" height="30">
-          <span style="size: 0.5em">jkuzniarek.me</span>
+          <span style="size: 0.5em">jkuzniarek.com</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNavbar">
           <span class="navbar-toggler-icon"></span>

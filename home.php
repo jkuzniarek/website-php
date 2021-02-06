@@ -8,12 +8,12 @@ $latest = $stmt->fetchArray();
 
 ?>
 
-<div class="row py-3"> <!-- Title Row-->
+<!-- <div class="row py-3"> Title Row
   <div class="col-sm-4"></div>
   <div class="col-sm-8 border-bottom border-dark">
     <h1><em>Welcome</em><?=$icon?></h1>
   </div>
-</div>
+</div> -->
 
 <div class="row py-3"> <!-- Latest Row-->
   <div class="col-lg-10">
@@ -42,14 +42,12 @@ $latest = $stmt->fetchArray();
         </p>
         <p>
           Though I originally built this website as a portfolio project several years ago, it has evolved since then through several iterations as both my skills and interests have changed.
-          Now, it provides a place for me to share some of my thoughts and projects with the world. 
-          The latest version of this site has been built with a PHP backend, a Bootstrap 4 and jQuery frontend, and utilizes a SQLite database.
-          Like the other times I've rebuilt my website, the primary purpose has been to expand 
-          my knowledge and web development experience using at least one new technology.
-          In this case, I sought to gain experience with Bootstrap 4 after having previously used 3, and expand on my SQL knowledge by utilizing a SQLite database.
+          Like the other times I've rebuilt my website, the primary purpose was to expand 
+          my knowledge and web development experience by trying out new technologies.
+          Now though, it also provides a place for me to share some of my thoughts and projects with the world. 
         </p>
         <p>
-          My personal interests include: anthropology, urban planning, mass transit, history, philosophy, hiking, reading, and occasionally video games.
+          Some of my interests include: anthropology, urban planning, mass transit, history, philosophy, hiking, reading, and of course computer programming.
           Many of these subjects interest me due to my fascination with systems
           analysis and design combined with my propensity to examine both the impact of the
           perspectives people hold on their actions and decisions, and the
