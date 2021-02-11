@@ -33,13 +33,13 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>do</code> keyword executes the commands in the expression list to it's right.
+  The <code>exe</code> keyword converts the commands in the expression list on it's right into an executable process.
   The key-value pairs in the parent scope are accessible from within the list of expressions.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
 name: "Hello Bob!"
-do( 
+exe( 
   print message
   print name
 )
@@ -53,11 +53,11 @@ Hello World!Hello Bob!
 
 <div class="row">
   <div class="col">
-    Procedures are named sets of commands that are executed when accessed.
+    Processes are named sets of commands that are executed when accessed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_var: "World"
-printAll: do(
+printAll: exe(
   print "Hello"
   print my_var
   print "!"
@@ -72,9 +72,9 @@ HelloWorld!
 
 <div class="row">
   <div class="col">
-  The <code>fn</code> keyword is a type of procedure like <code>do</code>, but after each execution it records the procedure's input and output 
-  so that future calls to the procedure can skip execution for duplicate inputs.
-  This increases program speed when a procedure is known to be deterministic like in mathematical functions.
+  The <code>fn</code> keyword is a type of process like <code>exe</code>, but after each execution it records the process's input and output 
+  so that future calls to the process can skip execution for duplicate inputs.
+  This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('add5: fn print(in + 5)
@@ -87,13 +87,13 @@ add5 5
 </div>
 <br>
 
-<p>It is idiomatic to use camelCase to name procedures and snake_case to name objects.</p>
+<p>It is idiomatic to use camelCase to name processes and snake_case to name objects.</p>
 <p>Capitalized keys are Public and all other keys are private (similar to Golang)</p>
 <br>
 
 <div class="row">
   <div class="col">
-    Creating a procedure with <code>:?</code> passes the input in to the procedure by a pointing reference instead of by copying it, which is what happens normally.
+    Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is what happens normally.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('print:? "Hello World!"')?></code></pre>
@@ -152,10 +152,10 @@ When the <code>void</code> keyword is executed it immediately exits the current 
 
 <div class="row">
   <div class="col">
-    The <code>if</code> keyword executes the commands in the list to its right until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
+    The <code>try</code> keyword executes the commands in the list to its right until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('if(
+<pre class="code"><code><?=htmlspecialchars('try(
   printAll
   print "Success!"
 )')?></code></pre>
@@ -166,10 +166,10 @@ When the <code>void</code> keyword is executed it immediately exits the current 
 
 <div class="row">
   <div class="col">
-    The <code>or</code> keyword works the same as the <code>if</code> keyword, but is only triggered if the preceding command's execution was interrupted by a void.
+    The <code>or</code> keyword works the same as the <code>try</code> keyword, but is only triggered if the preceding command's execution was interrupted by a void.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('if(
+<pre class="code"><code><?=htmlspecialchars('try(
   void
   print "Success!"
 )
@@ -183,7 +183,7 @@ or(
 
 <div class="row">
   <div class="col">
-    In addition to <code>if</code>, the <code>or</code> keyword can be used with all procedures and keywords whose execution might be interrupted by a <code>void</code>.
+    In addition to <code>try</code>, the <code>or</code> keyword can be used with all processes and keywords whose execution might be interrupted by a <code>void</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('returnVoid
@@ -201,7 +201,7 @@ or(
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('loop(
-  if(
+  try(
     esc
     print "Fail!"
   )
@@ -249,12 +249,12 @@ or(
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('loop(
-  if(
+  try(
     forceExitLoop // outputs void to exit the if
     print "Fail!"
   )
   or(
-    out: do (void)
+    out: exe (void)
     print "Success!" // this is still executed 
 // because the output is not retrieved until after 
 // the or finishes executing or a void/esc has been used
@@ -308,7 +308,7 @@ list1.loop(
     Attempting to access an undefined name returns a <code>void</code> instead of an object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('if(
+<pre class="code"><code><?=htmlspecialchars('try(
   undefined
   print "Success!"
 )
@@ -349,10 +349,10 @@ ${
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
   var: "Hello"
-  init: do(
+  init: exe(
     var: ${var "!"}
   )
-  message: do(
+  message: exe(
     print var
   )
 >
@@ -374,7 +374,7 @@ my_object.message
   dest: (
     var: ${var "!"}
   )
-  message: do(
+  message: exe(
     print var
   )
 >
@@ -387,10 +387,10 @@ my_object.message
 
 <div class="row">
   <div class="col">
-    The <code>in</code> keyword is actually a reserved name to the object passed into a procedure.
+    The <code>in</code> keyword is actually a reserved name to the object passed into a process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('printName: do(
+<pre class="code"><code><?=htmlspecialchars('printName: exe(
   print "Hi! My name is "
   print in
 )
@@ -404,11 +404,11 @@ printName myName
 
 <div class="row">
   <div class="col">
-    The <code>out</code> keyword is actually a reserved name to the object a procedure returns.
-    It can be used to not only set the procedure's output, but to reference it within the procedure, and modify it prior to the end of the procedure.
+    The <code>out</code> keyword is actually a reserved name to the object a process returns.
+    It can be used to not only set the process's output, but to reference it within the process, and modify it prior to the end of the process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('echo: do(
+<pre class="code"><code><?=htmlspecialchars('echo: exe(
   out: in
   out: ${out "!"}
 )
@@ -421,14 +421,14 @@ echo "Hello"
 
 <div class="row">
   <div class="col">
-    The <code>type</code> keyword creates a type interface (similar to a Golang interface) from the list of defined procedures for the specified type.
+    The <code>type</code> keyword creates a type interface (similar to a Golang interface) from the list of defined processes for the specified type.
     This enables defining class-like behaviors for objects based on their type.
-    The <code>src</code> keyword accesses the object to the left of the procedure being called.
+    The <code>src</code> keyword accesses the object to the left of the process being called.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('type <str 
-  echo: do(print src)
-  ping: do(
+  echo: exe(print src)
+  ping: exe(
     print src
     print in
   )
@@ -447,8 +447,8 @@ echo "Hello"
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('bowl: [ "milk" "cereal" ]
 cup: [ "cereal" "milk" ]
-isBreakfast: do(
-  if(
+isBreakfast: exe(
+  try(
     in.has [ "milk" "cereal" ]
     print "yes" 
   )
