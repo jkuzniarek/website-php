@@ -25,7 +25,7 @@ include $sRoot.'templates/sidebar.php';
             </p>
             <hr class="my-1">
             <small class="badge badge-light">Initiated: 2019</small>
-            <small class="badge badge-light">Last Updated: Jan 2021</small>
+            <small class="badge badge-light">Last Updated: Feb 2021</small>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ include $sRoot.'templates/sidebar.php';
             </p>
             <hr class="my-1">
             <small class="badge badge-light">Initiated: 2019</small>
-            <small class="badge badge-light">Last Updated: Aug 2020</small>
+            <small class="badge badge-light">Last Updated: Feb 2021</small>
           </div>
         </div>
       </div>

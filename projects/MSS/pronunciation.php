@@ -40,7 +40,7 @@ include $sRoot.'templates/sidebar.php';
         <pre>aa ay ee eu</pre>
         <pre>oe oi oo ou</pre> 
         <pre>uu ar ur or</pre> 
-        <pre>er/eir/air</pre>
+        <pre>er eer</pre>
       </div>
       <div class="col">
         <h4>Consonant sounds</h4>
@@ -159,10 +159,14 @@ OR
 more > mor
 hoard > hord
 
-ER/EIR/AIR
-fare > fair
-there > their
-error > erur</pre>
+ER
+fare > fer
+wary > weri
+error > erur
+
+EER 
+year > yeer
+weary > weeri</pre>
 </td>
         <!-- trailing -->
         <td><pre>A/UH
@@ -284,7 +288,7 @@ beige > bayzh</pre>
       <li>
         If there are no apostrophes for clarification, 
         assume the first 2 letters you see are a single sound.
-        <br>(oe in goet != go'et)
+        <br>(oe in goet is not pronounced like go'et)
       </li>
       <li>
         Contractions are accomplished by simply removing the unspoken letters.
