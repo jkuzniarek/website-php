@@ -20,7 +20,7 @@ include $sRoot.'templates/sidebar.php';
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
-    <pre class="code"><code><?=htmlspecialchars('tree: <employee red_team name: "Michael Scott" title: "Regional Manager"
+    <pre class="code"><code><?=htmlspecialchars('tree: <employee red_team name: "Michael Scott" title: "Regional Manager";
 {
   <employee red_team name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
   <employee blue_team name: "Jim Halpert" 
@@ -28,7 +28,7 @@ include $sRoot.'templates/sidebar.php';
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
       <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    }
+    };
   {
     <employee red_team name: "Andy Bernard" 
       title: "Sales Rep"
@@ -155,7 +155,7 @@ integer,
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
       <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    }
+    };
   {
     <employee red_team name: "Andy Bernard" 
       title: "Sales Rep"

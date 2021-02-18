@@ -58,7 +58,7 @@ include $sRoot.'templates/sidebar.php';
         <tr>
           <td>&lt;</td>
           <td class="text-success border-right border-left">title &nbsp;</td>
-          <td class="text-info border-right">lang:"en" &nbsp;</td>
+          <td class="text-info border-right">lang:"en"; &nbsp;</td>
           <td class="text-warning border-right">"Harry Potter"</td>
           <td>&gt;</td>
         </tr>
@@ -73,7 +73,8 @@ include $sRoot.'templates/sidebar.php';
       </li>
       <li>
         The <span class="badge badge-info">Index</span> stores an object's keys and key-value pairs.
-        Objects may have as many keys and key-value pairs as desired.
+        Objects may have as many keys and key-value pairs as desired. 
+        The index must be terminated by a semicolon if the object has a body.
       </li>
       <li>
         The <span class="badge badge-warning">Body</span> stores an object's primary contents either as a single value, another object, list, or array.

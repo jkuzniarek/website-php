@@ -38,7 +38,7 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
-name: "Hello Bob!"
+name: "Hello Bob!";
 exe( 
   print message
   print name
@@ -505,7 +505,7 @@ isBreakfast: exe(
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('os: import "os"
 os.cd "../project/"
-os.git.commit < a m "commit message"
+os.git.commit < a m; "commit message"
 // in Powershell this is equivalent to:
 // cd ../project/
 // git commit -am "commit message" ')?></code></pre>

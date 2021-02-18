@@ -30,18 +30,18 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | (WS | EOL), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
+      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | ";", (WS | EOL), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
 
 value = (object | list_sequence | fixed_sequence);
 
 expression = ["("], (NAME | value | prefix | infix), [")"];
 
 
-index = {(WS | EOL), infix};
+index = {(WS | EOL), infix}, [WS | EOL];
 
 literal = INTEGER | decimal | STRING;
 
-list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL]}, ")" );
+list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL | ";"]}, ")" );
 
 
 array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";

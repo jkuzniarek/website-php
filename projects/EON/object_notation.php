@@ -242,7 +242,7 @@ double_number: <double 12.34>
     The body must always appear last.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<type tag keys:values body>
+<pre class="code"><code><?=htmlspecialchars('<type tag keys:values; body>
 <int [1 2]')?></code></pre>
     </code>
   </div>
@@ -345,9 +345,9 @@ double_number: <double 12.34>
     <row section title:"The Beginning" page: 1>
     <row section title:"The Middle" page: 50>
     <row section title:"The End" page: 100>
-  }
+  };
 {
-  <page section_start heading: "The Beginning" {
+  <page section_start heading: "The Beginning"; {
     "In the beginning there was nothing..."
     "... which is why there must be something. Otherwise everything would be ..."
     "... however thats impossible, so instead we must conclude that ..."
@@ -356,7 +356,7 @@ double_number: <double 12.34>
   <page "blah blah blah blah">
 }')?></code></pre>
 <br>
-<pre class="code"><code><?=htmlspecialchars('<employee name: "Michael Scott" title: "Regional Manager"
+<pre class="code"><code><?=htmlspecialchars('<employee name: "Michael Scott" title: "Regional Manager";
 {
   <employee name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
   <employee name: "Jim Halpert" 
@@ -364,7 +364,7 @@ double_number: <double 12.34>
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
       <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    }
+    };
   {
     <employee name: "Andy Bernard" 
       title: "Sales Rep"
