@@ -93,10 +93,10 @@ add5 5
 
 <div class="row">
   <div class="col">
-    Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is what happens normally.
+    Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is the default behavior.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('print:? "Hello World!"')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('print? "Hello World!"')?></code></pre>
     </code>
   </div>
 </div>
@@ -152,7 +152,8 @@ When the <code>void</code> keyword is executed it immediately exits the current 
 
 <div class="row">
   <div class="col">
-    The <code>try</code> keyword executes the commands in the list to its right until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
+    The <code>try</code> keyword executes the commands in the list to its right in order until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
+    If the expression list is unordered (executed in parallel) then all expressions in the list are always executed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('try(

@@ -76,10 +76,27 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Additionally, a list of expressions may be created from the characters between <code>()</code>.
+    An ordered list of expressions may be created from the characters between <code>()</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('commands: (
+  print "this"
+  print "that"
+) 
+// the first item in "commands" is
+// the string \'print "this"\'')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    Additionally, an unordered list of expressions may be created from the characters between <code>(: )</code> and all expressions are evaluated in parallel as permitted by the chip architecture. 
+    Program execution does not move on from the list until all expressions have been evaluated.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('commands: (:
   print "this"
   print "that"
 ) 
@@ -266,7 +283,7 @@ double_number: <double 12.34>
     Key-value pairs can be made volatile (like in C) so that they are ignored by a compiler's optimizer.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('< key1: "data" key2:~ "volatile data">')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('< key1: "data" ~key2: "volatile data">')?></code></pre>
     </code>
   </div>
 </div>
