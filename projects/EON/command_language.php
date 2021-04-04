@@ -33,13 +33,13 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>exe</code> keyword converts the commands in the expression list on it's right into an executable process.
+  The <code>ex</code> keyword converts the commands in the expression list on it's right into an executable process.
   The key-value pairs in the parent scope are accessible from within the list of expressions.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
 name: "Hello Bob!";
-exe( 
+ex( 
   print message
   print name
 )
@@ -57,7 +57,7 @@ Hello World!Hello Bob!
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_var: "World"
-printAll: exe(
+printAll: ex(
   print "Hello"
   print my_var
   print "!"
@@ -72,7 +72,7 @@ HelloWorld!
 
 <div class="row">
   <div class="col">
-  The <code>fn</code> keyword is a type of process like <code>exe</code>, but after each execution it records the process's input and output 
+  The <code>fn</code> keyword is a type of process like <code>ex</code>, but after each execution it records the process's input and output 
   so that future calls to the process can skip execution for duplicate inputs.
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
@@ -96,7 +96,10 @@ add5 5
     Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is the default behavior.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('print? "Hello World!"')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('printHello:? ex( 
+  print "Hello "
+  print in 
+)')?></code></pre>
     </code>
   </div>
 </div>
@@ -255,7 +258,7 @@ or(
     print "Fail!"
   )
   or(
-    out: exe (void)
+    out: ex (void)
     print "Success!" // this is still executed 
 // because the output is not retrieved until after 
 // the or finishes executing or a void/esc has been used
@@ -350,10 +353,10 @@ ${
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_object: <
   var: "Hello"
-  init: exe(
+  init: ex(
     var: ${var "!"}
   )
-  message: exe(
+  message: ex(
     print var
   )
 >
@@ -375,7 +378,7 @@ my_object.message
   dest: (
     var: ${var "!"}
   )
-  message: exe(
+  message: ex(
     print var
   )
 >
@@ -391,7 +394,7 @@ my_object.message
     The <code>in</code> keyword is actually a reserved name to the object passed into a process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('printName: exe(
+<pre class="code"><code><?=htmlspecialchars('printName: ex(
   print "Hi! My name is "
   print in
 )
@@ -409,7 +412,7 @@ printName myName
     It can be used to not only set the process's output, but to reference it within the process, and modify it prior to the end of the process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('echo: exe(
+<pre class="code"><code><?=htmlspecialchars('echo: ex(
   out: in
   out: ${out "!"}
 )
@@ -428,8 +431,8 @@ echo "Hello"
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('type <str 
-  echo: exe(print src)
-  ping: exe(
+  echo: ex(print src)
+  ping: ex(
     print src
     print in
   )
@@ -448,7 +451,7 @@ echo "Hello"
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('bowl: [ "milk" "cereal" ]
 cup: [ "cereal" "milk" ]
-isBreakfast: exe(
+isBreakfast: ex(
   try(
     in.has [ "milk" "cereal" ]
     print "yes" 
