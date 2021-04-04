@@ -76,7 +76,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An ordered list of expressions may be created from the characters between <code>()</code>.
+    An ordered list of expressions may be created from the characters between <code>()</code> or <code>(: )</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('commands: (
@@ -92,17 +92,9 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Additionally, an unordered list of expressions may be created from the characters between <code>(: )</code> and all expressions are evaluated in parallel as permitted by the chip architecture. 
+    If executed, the expressions between <code>()</code> will be executed serially in the listed order. 
+    In contrast, the expressions between <code>(: )</code> will be evaluated in parallel as permitted by the chip architecture. 
     Program execution does not move on from the list until all expressions have been evaluated.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('commands: (:
-  print "this"
-  print "that"
-) 
-// the first item in "commands" is
-// the string \'print "this"\'')?></code></pre>
-    </code>
   </div>
 </div>
 <br>
