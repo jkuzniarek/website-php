@@ -41,27 +41,28 @@ index = {(WS | EOL), infix}, [WS | EOL];
 
 literal = INTEGER | decimal | STRING;
 
-list_sequence = ( "{", {object}, "}" ) | ( "(", {expression, [EOL | ";"]}, ")" );
+list_sequence = ( "{", {object}, "}" ) | ( "(", [":"], {expression, [EOL | ";"]}, ")" );
 
 
 array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
 
 struct = "{:", {fixed_sequence}, "}";
 
-prefix = (operator | NAME), [WS], expression;
+prefix = (OPERATOR | NAME), [WS], expression;
 
 
-infix = expression, {operator, [WS], expression};
+infix = expression, {OPERATOR, [WS], expression};
 
 decimal = INTEGER, ".", INTEGER;
 
 fixed_sequence = literal | struct | array | ("<", [TYPE], [fixed_sequence], ">");
 
 
-operator = "." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
- "*" | "/" | "^" | "%" | "<" | ">" | ":" | "?" | "~" | 
+operators: 
+"." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
+"*" | "/" | "^" | "%" | "<" | ">" | ":" | "~" | 
 "::" | ":&" | ":?"| ":+" | ":-" | ":*" | ":/" | 
-":#" | ",:" | "#=" | "==" | "!=" | "<=" | ">=";
+":#" | ",:" | "#=" | "==" | "!=" | "<=" | ">="
 ')?></pre>
     </p>
 
