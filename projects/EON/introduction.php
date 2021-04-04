@@ -92,30 +92,30 @@ include $sRoot.'templates/sidebar.php';
 
     <div class="row">
       <div class="col">
-      <label>EON</label>
+        <label>EON</label>
 <pre class="code"><code><?=htmlspecialchars('<bookstore {
-  <book category:"cooking"
-    title: < lang:"en" "Everyday Italian">
-    author: "Giada De Laurentiis"
-    year: 2005
-    price: 30.00
-  >
-  <book category:"children" 
-    title: < lang:"en" "Harry Potter">
-    author: "J K. Rowling"
-    year: 2005
-    price: 29.99
-  >
-  <book category:"web" 
-    title: < lang:"en" "Learning XML">
-    author: "Erik T. Ray"
-    year: 2003
-    price: 39.95
-  >
+  <book category:"cooking"; {
+    <title lang:"en"; "Everyday Italian">
+    <author "Giada De Laurentiis">
+    <year 2005>
+    <price 30.00>
+  }>
+  <book category:"children"; { 
+    <title lang:"en"; "Harry Potter">
+    <author "J K. Rowling">
+    <year 2005>
+    <price 29.99>
+  }>
+  <book category:"web"; { 
+    <title lang:"en"; "Learning XML">
+    <author "Erik T. Ray">
+    <year 2003>
+    <price 39.95>
+  }>
 }')?></code></pre>
       </div>
       <div class="col">
-      <label>XML</label>
+        <label>XML</label>
 <pre class="code"><code><?=htmlspecialchars('<bookstore>
   <book category="cooking">
     <title lang="en">Everyday Italian</title>
@@ -136,7 +136,34 @@ include $sRoot.'templates/sidebar.php';
     <price>39.95</price>
   </book>
 </bookstore>')?></code></pre>
-        </code>
+      </div>
+    </div>
+
+    <p>Despite the above EON object's 1:1 correllation to the XML object, the data could still be restructured into an even more condensed EON object.</p>
+
+    <div class="row">
+      <div class="col">
+        <label>Restructured EON</label>
+<pre class="code"><code><?=htmlspecialchars('<bookstore {
+  <book category:"cooking"
+    title: < lang:"en" "Everyday Italian">
+    author: "Giada De Laurentiis"
+    year: 2005
+    price: 30.00
+  >
+  <book category:"children" 
+    title: < lang:"en" "Harry Potter">
+    author: "J K. Rowling"
+    year: 2005
+    price: 29.99
+  >
+  <book category:"web" 
+    title: < lang:"en" "Learning XML">
+    author: "Erik T. Ray"
+    year: 2003
+    price: 39.95
+  >
+}')?></code></pre>
       </div>
     </div>
 
