@@ -116,6 +116,20 @@ When the <code>void</code> keyword is executed it immediately exits the current 
 
 <div class="row">
   <div class="col">
+    Tags can be added to an existing object's index by pairing them to an empty object <code><></code> and removed by pairing them with <code>void</code>.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('object: < tag1 >
+object.tag2: <>
+object.tag1: void
+// now the object is < tag2 >')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
     You can check if an object has a specified tag, which may return (and potentially execute) the <code>void</code> keyword.
   </div>
   <div class="col">
