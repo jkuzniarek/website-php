@@ -72,12 +72,12 @@ HelloWorld!
 
 <div class="row">
   <div class="col">
-  The <code>fn</code> keyword is a type of process like <code>ex</code>, but after each execution it records the process's input and output 
+  The <code>fx</code> keyword is a type of process like <code>ex</code>, but after each execution it records the process's input and output 
   so that future calls to the process can skip execution for duplicate inputs.
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('add5: fn print(in + 5)
+<pre class="code"><code><?=htmlspecialchars('add5: fx print(in + 5)
 add5 5
 /* prints: 
 10
