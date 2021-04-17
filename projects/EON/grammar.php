@@ -30,39 +30,44 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('object = "<", [TYPE], [index], (">" | ";", (WS | EOL), ((object, [WS | EOL], ">") | list_sequence | fixed_sequence));
+      <pre><?=htmlspecialchars('expression = (NAME | object | prefix | infix);
 
-value = (object | list_sequence | fixed_sequence);
+object = literal | ("<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">"))));
 
-expression = ["("], (NAME | value | prefix | infix), [")"];
-
-
-index = {(WS | EOL), infix}, [WS | EOL];
-
-literal = INTEGER | decimal | STRING;
-
-list_sequence = ( "{", {object}, "}" ) | ( "(", [":"], {expression, [EOL | ";"]}, ")" );
+literal = INTEGER | decimal | STRING | BYTECODE;
 
 
-array = [INTEGER], "[", ({fixed_sequence} | ("<", TYPE, ">")), "]";
+prefix = (OPERATOR | NAME), expression;
 
-struct = "{:", {fixed_sequence}, "}";
+infix = expression, prefix;
 
-prefix = (OPERATOR | NAME), [WS], expression;
+index = {infix | NAME};
 
 
-infix = expression, {OPERATOR, [WS], expression};
+linked_list = ( "{", {object}, "}" ) | ( "(", [":"], {expression, ["|"], [EOL | ";"]}, ")" );
+
+fixed_list = literal | struct | array | ("<", [TYPE], [fixed_list], ">");
+
+array = [INTEGER], "[", ({fixed_list} | ("<", TYPE, ">")), "]";
+
+
+struct = "{:", {fixed_list}, "}";
 
 decimal = INTEGER, ".", INTEGER;
 
-fixed_sequence = literal | struct | array | ("<", [TYPE], [fixed_sequence], ">");
-
 
 operators: 
-"." | "," | "|" | "!" | "#" | "@" | "$" | "+" | 
-"*" | "/" | "^" | "%" | "<" | ">" | ":" | "~" | 
-"::" | ":&" | ":?"| ":+" | ":-" | ":*" | ":/" | 
-":#" | ",:" | "#=" | "==" | "!=" | "<=" | ">="
+"."  | ","  | "!"  | "#"  | "@"  | "$"  | "+"  | 
+"-"  | "*"  | "/"  | "%"  | "~"  | ":"  | "::" | 
+":&" | ":?" | ":+" | ":-" | ":*" | ":/" | ":#" | 
+"#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" 
+
+keywords:
+"ex"   | "fn"  | "void" | "esc"  |
+"try"  | "or"  | "loop" | "next" |
+"key"  | "val" | "init" | "dest" |
+"in"   | "out" | "type" | "src"  |
+"has"  | "os"  
 ')?></pre>
     </p>
 

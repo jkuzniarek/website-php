@@ -114,6 +114,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 
+<!-- replace 0 with a function .count  -->
 <div class="row">
   <div class="col">
     The count of items in a list can be retrieved by accessing the zero index.

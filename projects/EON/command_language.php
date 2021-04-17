@@ -20,12 +20,15 @@ include $sRoot.'templates/sidebar.php';
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
+
 <div class="row">
   <div class="col">
-  The <code>print</code> keyword prints the text to its right to the computer's output, usually a console or terminal.
+    This program returns the classic "Hello World" message to whatever process called the EON program.
+    Whatever value is assigned to the <code>out</code> keyword when the program ends execution will be output by the program.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('print "Hello World!"')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('out: "Hello World!"
+// returns "Hello World!"')?></code></pre>
     </code>
   </div>
 </div>
@@ -33,7 +36,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>ex</code> keyword converts the commands in the expression list on it's right into an executable process.
+  The <code>ex</code> keyword converts the expression list on it's right into an executable process stored as bytecode.
   The key-value pairs in the parent scope are accessible from within the list of expressions.
   </div>
   <div class="col">
@@ -72,12 +75,12 @@ HelloWorld!
 
 <div class="row">
   <div class="col">
-  The <code>fx</code> keyword is a type of process like <code>ex</code>, but after each execution it records the process's input and output 
-  so that future calls to the process can skip execution for duplicate inputs.
+  The <code>fn</code> keyword is a type of process like <code>ex</code>, but after each execution the process's input and output 
+  are cached so that future calls to the process can skip execution for duplicate inputs.
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('add5: fx print(in + 5)
+<pre class="code"><code><?=htmlspecialchars('add5: fn print(in + 5)
 add5 5
 /* prints: 
 10
@@ -340,7 +343,7 @@ or(
 
 <div class="row">
   <div class="col">
-    The <code>$</code> operator concatenates a list of objects of the same type and merges their indexes. 
+    The <code>$</code> operator concatenates the bodies of a list of objects of the same type and merges their indexes. 
     The content of duplicate keys is combined into a list <code>{}</code>.
   </div>
   <div class="col">
@@ -482,6 +485,22 @@ isBreakfast: ex(
 
 <div class="row">
   <div class="col">
+    The <code>os</code> keyword provides an interface with the host operating system's API similar to a terminal or CLI.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('os: import "os"
+os.cd "../project/"
+os.git.commit < a m; "commit message"
+// in Powershell this is equivalent to:
+// cd ../project/
+// git commit -am "commit message" ')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
   The <code>lib</code> keyword indicates that the code in the given file belongs to the named library.
   </div>
   <div class="col">
@@ -511,22 +530,6 @@ isBreakfast: ex(
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('insert "./helloWorld.eon"
 // prints Hello World!')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    The <code>os</code> library provides an interface with the host operating system's API similar to a terminal or CLI.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('os: import "os"
-os.cd "../project/"
-os.git.commit < a m; "commit message"
-// in Powershell this is equivalent to:
-// cd ../project/
-// git commit -am "commit message" ')?></code></pre>
     </code>
   </div>
 </div>
