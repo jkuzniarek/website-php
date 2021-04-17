@@ -32,26 +32,26 @@ include $sRoot.'templates/sidebar.php';
     <p>
       <pre><?=htmlspecialchars('expression = (NAME | object | prefix | infix);
 
-object = literal | ("<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">"))));
-
-literal = INTEGER | decimal | STRING | BYTECODE;
-
-
 prefix = (OPERATOR | NAME), expression;
 
 infix = expression, prefix;
 
-index = {infix | NAME};
 
+object = literal | ("<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">"))));
 
 linked_list = ( "{", {object}, "}" ) | ( "(", [":"], {expression, ["|"], [EOL | ";"]}, ")" );
 
 fixed_list = literal | struct | array | ("<", [TYPE], [fixed_list], ">");
 
+
+index = {infix | NAME};
+
 array = [INTEGER], "[", ({fixed_list} | ("<", TYPE, ">")), "]";
 
-
 struct = "{:", {fixed_list}, "}";
+
+
+literal = INTEGER | decimal | STRING | BYTECODE;
 
 decimal = INTEGER, ".", INTEGER;
 
