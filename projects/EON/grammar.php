@@ -30,16 +30,16 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = (NAME | object | prefix | infix);
+      <pre><?=htmlspecialchars('expression = (NAME | object | literal | prefix | infix);
 
 prefix = (OPERATOR | NAME), expression;
 
 infix = expression, prefix;
 
 
-object = literal | ("<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">"))));
+object = "<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">")));
 
-linked_list = ( "{", {object}, "}" ) | ( "(", [":"], {expression, ["|"], [EOL | ";"]}, ")" );
+linked_list = ( "{", {object | literal }, "}" ) | ( "(", [":"], {expression, ["|"], [EOL | ";"]}, ")" );
 
 fixed_list = literal | struct | array | ("<", [TYPE], [fixed_list], ">");
 
