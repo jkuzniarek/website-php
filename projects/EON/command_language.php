@@ -187,29 +187,18 @@ object.tag1: void
 
 <div class="row">
   <div class="col">
-    The <code>or</code> keyword works the same as the <code>try</code> keyword, but is only triggered if the preceding command's execution was interrupted by a void.
+    The <code>try</code> keyword can emulate the behavior of if-elseif-else patterns by instead passing a list of expression lists to attempt.
+    Each successive expression list is only executed if the prior's execution was interrupted by a void.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('try(
+  (
   void
   print "Success!"
-)
-or(
+  )
+  (
   print "Error!"
-)')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    In addition to <code>try</code>, the <code>or</code> keyword can be used with all processes and keywords whose execution might be interrupted by a <code>void</code>.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('returnVoid
-or(
-  print "Success!"
+  )
 )')?></code></pre>
     </code>
   </div>
@@ -494,6 +483,20 @@ os.git.commit < a m; "commit message"
 // in Powershell this is equivalent to:
 // cd ../project/
 // git commit -am "commit message" ')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+  The <code>use</code> keyword is used to set the namespace that will be prepended to each subsequent identifier until ns is changed.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('use "os."
+cd "../project/"
+// prepends "os." to cd
+use "" // "exits" namespace')?></code></pre>
     </code>
   </div>
 </div>

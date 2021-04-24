@@ -63,11 +63,11 @@ operators:
 "#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" 
 
 keywords:
-"ex"   | "fn"  | "void" | "esc"  |
-"try"  | "or"  | "loop" | "next" |
-"key"  | "val" | "init" | "dest" |
-"in"   | "out" | "type" | "src"  |
-"has"  | "os"  
+"ex"   | "fn"   | "void" | "esc"  |
+"try"  | "loop" | "next" | "key"  | 
+"val"  | "init" | "dest" | "in"   | 
+"out"  | "type" | "src"  | "has"  | 
+"os"  
 ')?></pre>
     </p>
 
