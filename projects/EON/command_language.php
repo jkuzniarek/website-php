@@ -25,6 +25,7 @@ include $sRoot.'templates/sidebar.php';
   <div class="col">
     This program returns the classic "Hello World" message to whatever process called the EON program.
     Whatever value is assigned to the <code>out</code> keyword when the program ends execution will be output by the program.
+    <code>out</code> has a default value of <code><></code> until reassigned.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('out: "Hello World!"
@@ -43,8 +44,8 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
 name: "Hello Bob!";
 ex( 
-  print message
-  print name
+  out: message
+  out:+ name
 )
 /* prints: 
 Hello World!Hello Bob!
@@ -61,9 +62,9 @@ Hello World!Hello Bob!
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_var: "World"
 printAll: ex(
-  print "Hello"
-  print my_var
-  print "!"
+  out: "Hello"
+  out:+ my_var
+  out:+ "!"
 )
 /* executing printAll prints: 
 HelloWorld!
@@ -80,7 +81,7 @@ HelloWorld!
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('add5: fn print(in + 5)
+<pre class="code"><code><?=htmlspecialchars('add5: fn (out:(in + 5);)
 add5 5
 /* prints: 
 10
@@ -100,8 +101,8 @@ add5 5
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('printHello:? ex( 
-  print "Hello "
-  print in 
+  out: "Hello "
+  out:+ in 
 )')?></code></pre>
     </code>
   </div>
@@ -178,7 +179,7 @@ object.tag1: void
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('try(
   printAll
-  print "Success!"
+  out: "Success!"
 )')?></code></pre>
     </code>
   </div>
@@ -191,15 +192,13 @@ object.tag1: void
     Each successive expression list is only executed if the prior's execution was interrupted by a void.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try(
-  (
+<pre class="code"><code><?=htmlspecialchars('try((
   void
-  print "Success!"
+  out: "Success!"
   )
   (
-  print "Error!"
-  )
-)')?></code></pre>
+    out: "Error!"
+  ))')?></code></pre>
     </code>
   </div>
 </div>
@@ -207,18 +206,16 @@ object.tag1: void
 
 <div class="row">
   <div class="col">
-    The <code>esc</code> keyword immediately ends execution in the current <code>loop</code> (similarly to 'break' in other languages) and enables the <code>or</code> keyword.
+    The <code>esc</code> keyword immediately ends execution in the current <code>loop</code> (similarly to 'break' in other languages).
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('loop(
-  try(
+<pre class="code"><code><?=htmlspecialchars('try((
+  loop(
     esc
-    print "Fail!"
+    out: "Fail!"
+    )
   )
-)
-or(
-  print "Loop Completed!"
-)')?></code></pre>
+  (out: "Loop Completed!";))')?></code></pre>
     </code>
   </div>
 </div>
@@ -244,7 +241,7 @@ or(
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('loop(
- print "This is an infinite loop"
+ out: "This is an infinite loop"
  next
  esc
 )')?></code></pre>
@@ -259,16 +256,16 @@ or(
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('loop(
-  try(
+  try((
     forceExitLoop // outputs void to exit the if
-    print "Fail!"
+    out: "Fail!"
   )
-  or(
+  (
     out: ex (void)
-    print "Success!" // this is still executed 
+    out: "Success!" // this is still executed 
 // because the output is not retrieved until after 
 // the or finishes executing or a void/esc has been used
-  )
+  ))
 )')?></code></pre>
     </code>
   </div>
@@ -283,8 +280,8 @@ or(
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('list = [ "hello" "world" ]
 list.loop(
-  print key 
-  print val
+  out:+ key 
+  out:+ val
 )
 // prints "1hello2world"')?></code></pre>
     </code>
@@ -301,10 +298,10 @@ list.loop(
 list2 = [ "I" "II"]
 list1.loop(
   list2.loop(
-    print list1.key
-    print list1.val 
-    print list2.val
-    print " "
+    out:+ list1.key
+    out:+ list1.val 
+    out:+ list2.val
+    out:+ " "
   )
 )
 // prints "1AI 1AII 2BI 2BII"')?></code></pre>
@@ -318,13 +315,13 @@ list1.loop(
     Attempting to access an undefined name returns a <code>void</code> instead of an object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try(
+<pre class="code"><code><?=htmlspecialchars('try((
   undefined
-  print "Success!"
+  out: "Success!"
 )
-or(
-  print "Error!"
-)')?></code></pre>
+(
+  out: "Error!"
+))')?></code></pre>
     </code>
   </div>
 </div>
@@ -363,7 +360,7 @@ ${
     var: ${var "!"}
   )
   message: ex(
-    print var
+    out: var
   )
 >
 my_object.message
@@ -385,7 +382,7 @@ my_object.message
     var: ${var "!"}
   )
   message: ex(
-    print var
+    out: var
   )
 >
 my_object.message
@@ -401,8 +398,7 @@ my_object.message
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('printName: ex(
-  print "Hi! My name is "
-  print in
+  out: ${"Hi! My name is " in}
 )
 myName: "Jane"
 printName myName
@@ -437,11 +433,8 @@ echo "Hello"
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('type <str 
-  echo: ex(print src)
-  ping: ex(
-    print src
-    print in
-  )
+  echo: ex(out: src;)
+  ping: ex(out: ${src in};)
 >
 "Hello World".echo
 "Hello World".ping "... and John."')?></code></pre>
@@ -458,13 +451,13 @@ echo "Hello"
 <pre class="code"><code><?=htmlspecialchars('bowl: [ "milk" "cereal" ]
 cup: [ "cereal" "milk" ]
 isBreakfast: ex(
-  try(
+  try((
     in.has [ "milk" "cereal" ]
-    print "yes" 
+    out: "yes" 
   )
-  or(
-    print "no"
-  )
+  (
+    out: "no"
+  ))
 )
 // prints yes')?></code></pre>
     </code>
