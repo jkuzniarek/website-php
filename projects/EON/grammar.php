@@ -32,7 +32,7 @@ include $sRoot.'templates/sidebar.php';
     <p>
       <pre><?=htmlspecialchars('expression = (NAME | object | literal | group | command );
 
-command = (infix | prefix), [EOL | ";"];
+command = [EOL | "~"], (infix | prefix);
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
