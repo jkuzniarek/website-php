@@ -76,13 +76,12 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An ordered list of expressions may be created from the characters between <code>()</code> or <code>(: )</code>.
+    An ordered list of commands may be created from the characters between <code>()</code> or <code>(: )</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('commands: (
   print "this"
-  print "that"
-) 
+  print "that") 
 // the first item in "commands" is
 // the string \'print "this"\'')?></code></pre>
     </code>
@@ -92,9 +91,9 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    If executed, the expressions between <code>()</code> will be executed serially in the listed order. 
-    In contrast, the expressions between <code>(: )</code> will be evaluated in parallel as permitted by the chip architecture. 
-    Program execution does not move on from the list until all expressions have been evaluated.
+    If executed, the commands between <code>()</code> will be executed serially in the listed order. 
+    In contrast, the commands between <code>(: )</code> will be evaluated in parallel as permitted by the chip architecture. 
+    Program execution does not move on from the list until all commands have been evaluated.
   </div>
 </div>
 <br>
@@ -182,8 +181,7 @@ unicode_string: <ustr "string">
   'string'".'
   "string" 
   `string` 
-  <<string>>
-}')?></code></pre>
+  <<string>> }')?></code></pre>
     </code>
   </div>
 </div>
@@ -197,8 +195,7 @@ unicode_string: <ustr "string">
 <pre class="code"><code><?=htmlspecialchars("{
   'strings''s'".'
   "string""s" 
-  `string``s`
-}')?></code></pre>
+  `string``s` }')?></code></pre>
     </code>
   </div>
 </div>
@@ -310,8 +307,7 @@ double_number: <double 12.34>
 <pre class="code"><code><?=htmlspecialchars('[
   [0 0]
   [1 1]
-  [2 2]
-]')?></code></pre>
+  [2 2]]')?></code></pre>
 <br>
 <pre class="code"><code><?=htmlspecialchars('{
   [0 0]
@@ -319,19 +315,15 @@ double_number: <double 12.34>
   [2 2]
   {"three" "four"}
   ["four" "five"]
-  {"five" 5}
-}')?></code></pre>
+  {"five" 5}}')?></code></pre>
 <br>
 <pre class="code"><code><?=htmlspecialchars('{
   < first_name: "John"
     last_name: "Doe"
-    orders_placed: 4500
-  >
+    orders_placed: 4500>
   < first_name: "Jane"
     last_name: "Doe"
-    orders_placed: 2300
-  >
-}')?></code></pre>
+    orders_placed: 2300>}')?></code></pre>
 <br>
 <pre class="code"><code><?=htmlspecialchars('<book 
   reference 
@@ -342,17 +334,14 @@ double_number: <double 12.34>
   table_of_contents: {
     <row section title:"The Beginning" page: 1>
     <row section title:"The Middle" page: 50>
-    <row section title:"The End" page: 100>
-  };
-{
+    <row section title:"The End" page: 100>}
+  ;{
   <page section_start heading: "The Beginning"; {
     "In the beginning there was nothing..."
     "... which is why there must be something. Otherwise everything would be ..."
-    "... however thats impossible, so instead we must conclude that ..."
-  }
+    "... however thats impossible, so instead we must conclude that ..."}
   <page "something something something">
-  <page "blah blah blah blah">
-}')?></code></pre>
+  <page "blah blah blah blah">}')?></code></pre>
 <br>
 <pre class="code"><code><?=htmlspecialchars('<employee name: "Michael Scott" title: "Regional Manager";
 {
@@ -361,26 +350,20 @@ double_number: <double 12.34>
     title: "Head of Sales" 
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
-      <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    };
-  {
+      <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >}
+  ;{
     <employee name: "Andy Bernard" 
       title: "Sales Rep"
       top_customers: {
         <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-        <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-      }
-    >
+        <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}>
     <employee name: "Phyllis Lapin" 
       title:"Sales Rep"
       top_customers: {
         <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-        <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-      }
-    >
-  }
-  <employee name: "Pam Beesly" title: "Office Administrator">
-}')?></code></pre>
+        <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}>
+  }>
+  <employee name: "Pam Beesly" title: "Office Administrator">}')?></code></pre>
 <br>
 
 
