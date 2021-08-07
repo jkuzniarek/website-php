@@ -481,6 +481,40 @@ os.git.commit < a m; "commit message"
 </div>
 <br>
 
+<!-- <div class="row">
+  <div class="col">
+    The <code>cw</code> keyword returns the code weight of the input statement list. 
+    Code weight is the maximum number of statements that may be executed irrespective of what a procedure does.
+    Statements within loops are counted once.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('cw loop(
+  try((
+    forceExitLoop 
+    out: "Fail!"
+  )
+  (
+    out: ex (void)
+    out: "Success!"
+  ))
+) // returns 4')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    The <code>mass</code> keyword returns the code mass of the input object. 
+    Code mass is the size in bytes of an object as is.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('mass "hello" // returns 6')?></code></pre>
+    </code>
+  </div>
+</div>
+<br> -->
+
 <div class="row">
   <div class="col">
   The <code>use</code> keyword is used to set the namespace that will be prepended to each subsequent identifier until ns is changed.
