@@ -272,17 +272,6 @@ double_number: <double 12.34>
 
 <div class="row">
   <div class="col">
-    Key-value pairs can be made volatile (like in C) so that they are ignored by a compiler's optimizer.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('< key1: "data" ~key2: "volatile data">')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
     Key-value pairs can be created using a copy of another key's value.
   </div>
   <div class="col">
