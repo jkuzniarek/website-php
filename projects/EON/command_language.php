@@ -28,8 +28,10 @@ include $sRoot.'templates/sidebar.php';
     <code>out</code> has a default value of <code><></code> until reassigned.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('out: "Hello World!"
-// returns "Hello World!"')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('<eon
+out: "Hello World!"
+// returns "Hello World!"
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -41,7 +43,8 @@ include $sRoot.'templates/sidebar.php';
   The key-value pairs in the parent scope are accessible from within the list of expressions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('message: "Hello World!"
+<pre class="code"><code><?=htmlspecialchars('<eon
+message: "Hello World!"
 name: "Hello Bob!";
 ex( 
   out: message
@@ -49,7 +52,8 @@ ex(
 )
 /* prints: 
 Hello World!Hello Bob!
-*/')?></code></pre>
+*/
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -60,7 +64,8 @@ Hello World!Hello Bob!
     Processes are named sets of commands that are executed when accessed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('my_var: "World"
+<pre class="code"><code><?=htmlspecialchars('<eon
+my_var: "World"
 printAll: ex(
   out: "Hello"
   out:+ my_var
@@ -68,7 +73,8 @@ printAll: ex(
 )
 /* executing printAll prints: 
 HelloWorld!
-*/')?></code></pre>
+*/
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -81,11 +87,13 @@ HelloWorld!
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('add5: fn (out:(in + 5);)
+<pre class="code"><code><?=htmlspecialchars('<eon
+add5: fn (out:(in + 5);)
 add5 5
 /* prints: 
 10
-*/')?></code></pre>
+*/
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -100,10 +108,12 @@ add5 5
     Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is the default behavior.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('printHello:? ex( 
+<pre class="code"><code><?=htmlspecialchars('<eon
+printHello:? ex( 
   out: "Hello "
   out:+ in 
-)')?></code></pre>
+)
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -123,10 +133,12 @@ When the <code>void</code> keyword is executed it immediately exits the current 
     Tags can be added to an existing object's index by pairing them to an empty object <code><></code> and removed by pairing them with <code>void</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('object: < tag1 >
+<pre class="code"><code><?=htmlspecialchars('<eon
+object: < tag1 >
 object.tag2: <>
 object.tag1: void
-// now the object is < tag2 >')?></code></pre>
+// now the object is < tag2 >
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -137,9 +149,11 @@ object.tag1: void
     You can check if an object has a specified tag, which may return (and potentially execute) the <code>void</code> keyword.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<tag1 tag2>.tag_3
+<pre class="code"><code><?=htmlspecialchars('<eon
+<tag1 tag2>.tag_3
 // if yes, then execution continues
-// if no, then the void keyword is returned')?></code></pre>
+// if no, then the void keyword is returned
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -150,9 +164,11 @@ object.tag1: void
     You can check if an object is a primitive or array.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('"string",[]
+<pre class="code"><code><?=htmlspecialchars('<eon
+"string",[]
 // if yes, then execution continues
-// if no, then the void keyword is returned')?></code></pre>
+// if no, then the void keyword is returned
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -163,9 +179,11 @@ object.tag1: void
     You can check if an object is a list.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<tag1 tag2>,{}
+<pre class="code"><code><?=htmlspecialchars('<eon
+<tag1 tag2>,{}
 // if yes, then execution continues
-// if no, then the void keyword is returned')?></code></pre>
+// if no, then the void keyword is returned
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -177,10 +195,12 @@ object.tag1: void
     If the expression list is unordered (executed in parallel) then all expressions in the list are always executed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try(
+<pre class="code"><code><?=htmlspecialchars('<eon
+try(
   printAll
   out: "Success!"
-)')?></code></pre>
+)
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -192,13 +212,15 @@ object.tag1: void
     Each successive expression list is only executed if the prior's execution was interrupted by a void.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try((
+<pre class="code"><code><?=htmlspecialchars('<eon
+try((
   void
   out: "Success!"
   )
   (
     out: "Error!"
-  ))')?></code></pre>
+  ))
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -209,13 +231,15 @@ object.tag1: void
     The <code>esc</code> keyword immediately ends execution in the current <code>loop</code> (similarly to 'break' in other languages).
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try((
+<pre class="code"><code><?=htmlspecialchars('<eon
+try((
   loop(
     esc
     out: "Fail!"
     )
   )
-  (out: "Loop Completed!";))')?></code></pre>
+  (out: "Loop Completed!";))
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -226,10 +250,12 @@ object.tag1: void
     The <code>loop</code> keyword repeatedly executes the commands in the list to its right until the <code>esc</code> keyword is called or the <code>next</code> keyword triggers another iteration.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('loop(
+<pre class="code"><code><?=htmlspecialchars('<eon
+loop(
  printAll
  esc
-)')?></code></pre>
+)
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -240,11 +266,13 @@ object.tag1: void
     The <code>next</code> keyword triggers another iteration of the loop without waiting until the current iteration of the loop has completed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('loop(
+<pre class="code"><code><?=htmlspecialchars('<eon
+loop(
  out: "This is an infinite loop"
  next
  esc
-)')?></code></pre>
+)
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -255,7 +283,8 @@ object.tag1: void
     The <code>void</code> and <code>esc</code> keywords can be returned to be executed by the encapsulating command-list in order to conditionally exit a command-list (scope) or loop.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('loop(
+<pre class="code"><code><?=htmlspecialchars('<eon
+loop(
   try((
     forceExitLoop // outputs void to exit the if
     out: "Fail!"
@@ -266,7 +295,8 @@ object.tag1: void
 // because the output is not retrieved until after 
 // the or finishes executing or a void/esc has been used
   ))
-)')?></code></pre>
+)
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -278,12 +308,14 @@ object.tag1: void
     In each iteration the current key and its value will be referenced by the reserved names <code>key</code> and <code>val</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('list = [ "hello" "world" ]
+<pre class="code"><code><?=htmlspecialchars('<eon
+list = [ "hello" "world" ]
 list.loop(
   out:+ key 
   out:+ val
 )
-// prints "1hello2world"')?></code></pre>
+// prints "1hello2world"
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -294,7 +326,8 @@ list.loop(
     Nested loops are possible by specifying which object the <code>key</code> or <code>val</code> is referencing.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('list1 = [ "A" "B" ]
+<pre class="code"><code><?=htmlspecialchars('<eon
+list1 = [ "A" "B" ]
 list2 = [ "I" "II"]
 list1.loop(
   list2.loop(
@@ -304,7 +337,8 @@ list1.loop(
     out:+ " "
   )
 )
-// prints "1AI 1AII 2BI 2BII"')?></code></pre>
+// prints "1AI 1AII 2BI 2BII"
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -315,13 +349,15 @@ list1.loop(
     Attempting to access an undefined name returns a <code>void</code> instead of an object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('try((
+<pre class="code"><code><?=htmlspecialchars('<eon
+try((
   undefined
   out: "Success!"
 )
 (
   out: "Error!"
-))')?></code></pre>
+))
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -333,7 +369,8 @@ list1.loop(
     The content of duplicate keys is combined into a list <code>{}</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('${"Hello " "World"}
+<pre class="code"><code><?=htmlspecialchars('<eon
+${"Hello " "World"}
 // combines into "Hello World"
 ${
   < tag1 key1: "Hello">
@@ -342,7 +379,8 @@ ${
 // combines into: 
 // < tag1 tag2 
 //   key1: {"Hello" "World"}
-// >')?></code></pre>
+// >
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -354,7 +392,8 @@ ${
     Changing an object's type does not trigger <code>init</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('my_object: <
+<pre class="code"><code><?=htmlspecialchars('<eon
+my_object: <
   var: "Hello"
   init: ex(
     var: ${var "!"}
@@ -364,7 +403,8 @@ ${
   )
 >
 my_object.message
-// prints Hello!')?></code></pre>
+// prints Hello!
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -376,7 +416,8 @@ my_object.message
   Changing an object's type does not trigger <code>dest</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('my_object: <
+<pre class="code"><code><?=htmlspecialchars('<eon
+my_object: <
   var: "Bye"
   dest: (
     var: ${var "!"}
@@ -386,7 +427,8 @@ my_object.message
   )
 >
 my_object.message
-// prints Bye!')?></code></pre>
+// prints Bye!
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -397,12 +439,14 @@ my_object.message
     The <code>in</code> keyword is actually a reserved name to the object passed into a process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('printName: ex(
+<pre class="code"><code><?=htmlspecialchars('<eon
+printName: ex(
   out: ${"Hi! My name is " in}
 )
 myName: "Jane"
 printName myName
-// prints Hi! My name is Jane')?></code></pre>
+// prints Hi! My name is Jane
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -414,12 +458,14 @@ printName myName
     It can be used to not only set the process's output, but to reference it within the process, and modify it prior to the end of the process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('echo: ex(
+<pre class="code"><code><?=htmlspecialchars('<eon
+echo: ex(
   out: in
   out: ${out "!"}
 )
 echo "Hello"
-// returns "Hello!"')?></code></pre>
+// returns "Hello!"
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -432,12 +478,14 @@ echo "Hello"
     The <code>src</code> keyword accesses the object to the left of the process being called.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('type <str 
+<pre class="code"><code><?=htmlspecialchars('<eon
+type <str 
   echo: ex(out: src;)
   ping: ex(out: ${src in};)
 >
 "Hello World".echo
-"Hello World".ping "... and John."')?></code></pre>
+"Hello World".ping "... and John."
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -448,7 +496,8 @@ echo "Hello"
     The <code>has</code> keyword returns <code>void</code> if the left object does not have all the same type, key-value pairs, and body that are in the right object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('bowl: [ "milk" "cereal" ]
+<pre class="code"><code><?=htmlspecialchars('<eon
+bowl: [ "milk" "cereal" ]
 cup: [ "cereal" "milk" ]
 isBreakfast: ex(
   try((
@@ -459,7 +508,8 @@ isBreakfast: ex(
     out: "no"
   ))
 )
-// prints yes')?></code></pre>
+// prints yes
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -470,12 +520,14 @@ isBreakfast: ex(
     The <code>os</code> keyword provides an interface with the host operating system's API similar to a terminal or CLI.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('os: import "os"
+<pre class="code"><code><?=htmlspecialchars('<eon
+os: import "os"
 os.cd "../project/"
 os.git.commit < a m; "commit message"
 // in Powershell this is equivalent to:
 // cd ../project/
-// git commit -am "commit message" ')?></code></pre>
+// git commit -am "commit message" 
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -488,7 +540,8 @@ os.git.commit < a m; "commit message"
     Statements within loops are counted once.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('cw loop(
+<pre class="code"><code><?=htmlspecialchars('<eon
+cw loop(
   try((
     forceExitLoop 
     out: "Fail!"
@@ -497,7 +550,8 @@ os.git.commit < a m; "commit message"
     out: ex (void)
     out: "Success!"
   ))
-) // returns 4')?></code></pre>
+) // returns 4
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -509,7 +563,9 @@ os.git.commit < a m; "commit message"
     Code mass is the size in bytes of an object as is.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('mass "hello" // returns 6')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('<eon
+mass "hello" // returns 6
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -520,10 +576,12 @@ os.git.commit < a m; "commit message"
   The <code>use</code> keyword is used to set the namespace that will be prepended to each subsequent identifier until ns is changed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('use "os."
+<pre class="code"><code><?=htmlspecialchars('<eon
+use "os."
 cd "../project/"
 // prepends "os." to cd
-use "" // "exits" namespace')?></code></pre>
+use "" // "exits" namespace
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -534,7 +592,9 @@ use "" // "exits" namespace')?></code></pre>
   The <code>lib</code> keyword indicates that the code in the given file belongs to the named library.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('lib myLibrary')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('<eon
+lib myLibrary
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -545,9 +605,11 @@ use "" // "exits" namespace')?></code></pre>
   The <code>import</code> keyword opens the designated .eon library and returns it as an object.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('myLib: import "./libraries/myLibrary.eon"
+<pre class="code"><code><?=htmlspecialchars('<eon
+myLib: import "./libraries/myLibrary.eon"
 // imported code is now available using myLib 
-// as library name. ie: myLib.printName("Bob")')?></code></pre>
+// as library name. ie: myLib.printName("Bob")
+>')?></code></pre>
     </code>
   </div>
 </div>
@@ -558,8 +620,10 @@ use "" // "exits" namespace')?></code></pre>
   The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the current scope and executes it.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('insert "./helloWorld.eon"
-// prints Hello World!')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('<eon
+insert "./helloWorld.eon"
+// prints Hello World!
+>')?></code></pre>
     </code>
   </div>
 </div>
