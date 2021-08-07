@@ -30,44 +30,54 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = (NAME | object | literal | prefix | infix);
+      <pre><?=htmlspecialchars('expression = (NAME | object | literal | group | command );
+
+command = (infix | prefix), [EOL | ";"];
+
+group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
+
+
+object = "<", [type], [index], (">" | ";", (group | ([expression], ">")));
 
 prefix = (OPERATOR | NAME), expression;
 
 infix = expression, prefix;
 
 
-object = "<", [TYPE], [index], (">" | ";", (linked_list | fixed_list | ([expression], ">")));
+literal = INTEGER | decimal | STRING | bytes;
 
-linked_list = ( "{", {object | literal }, "}" ) | ( "(", [":"], {expression, ["|"], [EOL | ";"]}, ")" );
-
-fixed_list = literal | struct | array | ("<", [TYPE], [fixed_list], ">");
-
+type = TYPE, [ "\", INTEGER ];
 
 index = {infix | NAME};
 
-array = [INTEGER], "[", ({fixed_list} | ("<", TYPE, ">")), "]";
-
-struct = "{:", {fixed_list}, "}";
-
-
-literal = INTEGER | decimal | STRING | BYTECODE;
 
 decimal = INTEGER, ".", INTEGER;
 
+bytes = ( "\x" | "\b" | "\d" ), { INTEGER };
+
+
+group open delimiters:
+"["  | "("  | "{"  | "(:" | "{:"
+
+group close delimiters:
+"]"  | ")"  | "}" 
 
 operators: 
-"."  | ","  | "!"  | "#"  | "@"  | "$"  | "+"  | 
-"-"  | "*"  | "/"  | "%"  | "~"  | ":"  | "::" | 
-":&" | ":?" | ":+" | ":-" | ":*" | ":/" | ":#" | 
-"#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" 
+"."  | ","  | "#"  | "*"  | "@"  | 
+"/"  | "|"  | "!"  | "$"  | "%"  | "^"  |
+":"  | "::" | ":&" | ":?" | ":+" | ":-" | ":#" | 
+"#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" |
 
 keywords:
 "ex"   | "fn"   | "void" | "esc"  |
 "try"  | "loop" | "next" | "key"  | 
 "val"  | "init" | "dest" | "in"   | 
 "out"  | "type" | "src"  | "has"  | 
-"os"  
+"os"   | "vol" 
+
+math:
+"sum"  | "dif"  | "mul"  | "div"  | 
+"exp"  | "mod"  |
 ')?></pre>
     </p>
 
