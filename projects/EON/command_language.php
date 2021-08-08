@@ -55,7 +55,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 
-<p>Commands in a command list are always preceded by either a new line character or a <code>~</code> character.</p>
+<p>Commands in a command list are always preceded by either a new line character or a <code>=</code> character.</p>
 <p>Commands in a command list can be spread onto multiple lines by placing a <code>//</code> before the next new line character.</p>
 <br>
 
@@ -72,7 +72,7 @@ include $sRoot.'templates/sidebar.php';
       out: "Hello"
       out:+ my_var
       out:+ "!" )>
-  (~out: printAll)
+  (=out: printAll)
   /* prints: 
   HelloWorld! */ >')?></code></pre>
   </div>
@@ -89,7 +89,7 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   add5: fn (
     out: sum {in 5})
-  /(~out: add5 5)
+  /(=out: add5 5)
   /* prints: 
   10 */ >')?></code></pre>
   </div>
@@ -144,7 +144,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (~<tag1 tag2>.tag_3)
+  (=<tag1 tag2>.tag_3)
   // if yes, then execution continues
   // if no, then the void expression results
   >')?></code></pre>
@@ -158,7 +158,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (~ "string"/[])
+  (= "string"/[])
   // if yes, then execution continues
   // if no, then the void expression results
   >')?></code></pre>
@@ -172,7 +172,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (~<tag1 tag2>/{})
+  (=<tag1 tag2>/{})
   // if yes, then execution continues
   // if no, then the void expression results
   >')?></code></pre>
@@ -218,10 +218,10 @@ When the <code>void</code> expression is executed it immediately exits the curre
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   try(
-    (~loop(
+    (=loop(
         esc
         out: "Fail!"))
-    (~out: "Loop Completed!"))>')?></code></pre>
+    (=out: "Loop Completed!"))>')?></code></pre>
   </div>
 </div>
 <br>
@@ -282,7 +282,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   list: [ "hello" "world" ]
-  /(~list.loop(
+  /(=list.loop(
       out:+ key 
       out:+ val))
     // prints "1hello2world"
@@ -433,8 +433,8 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   (
     type <str 
-      echo: ex(~out: src)
-      ping: ex(~out: ${src in})>
+      echo: ex(=out: src)
+      ping: ex(=out: ${src in})>
     "Hello World".echo
     "Hello World".ping "... and John.")>')?></code></pre>
   </div>
@@ -454,7 +454,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
       (
         in.has [ "milk" "cereal" ]
         out: "yes")
-      (~out: "no")))
+      (=out: "no")))
   // prints yes
   >')?></code></pre>
   </div>
@@ -487,7 +487,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon 
   key1: "data" 
   key2: "volatile data"
-  /(~vol key2)>')?></code></pre>
+  /(=vol key2)>')?></code></pre>
   </div>
 </div>
 <br>
