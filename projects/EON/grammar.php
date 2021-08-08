@@ -37,7 +37,7 @@ command = [EOL | "~"], (infix | prefix);
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
 
-object = "<", [type], [index], (">" | ";", (group | ([expression], ">")));
+object = "<", [type], [index], (">" | "/", (group | [expression]), ">"));
 
 prefix = (OPERATOR | NAME), expression;
 
@@ -63,8 +63,8 @@ group close delimiters:
 "]"  | ")"  | "}" 
 
 operators: 
-"."  | ","  | "#"  | "*"  | "@"  | 
-"/"  | "|"  | "!"  | "$"  | "%"  | "^"  |
+"."  | "/"  | "#"  | "*"  | "@"  | 
+"|"  | "!"  | "$"  | "%"  | "^"  |
 ":"  | "::" | ":&" | ":?" | ":+" | ":-" | ":#" | 
 "#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" |
 

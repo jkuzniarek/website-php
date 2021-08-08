@@ -20,33 +20,28 @@ include $sRoot.'templates/sidebar.php';
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
-    <pre class="code"><code><?=htmlspecialchars('tree: <employee red_team name: "Michael Scott" title: "Regional Manager";
-{
-  <employee red_team name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
-  <employee blue_team name: "Jim Halpert" 
-    title: "Head of Sales" 
-    top_customers: {
-      <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
-      <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    };
-  {
-    <employee red_team name: "Andy Bernard" 
-      title: "Sales Rep"
+    <pre class="code"><code><?=htmlspecialchars('tree: <employee red_team name: "Michael Scott" title: "Regional Manager"
+  /{
+    <employee red_team name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
+    <employee blue_team name: "Jim Halpert" 
+      title: "Head of Sales" 
       top_customers: {
-        <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-        <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-      }
-    >
-    <employee blue_team name: "Phyllis Lapin" 
-      title:"Sales Rep"
-      top_customers: {
-        <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-        <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-      }
-    >
-  }
-  <employee blue_team name: "Pam Beesly" title: "Office Administrator">
-}')?></code></pre>
+        <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
+        <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >}
+      /{
+        <employee red_team name: "Andy Bernard" 
+          title: "Sales Rep"
+          top_customers: {
+            <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
+            <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}>
+        <employee blue_team name: "Phyllis Lapin" 
+          title:"Sales Rep"
+          top_customers: {
+            <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
+            <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}>
+      }>
+    <employee blue_team name: "Pam Beesly" title: "Office Administrator">
+  }>')?></code></pre>
 <p>
   The object accessor examples below use the above object named <code>tree</code>.
 </p>
@@ -97,45 +92,30 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An object's listed items are accessed using <code>,</code> followed by the item index. 
+    An object's listed items are accessed using <code>/</code> followed by the item index. 
     Numerical indexing starts at 1 <strong>not 0</strong> because indexes <strong>are not</strong> offsets.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree,1 
+<pre class="code"><code><?=htmlspecialchars('tree/1 
 /* returns: 
-{employee 
+<employee 
   red_team
   name: "Dwight Scrute" 
-  title: "Assistant to the Regional Mgr"
-}
+  title: "Assistant to the Regional Mgr">
 */')?></code></pre>
     </code>
   </div>
 </div>
 <br>
 
-<!-- replace 0 with a function .count  -->
 <div class="row">
   <div class="col">
-    The count of items in a list can be retrieved by accessing the zero index.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('list: {"hello" "world"}
-list,0 // returns: 2
-<>,0 // returns: 0')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    The body of an object can be retrieved without any tags by using the <code>,</code> accessor.
+    The body of an object can be retrieved without any tags by using the <code>/</code> accessor.
     If the object is a primitive this will convert the primitive to a byte array.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('integer: 511
-integer,
+integer/
 // returns [255 1]')?></code></pre>
     </code>
   </div>
@@ -147,7 +127,7 @@ integer,
     The entire list that is the body of the example object can be retrieved like so.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree, 
+<pre class="code"><code><?=htmlspecialchars('tree/ 
 /* returns the entire list: 
 {
   <employee red_team name: "Dwight Scrute" title: "Ass. Regional Mgr">
@@ -156,25 +136,22 @@ integer,
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
       <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    };
-  {
-    <employee red_team name: "Andy Bernard" 
-      title: "Sales Rep"
-      top_customers: {
-        <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-        <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-      }
-    >
-    <employee blue_team name: "Phyllis Lapin" 
-      title:"Sales Rep"
-      top_customers: {
-        <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-        <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-      }
-    >
-  }
-  <employee blue_team name: "Pam Beesly" title: "Office Administrator">
-}
+    }
+    /{
+      <employee red_team name: "Andy Bernard" 
+        title: "Sales Rep"
+        top_customers: {
+          <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
+          <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
+        }>
+      <employee blue_team name: "Phyllis Lapin" 
+        title:"Sales Rep"
+        top_customers: {
+          <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
+          <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
+        }>
+    }>
+  <employee blue_team name: "Pam Beesly" title: "Office Administrator">}
 */')?></code></pre>
     </code>
   </div>
@@ -217,7 +194,7 @@ true/false with this example returning true)
     So to see a list of the names of jim's employees:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree,2#employee.name 
+<pre class="code"><code><?=htmlspecialchars('tree/2#employee.name 
 /* returns: 
 {"Andy Bernard" "Phyllis Lapin"}
 */')?></code></pre>
@@ -233,38 +210,15 @@ true/false with this example returning true)
     So to see a list of jim's employees' top customer lists:
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers
+<pre class="code"><code><?=htmlspecialchars('tree/2@top_customers
 /* returns: 
 {
   {
     <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-    <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-  }
+    <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}
   {
     <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-    <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-  }
-}
-*/')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    A list of lists can be merged into a single list using <code>$</code>.
-    So to see a single list of the top customers of Jim's employees:
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree,2@top_customers$
-/* returns: 
-{
-  <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-  <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-  <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-  <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-}
+    <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}}
 */')?></code></pre>
     </code>
   </div>

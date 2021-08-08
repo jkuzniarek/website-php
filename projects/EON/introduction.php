@@ -44,7 +44,9 @@ include $sRoot.'templates/sidebar.php';
 
     <p>
       The EON <strong>Object Model</strong> underlies not just an eon object's structure, but the architecture of the programming language itself because like in Lisp, code is data too.
-      Every EON object has 3 sections: the type, the index, and the body. These are shown in the example below in green, blue, and yellow respectively.
+      Every EON object has 3 sections: the type, the index, and the body. 
+      These are shown in the example below in green, blue, and yellow respectively. 
+      Collectively, these sections are surrounded by a wrapper demarcated by angle brackets (in red below).
     </p>
     <p>
       <table class="mx-auto">
@@ -56,11 +58,11 @@ include $sRoot.'templates/sidebar.php';
           <td></td>
         </tr>
         <tr>
-          <td>&lt;</td>
+          <td class="text-danger">&lt;</td>
           <td class="text-success border-right border-left">title &nbsp;</td>
-          <td class="text-info border-right">lang:"en"; &nbsp;</td>
-          <td class="text-warning border-right">"Harry Potter"</td>
-          <td>&gt;</td>
+          <td class="text-info border-right">lang:"en" &nbsp;</td>
+          <td class="text-warning border-right">/"Harry Potter"</td>
+          <td class="text-danger">&gt;</td>
         </tr>
       </table>
     </p>
@@ -73,18 +75,16 @@ include $sRoot.'templates/sidebar.php';
       </li>
       <li>
         The <span class="badge badge-info">Index</span> stores an object's keys and key-value pairs.
-        Objects may have as many keys and key-value pairs as desired. 
-        The index must be terminated by a semicolon if the object has a body.
+        Objects may have as many keys and key-value pairs as desired, but they must be located directly adjacent to each other.
       </li>
       <li>
         The <span class="badge badge-warning">Body</span> stores an object's primary contents either as a single value, another object, list, or array.
         Objects may only have a single body or no body at all.
-        The body must always be the last item in an object. 
-        If the last character of the body itself is a <code>}</code>, <code>]</code>, or <code>)</code> then the object's closing <code>&gt;</code> may be omitted.
+        The body must always be the last item in an object, and it must be preceded by a <code>/</code>. 
       </li>
       <li>
         If an object has no <span class="badge badge-success">Type</span> and no <span class="badge badge-info">Index</span>,
-        then the object's opening <code>&lt;</code> and closing <code>&gt;</code> may be omitted.
+        then the object's wrapper creates a redundant layer of abstraction around the body (which is itself an object) and may be omitted.
       </li>
     </ul>
 
@@ -94,25 +94,25 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <label>EON</label>
 <pre class="code"><code><?=htmlspecialchars('<bookstore {
-  <book category:"cooking"; {
-    <title lang:"en"; "Everyday Italian">
-    <author "Giada De Laurentiis">
-    <year 2005>
-    <price 30.00>
+  <book category:"cooking" /{
+    <title lang:"en" /"Everyday Italian">
+    <author /"Giada De Laurentiis">
+    <year /2005>
+    <price /30.00>
   }>
-  <book category:"children"; { 
-    <title lang:"en"; "Harry Potter">
-    <author "J K. Rowling">
-    <year 2005>
-    <price 29.99>
+  <book category:"children" /{ 
+    <title lang:"en" /"Harry Potter">
+    <author /"J K. Rowling">
+    <year /2005>
+    <price /29.99>
   }>
-  <book category:"web"; { 
-    <title lang:"en"; "Learning XML">
-    <author "Erik T. Ray">
-    <year 2003>
-    <price 39.95>
+  <book category:"web" /{ 
+    <title lang:"en" /"Learning XML">
+    <author /"Erik T. Ray">
+    <year /2003>
+    <price /39.95>
   }>
-}')?></code></pre>
+}>')?></code></pre>
       </div>
       <div class="col">
         <label>XML</label>
@@ -144,22 +144,22 @@ include $sRoot.'templates/sidebar.php';
     <div class="row">
       <div class="col">
         <label>Restructured EON</label>
-<pre class="code"><code><?=htmlspecialchars('<bookstore {
+<pre class="code"><code><?=htmlspecialchars('<bookstore /{
   <book category:"cooking"
-    title: < lang:"en" "Everyday Italian">
+    title: < lang:"en" /"Everyday Italian">
     author: "Giada De Laurentiis"
     year: 2005
     price: 30.00>
   <book category:"children" 
-    title: < lang:"en" "Harry Potter">
+    title: < lang:"en" /"Harry Potter">
     author: "J K. Rowling"
     year: 2005
     price: 29.99>
   <book category:"web" 
-    title: < lang:"en" "Learning XML">
+    title: < lang:"en" /"Learning XML">
     author: "Erik T. Ray"
     year: 2003
-    price: 39.95>}')?></code></pre>
+    price: 39.95>}>')?></code></pre>
       </div>
     </div>
 

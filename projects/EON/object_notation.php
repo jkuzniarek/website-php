@@ -114,7 +114,7 @@ include $sRoot.'templates/sidebar.php';
     The type of an array's data may be specified.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('string: [<char>]')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('string: <char /[]>')?></code></pre>
     </code>
   </div>
 </div>
@@ -125,7 +125,7 @@ include $sRoot.'templates/sidebar.php';
     The length of an array's data may be specified, but if not then it will be assumed to only encompass the specified data.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('zip_code: 5[<int>]')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('zip_code: <int5 /[]>')?></code></pre>
     </code>
   </div>
 </div>
@@ -149,9 +149,9 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('string: "string"
-// equivalent to <str ["s" "t" "r" "i" "n" "g"]
+// equivalent to <str /["s" "t" "r" "i" "n" "g"]>
 integer: 511
-// equivalent to <int [255 1]')?></code></pre>
+// equivalent to <int /[255 1]>')?></code></pre>
     </code>
   </div>
 </div>
@@ -163,8 +163,8 @@ integer: 511
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('string1: "string"
-string2: <str "string">
-unicode_string: <ustr "string">
+string2: <str /"string">
+unicode_string: <ustr /"string">
 // the first 2 strings become ascii strings')?></code></pre>
     </code>
   </div>
@@ -209,9 +209,9 @@ unicode_string: <ustr "string">
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('number1: 12.34
-number2: <dec 12.34>
-float_number: <float 12.34>
-double_number: <double 12.34>
+number2: <dec /12.34>
+float_number: <float /12.34>
+double_number: <double /12.34>
 // the first 2 numbers become decimal types
 // the third becomes a floating point number
 // the fourth becomes a double')?></code></pre>
@@ -248,8 +248,8 @@ double_number: <double 12.34>
     The body must always appear last.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<type tag keys:values; body>
-<int [1 2]')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('<type tag keys:values /body>
+<int [1 2]>')?></code></pre>
     </code>
   </div>
 </div>
@@ -335,35 +335,35 @@ double_number: <double 12.34>
     <row section title:"The Beginning" page: 1>
     <row section title:"The Middle" page: 50>
     <row section title:"The End" page: 100>}
-  ;{
-  <page section_start heading: "The Beginning"; {
+  /{
+  <page section_start heading: "The Beginning" /{
     "In the beginning there was nothing..."
     "... which is why there must be something. Otherwise everything would be ..."
     "... however thats impossible, so instead we must conclude that ..."}
   <page "something something something">
   <page "blah blah blah blah">}')?></code></pre>
 <br>
-<pre class="code"><code><?=htmlspecialchars('<employee name: "Michael Scott" title: "Regional Manager";
-{
+<pre class="code"><code><?=htmlspecialchars('<employee name: "Michael Scott" title: "Regional Manager"
+/{
   <employee name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
   <employee name: "Jim Halpert" 
     title: "Head of Sales" 
     top_customers: {
       <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
       <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >}
-  ;{
-    <employee name: "Andy Bernard" 
-      title: "Sales Rep"
-      top_customers: {
-        <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-        <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}>
-    <employee name: "Phyllis Lapin" 
-      title:"Sales Rep"
-      top_customers: {
-        <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-        <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}>
-  }>
-  <employee name: "Pam Beesly" title: "Office Administrator">}')?></code></pre>
+    /{
+      <employee name: "Andy Bernard" 
+        title: "Sales Rep"
+        top_customers: {
+          <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
+          <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}>
+      <employee name: "Phyllis Lapin" 
+        title:"Sales Rep"
+        top_customers: {
+          <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
+          <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}>
+    }>
+  <employee name: "Pam Beesly" title: "Office Administrator">}>')?></code></pre>
 <br>
 
 
