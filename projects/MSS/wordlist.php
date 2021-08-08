@@ -30,13 +30,13 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <h4>MSS</h4>
         <p>
-          kum, get, giv, goe, keep, let, mayk, puut, seem, tayk, bee, du, haav, say, see, send, may, wil,
-          about, akross, aaftur, agenst, amung, aat, bifor, bitween, by, doun, frum, in, of, on, oevur, thru, tu, undur, up, with,
+          kum, get, giv, go, keep, let, mayk, puut, seem, tayk, bee, du, haav, say, see, send, may, wil,
+          about, akrawss, aaftur, agenst, amung, aat, bifor, bitween, by, doun, frum, in, awf, awn, ovur, thru, tu, undur, up, with,
           az, for, uv, til, then,
-          a, tha, ol, eni, evri, litl, much, noe, uthur, sum, such, thaat, thiss, Y, hee, yu, hu, 
-          end, bekuz, but, or, if, thoe, wyl, how, wen, wer, wy,
+          a, tha, awl, eni, evri, litl, much, no, uthur, sum, such, thaat, thiss, Y, hee, yu, hu, 
+          end, bukuz, but, or, if, tho, wyl, how, wen, wer, wy,
           agen, evur, far, forwurd, heer, neer, now, out, stil, then, ther, tugether, wel,
-          ulmoest, anuf, eevin, not, oenli, qwyt, soe, veri, tumaro, yesturday,
+          ulmost, anuf, eevin, nawt, onli, qwyt, so, veri, tumaro, yesturday,
           north, south, eest, west, pleez, yess.
         </p>
       </div>
@@ -63,49 +63,49 @@ include $sRoot.'templates/sidebar.php';
         <p>
           akount, aakt, adishin, adjustmint, aadvurtyzmint, agreemint, er, amount, ameuzmint, aanimal,
           aansur, aapuraatis, aprooval, argeumint, art, ataak, atempt, atenshin, atrakshin, athoriti,
-          baak, baalinss, bayss, bihayvyur, bileef, burth, bit, byt, blud, bloe, 
-          bodi, braass, bred, breth, bruthur, bilding, burn, burst, bizniss, butur, 
-          kaanviss, ker, koz, chok, chaanss, chaynj, kloth, koel, kulur, kumfurt, 
-          kumiti, kumpeni, kumperisin, kompatishin, kundishin, kunekshin, kuntroel, kuuk, kopur, kopi, 
-          kork, kotin, kof, kuntri, kuvur, krak, kredit, krym, krush, kry, 
-          kurint, kurv, daamij, daynjur, dotur, day, deth, det, disizhin, digri, 
+          baak, baalinss, bayss, bihayvyur, bileef, burth, bit, byt, blud, blo, 
+          bawdi, braass, bred, breth, bruthur, bilding, burn, burst, bizniss, butur, 
+          kaanviss, ker, kawz, chawk, chaanss, chaynj, klawth, kol, kulur, kumfurt, 
+          kumiti, kumpeni, kumperisin, kawmpatishin, kundishin, kunekshin, kuntrol, kuuk, kawpur, kawpi, 
+          kork, kawtin, kawf, kuntri, kuvur, krak, kredit, krym, krush, kry, 
+          kurint, kurv, daamij, daynjur, dawtur, day, deth, det, disizhin, digri, 
           dizyn, dizyur, distrukshin, deetayl, divelupmint, dijeschin, direkshin, diskuvuri, diskushin, dizeez, 
           disgust, distinss, distribeushin, divizhin, dout, dreenk, dryving, dust, urth, ej, 
         </p>
         <p>
           ejookayshin, ifekt, end, erur, ivent, ixaampl, ixchaynj, igzistinss, ikspanshin, ixpeereeinss, 
-          expurt, faakt, fol, faamili, fothur, feer, feeling, fikshin, feeld, fyt, 
-          fyur, flaym, flyt, flouur, foeld, food, forss, form, frend, frunt, 
-          froot, glaass, goeld, guvurnmint, grayn, graass, grip, groop, groeth, gyd,
-          harbur, harmuni, hayt, heering, heet, help, histuri, hoel, hoep, ouur, 
+          expurt, faakt, fawl, faamili, fawthur, feer, feeling, fikshin, feeld, fyt, 
+          fyur, flaym, flyt, flouur, fold, food, forss, form, frend, frunt, 
+          froot, glaass, gold, guvurnmint, grayn, graass, grip, groop, groth, gyd,
+          harbur, harmuni, hayt, heering, heet, help, histuri, hol, hop, ouur, 
           heumur, yss, ydeea, impulss, inkreess, industri, eenk, insekt, instrumint, inshurinss, 
           intrist, invenshin, y'urn, jeli, join, jurni, juj, jump, kik, kiss, 
-          nolij, laand, layngwij, laaf, law, leed, lurning, lethur, letur, levl, 
-          lift, lyt, limit, linin, likwid, list, luuk, loss, luv, masheen, 
+          nawlij, laand, layngwij, laaf, law, leed, lurning, lethur, letur, levl, 
+          lift, lyt, limit, linin, likwid, list, luuk, lawss, luv, masheen, 
           maan, maanajer, mark, markit, maass, meel, mezhur, meet, meeting, memuri,
         </p>
         <p>
           metl, midl, milk, mynd, myn, minit, mist, muni, munth, morning,
-          muthur, moeshin, mountin, moov, meuzik, naym, nayshin, need, nooz, nyt,
-          noiz, noet, numbur, obsurvayshin, ofur, oil, opurayshin, upinyin, ordur, orginyzayshin,
-          ornamint, oenur, payj, payn, paynt, paypur, part, payst, paymint, peess, 
-          pursin, playss, plaant, play, plezhur, point, poizin, polish, portur, poezishin,
-          poudur, pouur, pryss, print, prosess, proedooss, profit, propurti, proez, proetest,
-          puul, punishmint, purpuss, puush, qwoliti, qweschin, rayn, raynj, rayt, ray,
+          muthur, moshin, mountin, moov, meuzik, naym, nayshin, need, nooz, nyt,
+          noiz, not, numbur, awbsurvayshin, awfur, oil, awpurayshin, upinyin, ordur, orginyzayshin,
+          ornamint, onur, payj, payn, paynt, paypur, part, payst, paymint, peess, 
+          pursin, playss, plaant, play, plezhur, point, poizin, pawlish, portur, pozishin,
+          poudur, pouur, pryss, print, prawsess, prodooss, prawfit, prawpurti, proz, protest,
+          puul, punishmint, purpuss, puush, qwawliti, qweschin, rayn, raynj, rayt, ray,
           reeaakshin, reeding, reezin, rekurd, rigret, rilayshin, rilijin, reprizentativ, riqwest, rispekt,
-          rest, riword, rithim, ryss, rivur, roed, roel, room, rub, rool, 
-          run, solt, saand, skayl, syinss, see, seet, sekriteri, silekshin, self, 
+          rest, riword, rithim, ryss, rivur, rod, rol, room, rub, rool, 
+          run, sawlt, saand, skayl, syinss, see, seet, sekriteri, silekshin, self, 
         </p>
         <p>
-          senss, survint, sex, shayd, shayk, shaym, shok, syd, syn, silk, 
-          silvur, sistur, syz, sky, sleep, slip, sloep, smash, smel, smyl, 
-          smoek, sneez, snoe, soep, susyiti, sun, song, sort, sound, soop,
-          spayss, stayj, start, staytmint, steem, steel, step, stich, stoen, stop, 
+          senss, survint, sex, shayd, shayk, shaym, shawk, syd, syn, silk, 
+          silvur, sistur, syz, sky, sleep, slip, slop, smash, smel, smyl, 
+          smok, sneez, sno, sop, susyiti, sun, sawng, sort, sound, soop,
+          spayss, stayj, start, staytmint, steem, steel, step, stich, ston, stawp, 
           stori, strech, strukchur, substinss, shuugur, sugjeschin, sumur, suport, supryz, swim, 
-          sistim, tok, tayst, tax, teeching, tendinsi, test, theeri, thing, thot,
-          thundur, tym, tin, top, tuch, trayd, tranzport, trik, trubl, turn, 
-          twist, eunit, euz, vaaleu, vurss, vesul, veu, voiss, wok, wor, 
-          waash, wayst, wotur, wayv, waax, way, wethur, week, wayt, wind,
+          sistim, tawk, tayst, tax, teeching, tendinsi, test, theeri, thing, thawt,
+          thundur, tym, tin, tawp, tuch, trayd, tranzport, trik, trubl, turn, 
+          twist, eunit, euz, vaaleu, vurss, vesul, veu, voiss, wawk, wor, 
+          waash, wayst, wawtur, wayv, waax, way, wethur, week, wayt, wind,
           wyn, wintur, wuumin, wuud, wuul, wurd, wurk, wound, ryting, yeer.
         </p>
       </div>
@@ -163,28 +163,28 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <h4>MSS</h4>
         <p>
-          ayngl, aant, aapl, arch, arm, armi, baybi, baag, bol, baand, 
+          ayngl, aant, aapl, arch, arm, armi, baybi, baag, bawl, baand, 
           baysin, baaskit, baath, bed, bee, bel, beri, burd, blayd, bord, 
-          boet, boen, buuk, boot, botl, box, boy, brayn, brayk, braanch, 
+          bot, bon, buuk, boot, bawtl, bawx, boy, brayn, brayk, braanch, 
           brik, brij, brush, bukit, bulb, butin, kayk, kaamura, kard, kart,
-          kerij, kaat, chayn, cheez, chest, chin, church, surkl, klok, kloud, 
-          koet, kolur, koem, kord, kow, kup, kurtin, kuushin, dog, dor,
-          drayn, drar, dress, drop, eer, eg, enjin, y, fayss, farm, 
+          kerij, kaat, chayn, cheez, chest, chin, church, surkl, klawk, kloud, 
+          kot, kawlur, kom, kord, kow, kup, kurtin, kuushin, dawg, dor,
+          drayn, drar, dress, drawp, eer, eg, enjin, y, fayss, farm, 
           fethur, fingur, fish, flaag, flor, fli, fuut, fork, fouul, fraym, 
-          gardin, gurl, gluv, goet, gun, her, haamur, haand, haat, hed, 
-          hart, huuk, horn, horss, hospital, houss, ylind, jool, ketl, kee, 
+          gardin, gurl, gluv, got, gun, her, haamur, haand, haat, hed, 
+          hart, huuk, horn, horss, hawspital, houss, ylind, jool, ketl, kee, 
         </p>
         <p>
-          nee, nyf, not, leef, leg, lybreri, lyn, lip, lok, maap, 
+          nee, nyf, nawt, leef, leg, lybreri, lyn, lip, lawk, maap, 
           maach, munki, moon, mouth, musl, nayl, nek, needl, nurv, net, 
-          noez, nut, ofiss, orinj, uvin, parsil, pen, pensil, pikchur, pig, 
-          pin, pyp, playn, playt, plow, pokit, pot, poetaytoe, prisin, pump, 
-          rayl, raat, riseet, ring, rod, roof, root, sayl, skool, sizurz, 
+          noz, nut, awfiss, orinj, uvin, parsil, pen, pensil, pikchur, pig, 
+          pin, pyp, playn, playt, plow, pawkit, pawt, potayto, prisin, pump, 
+          rayl, raat, riseet, ring, rawd, roof, root, sayl, skool, sizurz, 
           skru, seed, sheep, shelf, ship, shurt, shu, skin, skurt, snayk, 
-          sok, spayd, spunj, spoon, spring, skwer, staamp, star, stayshin, stem, 
-          stik, stoking, stumich, stor, street, sun, taybl, tayl, thred, throet, 
-          thum, tikit, toe, tung, tooth, toun, trayn, tray, tree, trouzurz, 
-          umbrela, wol, wotch, weel, wip, wisul, windoe, wing, wyur, wurm.
+          sawk, spayd, spunj, spoon, spring, skwer, staamp, star, stayshin, stem, 
+          stik, stawking, stumich, stor, street, sun, taybl, tayl, thred, throt, 
+          thum, tikit, to, tung, tooth, toun, trayn, tray, tree, trouzurz, 
+          umbrela, wawl, wawtch, weel, wip, wisul, windo, wing, wyur, wurm.
         </p>
       </div>
       <div class="col">
@@ -222,16 +222,16 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <h4>MSS</h4>
         <p>
-          aybl, assid, ayngri, otoemaatik, beutiful, blak, boiling, bryt, broekin, broun, 
-          cheep, kemikuul, cheef, kleen, kleer, komin, komplex, konshiss, kut, deep, 
+          aybl, assid, ayngri, awtomaatik, beutiful, blak, boiling, bryt, brokin, broun, 
+          cheep, kemikuul, cheef, kleen, kleer, kawmin, kawmplex, kawnchiss, kut, deep, 
           dipendint, urli, ilaastik, ilektrik, eeqwul, faat, furtil, furst, fixt, flaat, 
           free, freeqwint, ful, jenurul, guud, grayt, gray, haynging, haapi, hard, 
-          helthi, hy, holoe, importint, kynd, lyk, living, long, mayl, mereed, 
-          mateereeal, medikal, militeri, naachural, nesiseri, nu, normal, oepin, peralel, paast, 
-          fizikal, pulitikal, por, posibl, prezint, pryvit, probabl, qwik, qwyit, redi, 
-          red, regeulur, risponsibl, ryt, round, saym, sekint, sepurit, seereeus, sharp, 
-          smooth, stiki, stif, strayt, strong, sudin, sweet, tol, thik, tyt, 
-          tyurd, tru, vylint, wayting, worm, wet, wyd, wyz, yeloe, yung.
+          helthi, hy, hawlo, importint, kynd, lyk, living, lawng, mayl, mereed, 
+          mateereeal, medikal, militeri, naachural, nesiseri, nu, normal, opin, peralel, paast, 
+          fizikal, pulitikal, por, pawsibl, prezint, pryvit, prawbabl, qwik, qwyit, redi, 
+          red, regeulur, rispawnsibl, ryt, round, saym, sekint, sepurit, seereeus, sharp, 
+          smooth, stiki, stif, strayt, strawng, sudin, sweet, tawl, thik, tyt, 
+          tyurd, tru, vylint, wayting, worm, wet, wyd, wyz, yelo, yung.
         </p>
       </div>
       <div class="col">
@@ -257,11 +257,11 @@ include $sRoot.'templates/sidebar.php';
       <div class="col">
         <h4>MSS</h4>
         <p>
-          awayk, baad, bent, bitur, blu, surtin, koeld, kumpleet, krool, dark, 
-          ded, deer, delikit, difurint, durti, dry, folss, feebl, feemayl, foolish, 
-          feuchur, green, il, laast, layt, left, looss, loud, loe, mixt, 
-          neroe, oeld, opasit, publik, ruf, saad, sayf, seekrit, short, shut, 
-          simpl, sloe, smol, soft, solid, speshal, straynj, thin, wyt, rong.
+          awayk, baad, bent, bitur, blu, surtin, kold, kumpleet, krool, dark, 
+          ded, deer, delikit, difurint, durti, dry, fawlss, feebl, feemayl, foolish, 
+          feuchur, green, il, laast, layt, left, looss, loud, lo, mixt, 
+          nero, old, awpasit, publik, ruf, saad, sayf, seekrit, short, shut, 
+          simpl, slo, smawl, sawft, sawlid, speshal, straynj, thin, wyt, rawng.
         </p>
       </div>
       <div class="col">

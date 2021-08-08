@@ -38,7 +38,7 @@ include $sRoot.'templates/sidebar.php';
         <h4>Vowel sounds</h4>
         <pre>a/u e i o y</pre> 
         <pre>aa ay ee eu</pre>
-        <pre>oe oi oo ou</pre> 
+        <pre>aw oi oo ou</pre> 
         <pre>uu ar ur or</pre> 
         <pre>er eer</pre>
       </div>
@@ -61,19 +61,19 @@ include $sRoot.'templates/sidebar.php';
     </p>
     <ul>
       <li>Normal vowels are as specified above in Vowel Sounds.</li>
-      <li>Trailing vowels are spelled differently from Normal and Lone vowels, depending on their placement.</li>
+      <li>Trailing vowels are spelling variations of Normal vowels, due to their placement.</li>
       <li>Trailing vowels are used at the end of the word after the last consonant.</li>
-      <li>The Lone vowel ee is an exception among Trailing vowels and is used where a Trailing vowel would be when the vowel in question is the only vowel in the word.</li>
-      <li>The Lone vowel ee is the same as the Normal vowel ee, and primarly exists to ease the transition to MSS for English speakers.</li>
+      <li>Lone vowels overrule the use of Trailing vowels and are used in cases where a Trailing vowel would be when the vowel in question is the only vowel in the word.</li>
+      <li>Lone and Trailing vowels exist to ease the transition to MSS for English speakers.</li>
     </ul>
 
     <div class="row">
       <div class="col">
         <h4>Trailing Vowels</h4>
-        <pre>a/uh aw u</pre> <pre>i ow oy</pre>
+        <pre>a/uh u</pre> <pre>i ow oy</pre>
       </div>
       <div class="col">
-        <h4>Lone Vowel</h4>
+        <h4>Lone Vowels</h4>
         <pre>ee</pre>
       </div>
     </div>
@@ -104,8 +104,8 @@ kit > kit
 symphony > simfuni
 
 O
-on > on
-lawn > lon
+though > tho
+faux > fo
 
 AA
 and > aand
@@ -121,15 +121,15 @@ caprice > kapreess
 
 EU
 Europe > Eurup
-utopia > eutoepia
+utopia > eutopia
 
 Y
 lie > ly
 light > lyt
 
-OE 
-though > thoe
-faux > foe
+AW 
+on > awn
+lawn > lawn
 
 OI	
 choice > choiss
@@ -170,12 +170,8 @@ weary > weeri</pre>
 </td>
         <!-- trailing -->
         <td><pre>A/UH
-Allah > Oluh
+Allah > Awluh
 karma > karma
-
-AW
-law > law
-faux pas > fo paw
 
 U
 through > thru
@@ -198,13 +194,13 @@ Hanoi > Hanoy</pre>
 bat > baat
 
 D
-dog > dog 
+dog > dawg 
 
 F
 fan > faan
 
 G
-goat > goet
+goat > got
 
 H
 hat > haat
@@ -231,10 +227,10 @@ R
 rat > raat</pre>
 </td>
         <td><pre>S/SS
-stops > stopss
+stops > stawpss
 
 T
-top > top
+top > tawp
 
 V
 van > vaan
@@ -288,16 +284,15 @@ beige > bayzh</pre>
       <li>
         If there are no apostrophes for clarification, 
         assume the first 2 letters you see are a single sound.
-        <br>(oe in goet is not pronounced like go'et)
       </li>
       <li>
         Contractions are accomplished by simply removing the unspoken letters.
-        <br>(cannot > kaanot, can't > kaant)
+        <br>(cannot > kaanawt, can't > kaant)
       </li>
       <li>
-        Lengthening a sound can be done by adding a hyphen after it.
+        Lengthening a sound can be done by repeating the vowel/consonant cluster.
         This is primarily useful when recording dialog.
-        <br>(Nooooo > Noe----, yasss > yass-)
+        <br>(Nooooo > Nooooo, yasss > yassss)
       </li>
     </ul>
 

@@ -27,12 +27,12 @@ include $sRoot.'templates/sidebar.php';
         <p>
           Spayss explorayshin iz an importint way tu invent masheenz tu mayk lyvz eezeeur for uss.
           Spayss explorayshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
-          Olthoe spayss explorayshin iz kostli aand may meen harm tu ar envyurnment,
-          tha rewords ar thaat it may help uss proetekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
-          Spayss explorayshin kaan bee daynjurus tu tha ixplorur bekuz spayss lakss graaviti aand oxijin for heuminz tu breeth.
-          Syintistss kaan bee lost in spayss or run out uv feul aand drift intu tha empti spayss forevur.
-          Olthoe kountliss daynjurz can ukur in spayss, tha rewords uv nolij ar prysliss.
-          Spayss explorayshin iz kostli aand daynjurus, but meni rewords awayt uss. 
+          Awltho spayss explorayshin iz kawstli aand may meen harm tu ar envyurnment,
+          tha rewords ar thaat it may help uss protekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
+          Spayss explorayshin kaan bee daynjurus tu tha ixplorur bekuz spayss lakss graaviti aand awxijin for heuminz tu breeth.
+          Syintistss kaan bee lawst in spayss or run out uv feul aand drift intu tha empti spayss forevur.
+          Awltho kountliss daynjurz can ukur in spayss, tha rewords uv nawlij ar prysliss.
+          Spayss explorayshin iz kawstli aand daynjurus, but meni rewords awayt uss. 
         </p>
       </div>
       <div class="col">
