@@ -117,8 +117,17 @@ include $sRoot.'templates/sidebar.php';
 EON does not have null values in the way that most other programming languages do. 
 Instead other constructs are used depending on the particular context and desired behavior.
 Empty, but initialized, values return <code><></code>, <code>{}</code>, <code>[]</code>, <code>()</code>, <code>""</code>, or <code>0</code>. 
-Attempting to access an undefined value returns a <code>void</code> expression.
-When the <code>void</code> expression is executed it immediately exits the current expression list <code>()</code>.
+Attempting to access an undefined value returns a <code>void</code> object.
+When the <code>void</code> expression is typically executed it immediately exits the current expression list <code>()</code>.
+</p>
+<p>
+  The best way to understand how the <code>void</code> keyword works is to think of it as a function whose output triggers a context dependent behavior.
+  It takes the object input into it, if any, and makes it the body of a returned <code>&lt;void &gt;</code> object.
+  Within an executing expression list, any expression that evaluates to an object of type <code>void</code>, 
+  sets <code>out</code> to the void object's body and ends execution of the expression list.
+  With no input it returns an empty but typed object <code>&lt;void &gt;</code>.
+  This behavior enables void to fill the roles that break, null, throw, and false keywords in other languages serve, 
+  as well as enabling custom error handling and treatment of errors as data/objects. 
 </p>
 <br>
 
@@ -140,13 +149,13 @@ When the <code>void</code> expression is executed it immediately exits the curre
 
 <div class="row">
   <div class="col">
-    You can check if an object has a specified tag, which may result in the <code>void</code> expression if it does not.
+    You can check if an object has a specified tag, which may result in a <code>void</code> object if it does not.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   (=<tag1 tag2>.tag_3)
   // if yes, then execution continues
-  // if no, then the void expression results
+  // if no, then a void object results
   >')?></code></pre>
   </div>
 </div>
@@ -160,7 +169,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   (= "string"/[])
   // if yes, then execution continues
-  // if no, then the void expression results
+  // if no, then a void object results
   >')?></code></pre>
   </div>
 </div>
@@ -174,7 +183,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   (=<tag1 tag2>/{})
   // if yes, then execution continues
-  // if no, then the void expression results
+  // if no, then a void object results
   >')?></code></pre>
   </div>
 </div>
@@ -182,7 +191,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 
 <div class="row">
   <div class="col">
-    The <code>try</code> keyword executes the commands in the list to its right in order until the <code>void</code> or <code>esc</code> keyword is called or execution of the object finishes.
+    The <code>try</code> keyword executes the commands in the list to its right in order until the <code>void</code> keyword is called or execution of the object finishes.
     If the expression list is unordered (executed in parallel) then all expressions in the list are always executed.
   </div>
   <div class="col">
@@ -314,7 +323,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 
 <div class="row">
   <div class="col">
-    Attempting to access an undefined name returns a <code>void</code> instead of an object.
+    Attempting to access an undefined name returns a <code>void</code> object.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -425,8 +434,8 @@ When the <code>void</code> expression is executed it immediately exits the curre
 
 <div class="row">
   <div class="col">
-    The <code>type</code> keyword creates a type interface (similar to a Golang interface) from the list of defined processes for the specified type.
-    This enables defining class-like behaviors for objects based on their type.
+    The <code>type</code> keyword creates a type interface (essentially a library of values and functions only accessible by the given type of object).
+    This enables defining and consolidating class-like behaviors and values for objects based on their type.
     The <code>src</code> keyword accesses the object to the left of the process being called.
   </div>
   <div class="col">

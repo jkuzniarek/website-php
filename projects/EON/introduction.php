@@ -93,7 +93,7 @@ include $sRoot.'templates/sidebar.php';
     <div class="row">
       <div class="col">
         <label>EON</label>
-<pre class="code"><code><?=htmlspecialchars('<bookstore {
+<pre class="code"><code><?=htmlspecialchars('<bookstore /{
   <book category:"cooking" /{
     <title lang:"en" /"Everyday Italian">
     <author /"Giada De Laurentiis">

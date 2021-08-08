@@ -295,6 +295,7 @@ double_number: <double /12.34>
     Keys can be binding references to the objects referenced by other keys, 
     but will return void (or an error or null value depending on reader implementation) if deletion of the referenced object is attempted while a binding reference to it still exists.
     Binding references are prohibited from referencing objects in child scopes, and attempting to do so will result in an interpreter/compiler error.
+    <!-- objects referenced by a binding reference have a hidden internal reference to the key they're bound to  -->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<key1: data key2:& key1>')?></code></pre>
