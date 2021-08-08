@@ -45,7 +45,7 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   message: "Hello World!"
   name: "Hello Bob!"
-  ;( 
+  /( 
     out: message
     out:+ name)
   /* 
@@ -68,7 +68,7 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   printAll: ex <
     my_var: "World"
-    ;(
+    /(
       out: "Hello"
       out:+ my_var
       out:+ "!" )>
@@ -89,7 +89,7 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   add5: fn (
     out: sum {in 5})
-  ;(~out: add5 5)
+  /(~out: add5 5)
   /* prints: 
   10 */ >')?></code></pre>
   </div>
@@ -129,7 +129,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   object: < tag1 >
-  ;(
+  /(
     object.tag2: <>
     object.tag1: void)
   // now the object is < tag2 >
@@ -158,7 +158,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (~ "string",[])
+  (~ "string"/[])
   // if yes, then execution continues
   // if no, then the void expression results
   >')?></code></pre>
@@ -172,7 +172,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (~<tag1 tag2>,{})
+  (~<tag1 tag2>/{})
   // if yes, then execution continues
   // if no, then the void expression results
   >')?></code></pre>
@@ -282,7 +282,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   list: [ "hello" "world" ]
-  ;(~list.loop(
+  /(~list.loop(
       out:+ key 
       out:+ val))
     // prints "1hello2world"
@@ -299,7 +299,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   list1: [ "A" "B" ]
   list2: [ "I" "II"]
-  ;(
+  /(
     list1.loop(
       list2.loop(
         out:+ list1.key
@@ -468,9 +468,9 @@ When the <code>void</code> expression is executed it immediately exits the curre
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   os: import "os"
-  ;(
+  /(
     os.cd "../project/"
-    os.git.commit < a m; "commit message">)
+    os.git.commit < a m /"commit message">)
     // in Powershell this is equivalent to:
     // cd ../project/
     // git commit -am "commit message" 
@@ -487,7 +487,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon 
   key1: "data" 
   key2: "volatile data"
-  ;(~vol key2)>')?></code></pre>
+  /(~vol key2)>')?></code></pre>
   </div>
 </div>
 <br>
