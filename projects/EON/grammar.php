@@ -69,7 +69,7 @@ operators:
 "#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" |
 
 keywords:
-"ex"   | "fn"   | "void" | "esc"  |
+"fn"   | "cfn"  | "void" | "esc"  |
 "try"  | "loop" | "next" | "key"  | 
 "val"  | "init" | "dest" | "in"   | 
 "out"  | "type" | "src"  | "has"  | 

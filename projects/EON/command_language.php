@@ -61,12 +61,12 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    The <code>ex</code> keyword converts the expression list on it's right into an executable process.
+    The <code>fn</code> keyword converts the expression list on it's right into an executable process.
     Processes are named expression lists that are executed when accessed.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  printAll: ex <
+  printAll: fn <
     my_var: "World"
     /(
       out: "Hello"
@@ -81,13 +81,13 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The <code>fn</code> keyword is a type of process like <code>ex</code>, but after each execution the process's input and output 
+  The <code>cfn</code> keyword is a type of process like <code>fn</code>, but after each execution the process's input and output 
   are cached so that future calls to the process can skip execution for duplicate inputs.
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  add5: fn (
+  add5: cfn (
     out: sum {in 5})
   /(=out: add5 5)
   /* prints: 
@@ -106,7 +106,7 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  printHello:? ex( 
+  printHello:? fn( 
     out: "Hello "
     out:+ in )>')?></code></pre>
   </div>
@@ -265,7 +265,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
         forceExitLoop // outputs void to exit the if
         out: "Fail!")
       (
-        out: ex (void)
+        out: fn (void)
         out: "Success!" // this is still executed 
         // because the output is not retrieved until after 
         // the or finishes executing or a void/esc has been used
@@ -359,9 +359,9 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   my_object: <
     var: "Hello"
-    ini: ex(
+    ini: fn(
       var: ${var "!"})
-    message: ex(
+    message: fn(
       out: var)>
   out: my_object.message
   // prints Hello!
@@ -381,7 +381,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
     var: "Bye"
     del: (
       var: ${var "!"})
-    message: ex(
+    message: fn(
       out: var)>
   out: my_object.message
   // prints Bye!
@@ -396,7 +396,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  printName: ex(
+  printName: fn(
     out: ${"Hi! My name is " in})
   myName: "Jane"
   out: printName myName
@@ -413,7 +413,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  echo: ex(
+  echo: fn(
     out: in
     out: ${out "!"})
   out: echo "Hello"
@@ -433,8 +433,8 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   (
     type <str 
-      echo: ex(=out: src)
-      ping: ex(=out: ${src in})>
+      echo: fn(=out: src)
+      ping: fn(=out: ${src in})>
     "Hello World".echo
     "Hello World".ping "... and John.")>')?></code></pre>
   </div>
@@ -449,7 +449,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
 <pre class="code"><code><?=htmlspecialchars('<eon
   bowl: [ "milk" "cereal" ]
   cup: [ "cereal" "milk" ]
-  isBreakfast: ex(
+  isBreakfast: fn(
     try(
       (
         in.has [ "milk" "cereal" ]
@@ -506,7 +506,7 @@ When the <code>void</code> expression is executed it immediately exits the curre
         forceExitLoop 
         out: "Fail!")
       (
-        out: ex (void)
+        out: fn (void)
         out: "Success!"))) // returns 4
   >')?></code></pre>
   </div>
