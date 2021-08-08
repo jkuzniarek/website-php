@@ -89,22 +89,20 @@ include $sRoot.'templates/sidebar.php';
       It just needs some spelling reform. This too has been attempted with limited success. 
       The most successful instance is of Webster's dictionary where the spelling of some words were changed to make them more "American". 
       President Theodore Roosevelt initiated an attempt, but later canceled it after criticism from the press, 
-      and an inability to guarantee universal adoption within the government. 
+      and an inability to guarantee universal adoption within the government (due to politics). 
       Multiple academics have created pronunciation and spelling reform systems as well, 
       but I'm pretty sure nobody was paying enough attention to go through the trouble of generating an associated dictionary. 
     </p>
     <p>
       Based off a review of historical changes in written languages, 
       lasting change requires either sustained completed control of the language learning system (via a language authority) 
-      or some sort of information that people want must only be accessable through the new language/spelling system so that they are incentivized to adopt and spread the change themselves. 
+      or some sort of information (like a Bible or a dictionary) that people want must only be accessable through the new language/spelling system so that they are incentivized to adopt and spread the change themselves. 
       The first option has not been feasible in English speaking countries in at least 500 years give or take. 
       This means we must use the second option. 
       (This kept Classical Latin alive in the church through the Bible, Arabic in the Quran). 
       The new system could also be deliberately designed to avoid altering the most commonly used words as much as possible 
       so that the transition requires minimal effort for the individual to transition thus lowering the barrier to entry.
       While this strategy doesn't explicitly convey an advantage to the speaker, it at least makes the language more accessable.
-      In addition, we could publish a dictionary of the changed vocablulary and an explanation of how it works.
-      While this option can't force change, it also makes the change more practical and accessible to users.
     </p>
     <p>
       Because spelling changes in casual American English such as L33tspeak and others emphasize them, changes should be guided by the following 2 points:
