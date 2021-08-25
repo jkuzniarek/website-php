@@ -13,10 +13,10 @@ include $sRoot.'templates/sidebar.php';
 <br>
 <div class="row"> <!-- Content Row-->
   <div class="col-lg-10">
-    <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light active">Command Language</a>
+  <a href="introduction.php" class="btn btn-light">Introduction</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light active">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
@@ -39,7 +39,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-  The key-value pairs in an object are accessible from within the object's index and body (here, a list of commands).
+  The key-value pairs in a card are accessible from within the card's index and body (here, a list of commands).
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -96,7 +96,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 
-<p>It is idiomatic to use camelCase to name processes and snake_case to name objects.</p>
+<p>It is idiomatic to use camelCase to name processes and snake_case to name cards.</p>
 <p>Capitalized keys are Public and all other keys are private (similar to Golang)</p>
 <br>
 
@@ -117,31 +117,31 @@ include $sRoot.'templates/sidebar.php';
 EON does not have null values in the way that most other programming languages do. 
 Instead other constructs are used depending on the particular context and desired behavior.
 Empty, but initialized, values return <code><></code>, <code>{}</code>, <code>[]</code>, <code>()</code>, <code>""</code>, or <code>0</code>. 
-Attempting to access an undefined value returns a <code>void</code> object.
+Attempting to access an undefined value returns a <code>void</code> card.
 When the <code>void</code> expression is typically executed it immediately exits the current expression list <code>()</code>.
 </p>
 <p>
   The best way to understand how the <code>void</code> keyword works is to think of it as a function whose output triggers a context dependent behavior.
-  It takes the object input into it, if any, and makes it the body of a returned <code>&lt;void &gt;</code> object.
-  Within an executing expression list, any expression that evaluates to an object of type <code>void</code>, 
-  sets <code>out</code> to the void object's body and ends execution of the expression list.
-  With no input it returns an empty but typed object <code>&lt;void &gt;</code>.
+  It takes the card input into it, if any, and makes it the body of a returned <code>&lt;void &gt;</code> card.
+  Within an executing expression list, any expression that evaluates to a card of type <code>void</code>, 
+  sets <code>out</code> to the void card's body and ends execution of the expression list.
+  With no input it returns an empty but typed card <code>&lt;void &gt;</code>.
   This behavior enables void to fill the roles that break, null, throw, and false keywords in other languages serve, 
-  as well as enabling custom error handling and treatment of errors as data/objects. 
+  as well as enabling custom error handling and treatment of errors as data/cards. 
 </p>
 <br>
 
 <div class="row">
   <div class="col">
-    Tags can be added to an existing object's index by assigning them an empty object <code><></code> and removed by assigning them <code>void</code>.
+    Tags can be added to an existing card's index by assigning them an empty card <code><></code> and removed by assigning them <code>void</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  object: < tag1 >
+  card: < tag1 >
   /(
-    object.tag2: <>
-    object.tag1: void)
-  // now the object is < tag2 >
+    card.tag2: <>
+    card.tag1: void)
+  // now the card is < tag2 >
   >')?></code></pre>
   </div>
 </div>
@@ -149,13 +149,13 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    You can check if an object has a specified tag, which may result in a <code>void</code> object if it does not.
+    You can check if a card has a specified tag, which may result in a <code>void</code> card if it does not.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   (=<tag1 tag2>.tag_3)
   // if yes, then execution continues
-  // if no, then a void object results
+  // if no, then a void card results
   >')?></code></pre>
   </div>
 </div>
@@ -163,13 +163,13 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    You can check if an object is a primitive or array.
+    You can check if a card is a primitive or array.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   (= "string"/[])
   // if yes, then execution continues
-  // if no, then a void object results
+  // if no, then a void card results
   >')?></code></pre>
   </div>
 </div>
@@ -177,13 +177,13 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    You can check if an object is a list.
+    You can check if a card is a list.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   (=<tag1 tag2>/{})
   // if yes, then execution continues
-  // if no, then a void object results
+  // if no, then a void card results
   >')?></code></pre>
   </div>
 </div>
@@ -191,7 +191,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>try</code> keyword executes the commands in the list to its right in order until the <code>void</code> keyword is called or execution of the object finishes.
+    The <code>try</code> keyword executes the commands in the list to its right in order until the <code>void</code> keyword is called or execution of the card finishes.
     If the expression list is unordered (executed in parallel) then all expressions in the list are always executed.
   </div>
   <div class="col">
@@ -285,7 +285,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    To loop through a list's objects use the <code>loop</code> interface. 
+    To loop through a list's cards use the <code>loop</code> interface. 
     In each iteration the current key and its value will be referenced by the reserved names <code>key</code> and <code>val</code>.
   </div>
   <div class="col">
@@ -302,7 +302,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    Nested loops are possible by specifying which object the <code>key</code> or <code>val</code> is referencing.
+    Nested loops are possible by specifying which card the <code>key</code> or <code>val</code> is referencing.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -323,7 +323,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    Attempting to access an undefined name returns a <code>void</code> object.
+    Attempting to access an undefined name returns a <code>void</code> card.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -339,7 +339,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>$</code> operator concatenates the bodies of a list of objects of the same type and merges their indexes. 
+    The <code>$</code> operator concatenates the bodies of a list of cards of the same type and merges their indexes. 
     The content of duplicate keys is combined into a list <code>{}</code>.
   </div>
   <div class="col">
@@ -361,18 +361,18 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>ini</code> keyword is a reserved index that is only executed after its parent object is initialized or when a copy of the parent is initialized.
-    Changing an object's type does not trigger <code>ini</code>.
+    The <code>ini</code> keyword is a reserved index that is only executed after its parent card is initialized or when a copy of the parent is initialized.
+    Changing a card's type does not trigger <code>ini</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  my_object: <
+  my_card: <
     var: "Hello"
     ini: fn(
       var: ${var "!"})
     message: fn(
       out: var)>
-  out: my_object.message
+  out: my_card.message
   // prints Hello!
   >')?></code></pre>
   </div>
@@ -381,18 +381,18 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-  The <code>del</code> keyword is a reserved index that is only executed immediately before its parent object is deleted or when a copy of the parent is deleted.
-  Changing an object's type does not trigger <code>del</code>.
+  The <code>del</code> keyword is a reserved index that is only executed immediately before its parent card is deleted or when a copy of the parent is deleted.
+  Changing a card's type does not trigger <code>del</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  my_object: <
+  my_card: <
     var: "Bye"
     del: (
       var: ${var "!"})
     message: fn(
       out: var)>
-  out: my_object.message
+  out: my_card.message
   // prints Bye!
   >')?></code></pre>
   </div>
@@ -401,7 +401,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>in</code> keyword is actually a reserved name to the object passed into a process.
+    The <code>in</code> keyword is actually a reserved name to the card passed into a process.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -417,7 +417,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>out</code> keyword is actually a reserved name to the object a process returns.
+    The <code>out</code> keyword is actually a reserved name to the card a process returns.
     It can be used to not only set the process's output, but to reference it within the process, and modify it prior to the end of the process.
   </div>
   <div class="col">
@@ -434,9 +434,9 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>type</code> keyword creates a type interface (essentially a library of values and functions only accessible by the given type of object).
-    This enables defining and consolidating class-like behaviors and values for objects based on their type.
-    The <code>src</code> keyword accesses the object to the left of the process being called.
+    The <code>type</code> keyword creates a type interface (essentially a library of values and functions only accessible by the given type of card).
+    This enables defining and consolidating class-like behaviors and values for cards based on their type.
+    The <code>src</code> keyword accesses the card to the left of the process being called.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -452,7 +452,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>has</code> keyword returns <code>void</code> if the left object does not have all the same type, key-value pairs, and body that are in the right object.
+    The <code>has</code> keyword returns <code>void</code> if the left card does not have all the same type, key-value pairs, and body that are in the right card.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -524,8 +524,8 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    The <code>mass</code> keyword returns the code mass of the input object. 
-    Code mass is the size in bytes of an object as is.
+    The <code>mass</code> keyword returns the code mass of the input card. 
+    Code mass is the size in bytes of a card as is.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -564,7 +564,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-  The <code>import</code> keyword opens the designated .eon library and returns it as an object.
+  The <code>import</code> keyword opens the designated .eon library and returns it as a card.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
@@ -591,9 +591,9 @@ When the <code>void</code> expression is typically executed it immediately exits
 
     <hr>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light active">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light active">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     
   </div>

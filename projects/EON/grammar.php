@@ -14,9 +14,9 @@ include $sRoot.'templates/sidebar.php';
 <div class="row"> <!-- Content Row-->
   <div class="col-lg-10">
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light active">Grammar</a>
     <hr>
 
@@ -30,14 +30,14 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = (NAME | object | literal | group | command );
+      <pre><?=htmlspecialchars('expression = (NAME | card | literal | group | command );
 
 command = [EOL | "="], (infix | prefix);
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
 
-object = "<", [type], [index], (">" | "/", (group | [expression]), ">"));
+card = "<", [type], [index], (">" | "/", (group | [expression]), ">"));
 
 prefix = (OPERATOR | NAME), expression;
 
@@ -83,9 +83,9 @@ math:
 
     <hr>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light active">Grammar</a>
     
   </div>

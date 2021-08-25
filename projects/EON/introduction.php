@@ -14,14 +14,14 @@ include $sRoot.'templates/sidebar.php';
 <div class="row"> <!-- Content Row-->
   <div class="col-lg-10">
     <a href="introduction.php" class="btn btn-light active">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
     <p>
-      <strong>Extended Object Notation</strong> 
+      <strong>Extended Organizing Notation</strong> 
       (EON) is a data structure notation and programming language designed as a more user friendly alternative to XML with a JSON-like syntax.
     </p>
     
@@ -43,8 +43,9 @@ include $sRoot.'templates/sidebar.php';
     </p>   
 
     <p>
-      The EON <strong>Object Model</strong> underlies not just an eon object's structure, but the architecture of the programming language itself because like in Lisp, code is data too.
-      Every EON object has 3 sections: the type, the index, and the body. 
+      In EON an object is called a <strong>Card</strong>.
+      The EON <strong>Card Model</strong> underlies not just a card's structure, but the architecture of the programming language itself because like in Lisp, code is data too.
+      Every EON card has 3 sections: the type, the index, and the body. 
       These are shown in the example below in green, blue, and yellow respectively. 
       Collectively, these sections are surrounded by a wrapper demarcated by angle brackets (in red below).
     </p>
@@ -69,26 +70,26 @@ include $sRoot.'templates/sidebar.php';
 
     <ul>
       <li>
-        As expected, the <span class="badge badge-success">Type</span> indicates the object's type. 
-        Objects may only have a single type or may be untyped.
+        As expected, the <span class="badge badge-success">Type</span> indicates the card's type. 
+        Cards may only have a single type or may be untyped.
         The type must always be a string of characters terminated by whitespace.
       </li>
       <li>
-        The <span class="badge badge-info">Index</span> stores an object's keys and key-value pairs.
-        Objects may have as many keys and key-value pairs as desired, but they must be located directly adjacent to each other.
+        The <span class="badge badge-info">Index</span> stores a card's keys and key-value pairs.
+        Cards may have as many keys and key-value pairs as desired, but they must be located directly adjacent to each other.
       </li>
       <li>
-        The <span class="badge badge-warning">Body</span> stores an object's primary contents either as a single value, another object, list, or array.
-        Objects may only have a single body or no body at all.
-        The body must always be the last item in an object, and it must be preceded by a <code>/</code>. 
+        The <span class="badge badge-warning">Body</span> stores a card's primary contents either as a single value, another card, list, or array.
+        Cards may only have a single body or no body at all.
+        The body must always be the last item in a card, and it must be preceded by a <code>/</code>. 
       </li>
       <li>
-        If an object has no <span class="badge badge-success">Type</span> and no <span class="badge badge-info">Index</span>,
-        then the object's wrapper creates a redundant layer of abstraction around the body (which is itself an object) and may be omitted.
+        If a card has no <span class="badge badge-success">Type</span> and no <span class="badge badge-info">Index</span>,
+        then the card's wrapper creates a redundant layer of abstraction around the body (which is itself an card) and may be omitted.
       </li>
     </ul>
 
-    <p>An example of a nested EON object is shown below in comparison to an equivalent XML object.</p>
+    <p>An example of a nested EON card is shown below in comparison to an equivalent XML object.</p>
 
     <div class="row">
       <div class="col">
@@ -139,7 +140,7 @@ include $sRoot.'templates/sidebar.php';
       </div>
     </div>
 
-    <p>Despite the above EON object's 1:1 correllation to the XML object, the data could still be restructured into an even more condensed EON object.</p>
+    <p>Despite the above EON card's 1:1 correllation to the XML object, the data could still be restructured into an even more condensed EON card.</p>
 
     <div class="row">
       <div class="col">
@@ -165,9 +166,9 @@ include $sRoot.'templates/sidebar.php';
 
     <hr>
     <a href="introduction.php" class="btn btn-light active">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     
   </div>

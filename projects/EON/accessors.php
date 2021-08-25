@@ -13,10 +13,10 @@ include $sRoot.'templates/sidebar.php';
 <br>
 <div class="row"> <!-- Content Row-->
   <div class="col-lg-10">
-    <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light active">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+  <a href="introduction.php" class="btn btn-light">Introduction</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light active">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
@@ -43,7 +43,7 @@ include $sRoot.'templates/sidebar.php';
     <employee blue_team name: "Pam Beesly" title: "Office Administrator">
   }>')?></code></pre>
 <p>
-  The object accessor examples below use the above object named <code>tree</code>.
+  The card accessor examples below use the above card named <code>tree</code>.
 </p>
 <hr>
 
@@ -63,7 +63,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    All of the keys/tags in an object can be retrieved as a list using <code>*</code>.
+    All of the keys/tags in an card can be retrieved as a list using <code>*</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree* 
@@ -77,7 +77,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An accessor can target multiple keys, types, or indexes in an object by grouping them into a list using the accessor followed by a list of the keys.
+    An accessor can target multiple keys, types, or indexes in an card by grouping them into a list using the accessor followed by a list of the keys.
     This is comparible to a logical OR.
   </div>
   <div class="col">
@@ -92,7 +92,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An object's listed items are accessed using <code>/</code> followed by the item index. 
+    A card's listed items are accessed using <code>/</code> followed by the item index. 
     Numerical indexing starts at 1 <strong>not 0</strong> because indexes <strong>are not</strong> offsets.
   </div>
   <div class="col">
@@ -110,8 +110,8 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    The body of an object can be retrieved without any tags by using the <code>/</code> accessor.
-    If the object is a primitive this will convert the primitive to a byte array.
+    The body of a card can be retrieved without any tags by using the <code>/</code> accessor.
+    If the card is a primitive this will convert the primitive to a byte array.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('integer: 511
@@ -124,7 +124,7 @@ integer/
 
 <div class="row">
   <div class="col">
-    The entire list that is the body of the example object can be retrieved like so.
+    The entire list that is the body of the example card can be retrieved like so.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree/ 
@@ -160,7 +160,7 @@ integer/
 
 <div class="row">
   <div class="col">
-    Tags in an object are checked using <code>.</code> followed by their name.
+    Tags in a card are checked using <code>.</code> followed by their name.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree.red_team
@@ -176,7 +176,7 @@ true/false with this example returning true)
 
 <div class="row">
   <div class="col">
-    An object's type can be retrieved using <code>#</code>.
+    A card's type can be retrieved using <code>#</code>.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree#
@@ -190,7 +190,7 @@ true/false with this example returning true)
 
 <div class="row">
   <div class="col">
-    Lists of objects can be filtered by type into a smaller list of objects using <code>#</code> followed by the type name.
+    Lists of cards can be filtered by type into a smaller list of cards using <code>#</code> followed by the type name.
     So to see a list of the names of jim's employees:
   </div>
   <div class="col">
@@ -205,8 +205,8 @@ true/false with this example returning true)
 
 <div class="row">
   <div class="col">
-    A whole list of objects in an object can be selected and filtered by tag/key into a list of smaller objects 
-    using <code>@</code> followed by each the key/tag/index to be selected from each object.
+    A whole list of cards in a card can be selected and filtered by tag/key into a list of smaller cards 
+    using <code>@</code> followed by each the key/tag/index to be selected from each card.
     So to see a list of jim's employees' top customer lists:
   </div>
   <div class="col">
@@ -227,9 +227,9 @@ true/false with this example returning true)
 
     <hr>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light active">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light">Notation</a>
+    <a href="accessors.php" class="btn btn-light active">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     
   </div>

@@ -19,7 +19,7 @@ include $sRoot.'templates/sidebar.php';
           <div class="card-body">
             <h3 class="card-title green">EON</h3>
             <p class="card-text mb-0">
-              <strong>Extended Object Notation</strong> 
+              <strong>Extended Organizing Notation</strong> 
               (EON) is a data description notation and programming language designed as a more user friendly alternative to XML 
               and influenced by C, Go, JavaScript, and Vale (https://vale.dev).
               <br><a href="EON/" class="btn btn-sm btn-light stretched-link">View</a>

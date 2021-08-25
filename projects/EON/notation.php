@@ -14,16 +14,12 @@ include $sRoot.'templates/sidebar.php';
 <div class="row"> <!-- Content Row-->
   <div class="col-lg-10">
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light active">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light active">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
-    <!-- <p>
-      <strong>Extended Object Notation</strong> 
-      (EON) is a data description notation and programming language designed as a more user friendly alternative to XML with a JSON-like syntax.
-    </p> -->
     
 
     <div class="row">
@@ -40,7 +36,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    All values are some type of object and all objects are derived from an empty object <code>&lt;&gt;</code>.
+    All values are some type of card and all cards are derived from an empty card <code>&lt;&gt;</code>.
   </div>
   <div class="col">
     All lists are linked lists and all lists are derived from an empty list <code>{}</code>.
@@ -54,10 +50,10 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Objects can be assigned to a key to more easily identify them.
+    Cards can be assigned to a key to more easily identify them.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('my_object: {}')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('my_card: {}')?></code></pre>
     </code>
   </div>
 </div>
@@ -65,7 +61,7 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    Lists can contain multiple types of whitespace delimited objects.
+    Lists can contain multiple types of whitespace delimited cards.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('my_list: { 1 2 "A" "B" "Hello" {3 4}}')?></code></pre>
@@ -223,7 +219,7 @@ double_number: <double /12.34>
 
 <div class="row">
   <div class="col">
-    Keys in an object's index that are not paired with a value are also referred to as tags.
+    Keys in a card's index that are not paired with a value are also referred to as tags.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<type tag1 tag2 >')?></code></pre>
@@ -234,7 +230,7 @@ double_number: <double /12.34>
 
 <div class="row">
   <div class="col">
-    Even when an object has no type after the opening angle bracket <code>&lt;</code>, there must always be whitespace before the first key of the index.
+    Even when a card has no type after the opening angle bracket <code>&lt;</code>, there must always be whitespace before the first key of the index.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('< tag1 tag2 >')?></code></pre>
@@ -280,8 +276,8 @@ double_number: <double /12.34>
 
 <div class="row">
   <div class="col">
-    Keys can be pointing references to the objects referenced by other keys, 
-    but will return void (or an error or null value depending on reader implementation) if the referenced object has been deleted before attempting to access it.
+    Keys can be pointing references to the cards referenced by other keys, 
+    but will return void (or an error or null value depending on reader implementation) if the referenced card has been deleted before attempting to access it.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<key1: data key2:? key1>')?></code></pre>
@@ -292,10 +288,10 @@ double_number: <double /12.34>
 
 <div class="row">
   <div class="col">
-    Keys can be binding references to the objects referenced by other keys, 
-    but will return void (or an error or null value depending on reader implementation) if deletion of the referenced object is attempted while a binding reference to it still exists.
-    Binding references are prohibited from referencing objects in child scopes, and attempting to do so will result in an interpreter/compiler error.
-    <!-- objects referenced by a binding reference have a hidden internal reference to the key they're bound to  -->
+    Keys can be binding references to the cards referenced by other keys, 
+    but will return void (or an error or null value depending on reader implementation) if deletion of the referenced card is attempted while a binding reference to it still exists.
+    Binding references are prohibited from referencing cards in child scopes, and attempting to do so will result in an interpreter/compiler error.
+    <!-- cards referenced by a binding reference have a hidden internal reference to the key they're bound to  -->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<key1: data key2:& key1>')?></code></pre>
@@ -304,7 +300,7 @@ double_number: <double /12.34>
 </div>
 <br>
 
-<h4>Additional Example Objects</h4>
+<h4>Additional Example Cards</h4>
 <pre class="code"><code><?=htmlspecialchars('[
   [0 0]
   [1 1]
@@ -370,9 +366,9 @@ double_number: <double /12.34>
 
     <hr>
     <a href="introduction.php" class="btn btn-light">Introduction</a>
-    <a href="object_notation.php" class="btn btn-light active">Object Notation</a>
-    <a href="object_accessors.php" class="btn btn-light">Object Accessors</a>
-    <a href="command_language.php" class="btn btn-light">Command Language</a>
+    <a href="notation.php" class="btn btn-light active">Notation</a>
+    <a href="accessors.php" class="btn btn-light">Accessors</a>
+    <a href="commands.php" class="btn btn-light">Commands</a>
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     
   </div>
