@@ -184,7 +184,7 @@ include $sRoot.'templates/sidebar.php';
           sawk, spayd, spunj, spoon, spring, skwer, staamp, star, stayshin, stem, 
           stik, stawking, stumich, stor, street, sun, taybl, tayl, thred, throt, 
           thum, tikit, to, tung, tooth, toun, trayn, tray, tree, trouzurz, 
-          umbrela, wawl, wawtch, weel, wip, wisul, windo, wing, wyur, wurm.
+          umbrela, wawl, wawch, weel, wip, wisul, windo, wing, wyur, wurm.
         </p>
       </div>
       <div class="col">

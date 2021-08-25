@@ -29,7 +29,7 @@ include $sRoot.'templates/sidebar.php';
           Spayss explorayshin helpss heuminz diskuvur tha eunivurss aand wut dwelss within it uthur thaan arselvz.
           Awltho spayss explorayshin iz kawstli aand may meen harm tu ar envyurnment,
           tha rewords ar thaat it may help uss protekt it or eevin privent naachural dizasturz thaat wil meen harm tu heuminz aand aanimalz.
-          Spayss explorayshin kaan bee daynjurus tu tha ixplorur bekuz spayss lakss graaviti aand awxijin for heuminz tu breeth.
+          Spayss explorayshin kaan bee daynjurus tu tha ixplorur bukuz spayss lakss graaviti aand awxijin for heuminz tu breeth.
           Syintistss kaan bee lawst in spayss or run out uv feul aand drift intu tha empti spayss forevur.
           Awltho kountliss daynjurz can ukur in spayss, tha rewords uv nawlij ar prysliss.
           Spayss explorayshin iz kawstli aand daynjurus, but meni rewords awayt uss. 
