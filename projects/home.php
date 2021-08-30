@@ -25,7 +25,6 @@ include $sRoot.'templates/sidebar.php';
               <br><a href="EON/" class="btn btn-sm btn-light stretched-link">View</a>
             </p>
             <hr class="my-1">
-            <small class="badge badge-light">Initiated: 2019</small>
             <small class="badge badge-light">Last Updated: Aug 2021</small>
           </div>
         </div>
@@ -40,7 +39,6 @@ include $sRoot.'templates/sidebar.php';
               <br><a href="MSS/" class="btn btn-sm btn-light stretched-link">View</a>
             </p>
             <hr class="my-1">
-            <small class="badge badge-light">Initiated: 2019</small>
             <small class="badge badge-light">Last Updated: Aug 2021</small>
           </div>
         </div>
