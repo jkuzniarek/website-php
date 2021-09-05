@@ -15,7 +15,7 @@ include $sRoot.'templates/sidebar.php';
   <div class="col-lg-10">
     <div class="row">
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>A New Kind Of Science</h3>
@@ -24,7 +24,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The Power Of Myth with Bill Moyers</h3>
@@ -33,7 +33,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>How To Do Nothing</h3>
@@ -42,7 +42,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>"Surely You're Joking, Mr. Feynman!"</h3>
@@ -51,7 +51,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>"What Do <span style="text-decoration: underline;">You</span> Care What Other People Think?"</h3>
@@ -60,7 +60,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>Human, All Too Human</h3>
@@ -69,7 +69,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The Autobiography Of Malcom X</h3>
@@ -78,7 +78,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The Art Of Inequality: Architecture, Housing, And Real Estate</h3>
@@ -87,7 +87,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>American Nations</h3>
@@ -96,7 +96,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>How The Scots Invented The Modern World</h3>
@@ -105,7 +105,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The Artist, The Philosopher, And The Warrior</h3>
@@ -114,7 +114,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The Prophet</h3>
@@ -123,7 +123,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>The WEIRDest People In The World</h3>
@@ -132,7 +132,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>Ender's Game (and sequels)</h3>
@@ -141,7 +141,7 @@ include $sRoot.'templates/sidebar.php';
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+      <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
             <h3>Foundation (and sequels)</h3>
