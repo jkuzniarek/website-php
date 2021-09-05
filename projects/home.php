@@ -43,6 +43,19 @@ include $sRoot.'templates/sidebar.php';
           </div>
         </div>
       </div>
+      <div class="col">
+        <div class="card bg-none mb-3" style="min-width:250px;">
+          <div class="card-body">
+          <h3 class="card-title green">Recommended Reading</h3>
+            <p class="card-text mb-0">
+              A list of books and other works that I've found interesting and recommend that you read.
+              <br><a href="reading/" class="btn btn-sm btn-light stretched-link">View</a>
+            </p>
+            <hr class="my-1">
+            <small class="badge badge-light">Last Updated: Sep 2021</small>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
