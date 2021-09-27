@@ -49,7 +49,7 @@ Structure Grammar
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
-card = "<", [TYPE, [ "\", INTEGER ]], {assignment | NAME}, (">" | "/", (group | [expression]), ">"));
+card = "<", [TYPE, [ "\", INTEGER ]], {assignment | NAME}, (">" | "/", (group | [expression]), ">");
 
 primitive = S_INT | U_INT | S_DECIMAL | U_DECIMAL | STRING | BYTES;
 
