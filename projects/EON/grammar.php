@@ -35,27 +35,39 @@ expression = (accessor | command | infix | assignment | group | card | literal |
 
 Action Grammar
 ====
-accessor = (NAME | KEYWORD), { ACCESS_OPERATOR, accessor };
+accessor = (NAME | KEYWORD | expression), { ACCESS_OPERATOR, accessor };
 
-command = assignment | (accessor, [expression]);
+command = accessor, [expression];
 
 infix = expression, EVAL_OPERATOR, expression;
 
 assignment = accessor, [ASSIGN_OPERATOR, expression];
 
 
-Data Grammar
+Structure Grammar
 ====
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
 card = "<", [TYPE, [ "\", INTEGER ]], {assignment | NAME}, (">" | "/", (group | [expression]), ">"));
 
-literal = INTEGER | decimal | STRING | bytes;
+primitive = S_INT | U_INT | S_DECIMAL | U_DECIMAL | STRING | BYTES;
 
-decimal = INTEGER, ".", INTEGER;
 
-bytes = ( "\x" | "\b" | "\d" ), { INTEGER };
+Primitive Grammar
+====
+
+S_INT = ("+" | "-"), INTEGER
+
+U_INT = INTEGER
+
+S_DECIMAL = ("+" | "-"), INTEGER, ".", INTEGER;
+
+U_DECIMAL = INTEGER, ".", INTEGER;
+
+STRING = ("\'" | \'"\' | "`"), { CHAR }, ("\'" | \'"\' | "`"), { STRING }
+
+BYTES = ( "\x" | "\b" | "\d" ), { INTEGER };
 
 
 Symbols
