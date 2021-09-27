@@ -72,10 +72,10 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    An ordered list of commands may be created from the characters between <code>()</code> or <code>(: )</code>.
+    An ordered list of commands may be created from the characters between <code>(- )</code> or <code>(= )</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('commands: (
+<pre class="code"><code><?=htmlspecialchars('commands: (-
   print "this"
   print "that") 
 // the first item in "commands" is
@@ -87,8 +87,8 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    If executed, the commands between <code>()</code> will be executed serially in the listed order. 
-    In contrast, the commands between <code>(: )</code> will be evaluated in parallel as permitted by the chip architecture. 
+    If executed, the commands between <code>(- )</code> will be executed serially in the listed order. 
+    In contrast, the commands between <code>(= )</code> will be evaluated concurrently as permitted by the chip architecture. 
     Program execution does not move on from the list until all commands have been evaluated.
   </div>
 </div>

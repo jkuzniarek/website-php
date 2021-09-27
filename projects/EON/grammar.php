@@ -30,52 +30,56 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('expression = (NAME | card | literal | group | command );
+      <pre><?=htmlspecialchars('
+expression = (accessor | command | infix | assignment | group | card | literal | decimal | bytes);
 
-command = [EOL | "="], (infix | prefix);
+Action Grammar
+====
+accessor = (NAME | KEYWORD), { ACCESS_OPERATOR, accessor };
+
+command = assignment | (accessor, [expression]);
+
+infix = expression, EVAL_OPERATOR, expression;
+
+assignment = accessor, [ASSIGN_OPERATOR, expression];
+
+
+Data Grammar
+====
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
-
-card = "<", [type], [index], (">" | "/", (group | [expression]), ">"));
-
-prefix = (OPERATOR | NAME), expression;
-
-infix = expression, prefix;
-
+card = "<", [TYPE, [ "\", INTEGER ]], {assignment | NAME}, (">" | "/", (group | [expression]), ">"));
 
 literal = INTEGER | decimal | STRING | bytes;
-
-type = TYPE, [ "\", INTEGER ];
-
-index = {infix | NAME};
-
 
 decimal = INTEGER, ".", INTEGER;
 
 bytes = ( "\x" | "\b" | "\d" ), { INTEGER };
 
 
-group open delimiters:
-"["  | "("  | "{"  | "(:" | "{:"
+Symbols
+====
+OPEN_DELIMITER = "["  | "("  | "{"  | "(-" | "{:" | "(=";
 
-group close delimiters:
-"]"  | ")"  | "}" 
+CLOSE_DELIMITER = "]"  | ")"  | "}";
 
-operators: 
-"."  | "/"  | "#"  | "*"  | "@"  | 
-"|"  | "!"  | "$"  | "%"  | "^"  |
-":"  | "::" | ":&" | ":?" | ":+" | ":-" | ":#" | 
-"#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" |
+ACCESS_OPERATOR = "."  | "/"  | "#"  | "*"  | "@";
 
-keywords:
-"fn"   | "cfn"  | "void" | "esc"  |
+ASSIGN_OPERATOR = ":"  | "::" | ":&" | ":?" | ":+" | ":-" | ":#";
+
+EVAL_OPERATOR = "#=" | "==" | "!=" | "<"  | ">"  | "<=" | ">=" | "|";
+
+
+KEYWORD = 
+"fn"   | "cfn"  | "pfn"  | "conc" |
 "try"  | "loop" | "next" | "key"  | 
 "val"  | "init" | "dest" | "in"   | 
 "out"  | "type" | "src"  | "has"  | 
-"os"   | "vol" 
+"os"   | "vol"  | "void" | "esc"  |
+"$";
 
-math:
+MATH:
 "sum"  | "dif"  | "mul"  | "div"  | 
 "exp"  | "mod"  |
 ')?></pre>

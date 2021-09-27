@@ -45,7 +45,7 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   message: "Hello World!"
   name: "Hello Bob!"
-  /( 
+  /(- 
     out: message
     out:+ name)
   /* 
@@ -55,7 +55,7 @@ include $sRoot.'templates/sidebar.php';
 </div>
 <br>
 
-<p>Commands in a command list are always preceded by either a new line character or a <code>=</code> character.</p>
+<p>Except for the last line, commands in a command list must always terminated by a new line character.</p>
 <p>Commands in a command list can be spread onto multiple lines by placing a <code>//</code> before the next new line character.</p>
 <br>
 
@@ -68,11 +68,11 @@ include $sRoot.'templates/sidebar.php';
 <pre class="code"><code><?=htmlspecialchars('<eon
   printAll: fn <
     my_var: "World"
-    /(
+    /(-
       out: "Hello"
       out:+ my_var
       out:+ "!" )>
-  (=out: printAll)
+  (-out: printAll)
   /* prints: 
   HelloWorld! */ >')?></code></pre>
   </div>
@@ -87,11 +87,32 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  add5: cfn (
+  add5: cfn (-
     out: sum {in 5})
-  /(=out: add5 5)
+  /(-out: add5 5)
   /* prints: 
   10 */ >')?></code></pre>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+  The <code>pfn</code> keyword is a type of process like <code>fn</code>, 
+  but the function executes on each of its inputs concurrently and waits until all are done before progressing.
+  Consequently, the inputs to the function must be in a list <code>{}</code> otherwise <code>void</code> will automatically be returned.
+  However the <code>src</code> input may be singular to enable other passing in other parameters.
+  Outputs are returned in a list in the same order as the inputs.
+  <!-- Effectively it's a foreach(input){ out: conc function} that aggregates the outputs back together-->
+  This can reduce overall execution time compared to loops when hardware supports concurrency or parallelism.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('<eon
+  add5: pfn (-
+    out: sum {in 5})
+  /(-out: add5 {5 6 7 8})
+  /* outputs: 
+  10 11 12 13 */ >')?></code></pre>
   </div>
 </div>
 <br>
@@ -106,7 +127,7 @@ include $sRoot.'templates/sidebar.php';
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  printHello:? fn( 
+  printHello:? fn(-
     out: "Hello "
     out:+ in )>')?></code></pre>
   </div>
@@ -138,7 +159,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   card: < tag1 >
-  /(
+  /(-
     card.tag2: <>
     card.tag1: void)
   // now the card is < tag2 >
@@ -153,7 +174,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (=<tag1 tag2>.tag_3)
+  (-<tag1 tag2>.tag_3)
   // if yes, then execution continues
   // if no, then a void card results
   >')?></code></pre>
@@ -167,7 +188,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (= "string"/[])
+  (- "string"/[])
   // if yes, then execution continues
   // if no, then a void card results
   >')?></code></pre>
@@ -181,7 +202,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (=<tag1 tag2>/{})
+  (-<tag1 tag2>/{})
   // if yes, then execution continues
   // if no, then a void card results
   >')?></code></pre>
@@ -196,7 +217,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  try(
+  try(-
     printAll
     out: "Success!")>')?></code></pre>
   </div>
@@ -210,12 +231,12 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  try(
-    (
+  try{
+    (-
       void
       out: "Success!")
-    (
-      out: "Error!"))>')?></code></pre>
+    (-
+      out: "Error!")}>')?></code></pre>
   </div>
 </div>
 <br>
@@ -226,11 +247,12 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  try(
-    (=loop(
+  try{
+    (-
+      loop(-
         esc
         out: "Fail!"))
-    (=out: "Loop Completed!"))>')?></code></pre>
+    (-out: "Loop Completed!")}>')?></code></pre>
   </div>
 </div>
 <br>
@@ -241,7 +263,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  loop(
+  loop(-
     printAll
     esc)>')?></code></pre>
   </div>
@@ -254,7 +276,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  loop(
+  loop(-
     out: "This is an infinite loop"
     next
     esc)>')?></code></pre>
@@ -269,16 +291,16 @@ When the <code>void</code> expression is typically executed it immediately exits
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   loop
-    try(
-      (
+    try{
+      (-
         forceExitLoop // outputs void to exit the if
         out: "Fail!")
-      (
+      (-
         out: fn (void)
         out: "Success!" // this is still executed 
         // because the output is not retrieved until after 
         // the or finishes executing or a void/esc has been used
-        ))>')?></code></pre>
+        )}>')?></code></pre>
   </div>
 </div>
 <br>
@@ -291,7 +313,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   list: [ "hello" "world" ]
-  /(=list.loop(
+  /(-list.loop(-
       out:+ key 
       out:+ val))
     // prints "1hello2world"
@@ -308,9 +330,9 @@ When the <code>void</code> expression is typically executed it immediately exits
 <pre class="code"><code><?=htmlspecialchars('<eon
   list1: [ "A" "B" ]
   list2: [ "I" "II"]
-  /(
-    list1.loop(
-      list2.loop(
+  /(-
+    list1.loop(-
+      list2.loop(-
         out:+ list1.key
         out:+ list1.val 
         out:+ list2.val
@@ -327,12 +349,12 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  try(
-    (
+  try{
+    (-
       undefined
       out: "Success!")
-    (
-      out: "Error!"))>')?></code></pre>
+    (-
+      out: "Error!")}>')?></code></pre>
   </div>
 </div>
 <br>
@@ -344,7 +366,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (
+  (-
     ${"Hello " "World"}
     // combines into "Hello World"
     ${ 
@@ -368,9 +390,9 @@ When the <code>void</code> expression is typically executed it immediately exits
 <pre class="code"><code><?=htmlspecialchars('<eon
   my_card: <
     var: "Hello"
-    ini: fn(
+    ini: fn(-
       var: ${var "!"})
-    message: fn(
+    message: fn(-
       out: var)>
   out: my_card.message
   // prints Hello!
@@ -388,9 +410,9 @@ When the <code>void</code> expression is typically executed it immediately exits
 <pre class="code"><code><?=htmlspecialchars('<eon
   my_card: <
     var: "Bye"
-    del: (
+    del: (-
       var: ${var "!"})
-    message: fn(
+    message: fn(-
       out: var)>
   out: my_card.message
   // prints Bye!
@@ -405,7 +427,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  printName: fn(
+  printName: fn(-
     out: ${"Hi! My name is " in})
   myName: "Jane"
   out: printName myName
@@ -422,7 +444,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  echo: fn(
+  echo: fn(-
     out: in
     out: ${out "!"})
   out: echo "Hello"
@@ -440,10 +462,10 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (
+  (-
     type <str 
-      echo: fn(=out: src)
-      ping: fn(=out: ${src in})>
+      echo: fn(-out: src)
+      ping: fn(-out: ${src in})>
     "Hello World".echo
     "Hello World".ping "... and John.")>')?></code></pre>
   </div>
@@ -458,12 +480,12 @@ When the <code>void</code> expression is typically executed it immediately exits
 <pre class="code"><code><?=htmlspecialchars('<eon
   bowl: [ "milk" "cereal" ]
   cup: [ "cereal" "milk" ]
-  isBreakfast: fn(
-    try(
-      (
+  isBreakfast: fn(-
+    try{
+      (-
         in.has [ "milk" "cereal" ]
         out: "yes")
-      (=out: "no")))
+      (-out: "no"))}
   // prints yes
   >')?></code></pre>
   </div>
@@ -477,7 +499,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
   os: import "os"
-  /(
+  /(-
     os.cd "../project/"
     os.git.commit < a m /"commit message">)
     // in Powershell this is equivalent to:
@@ -490,13 +512,46 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-    Key-value pairs can be made volatile (like in C) so that they are ignored by a compiler's optimizer.
+    Key-value pairs can be made volatile (like in C) using the <code>vol</code> keyword so that they are ignored by a compiler's optimizer.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon 
   key1: "data" 
   key2: "volatile data"
-  /(=vol key2)>')?></code></pre>
+  /(-vol key2)>')?></code></pre>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    Concurrency and promises can be accomplished using the <code>conc</code> keyword. 
+    This executes its input concurrently to the main process. 
+    Its returned output, if earmarked for a variable/list, becomes a promise that will await fulfillment the next time it is accessed (like async/await in other languages).
+    If not earmarked, it will be automatically terminated (if still running) when its calling scope is exited.
+    <br>
+    Only volatile variables can serve as shared memory between concurrent processes and the main process.
+    Earmarking a concurrent process's output to a variable/list that has been made volatile removes the blocking action of the promise.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('<eon 
+  name: "placeholder" 
+  start: "My name is "
+  sentence1: ""
+  sentance2: ""
+  /(-
+    name: conc getName // outputs "John" 
+    sentence1: ${ start name "." }
+    name: vol "placeholder" 
+    sentence2: ${ start name "." }
+    /* 
+    if getName takes 1 sec to finish
+    then sentence1 becomes 
+    "My name is John."
+    and sentence2 becomes 
+    "My name is placeholder."
+    */ 
+    )>')?></code></pre>
   </div>
 </div>
 <br>
@@ -509,14 +564,14 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  cw loop(
-    try(
-      (
+  cw loop(-
+    try{
+      (-
         forceExitLoop 
         out: "Fail!")
-      (
+      (-
         out: fn (void)
-        out: "Success!"))) // returns 4
+        out: "Success!"))} // returns 4
   >')?></code></pre>
   </div>
 </div>
@@ -541,7 +596,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<eon
-  (
+  (-
     use "os."
     cd "../project/"
     // prepends "os." to cd
