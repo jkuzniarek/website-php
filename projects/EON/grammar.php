@@ -30,28 +30,19 @@ include $sRoot.'templates/sidebar.php';
     </p>
     
     <p>
-      <pre><?=htmlspecialchars('
-expression = (accessor | command | infix | assignment | group | card | literal | decimal | bytes);
-
-Action Grammar
+      <pre><?=htmlspecialchars('Parser Grammar
 ====
-accessor = (NAME | KEYWORD | expression), { ACCESS_OPERATOR, accessor };
+expression = (NAME | input | infix | group | card | primitive );
 
-command = accessor, [expression];
+input = expression, expression;
 
-infix = expression, EVAL_OPERATOR, expression;
-
-assignment = accessor, [ASSIGN_OPERATOR, expression];
-
-
-Structure Grammar
-====
+infix = expression, [EVAL_OPERATOR | ASSIGN_OPERATOR | ACCESS_OPERATOR], expression;
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
-card = "<", [TYPE, [ "\", INTEGER ]], {assignment | NAME}, (">" | "/", (group | [expression]), ">");
+card = "<", [TYPE, [ "\", expression ]], {NAME | infix}, [ "/", expression ], ">");
 
-primitive = S_INT | U_INT | S_DECIMAL | U_DECIMAL | STRING | BYTES;
+primitive = S_INT | U_INT | S_DECIMAL | U_DECIMAL | STRING | BYTES | COMMENT;
 
 
 Primitive Grammar
@@ -68,6 +59,8 @@ U_DECIMAL = INTEGER, ".", INTEGER;
 STRING = ("\'" | \'"\' | "`"), { CHAR }, ("\'" | \'"\' | "`"), { STRING }
 
 BYTES = ( "\x" | "\b" | "\d" ), { INTEGER };
+
+COMMENT = ("\\\\", { CHAR }, "\\n") | ("\\*", { CHAR }, "*\\")
 
 
 Symbols
