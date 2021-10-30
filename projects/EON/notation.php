@@ -276,8 +276,10 @@ double_number: <double /12.34>
 
 <div class="row">
   <div class="col">
-    Keys can be pointing references to the cards referenced by other keys, 
+    Keys can be path references to the cards referenced by other keys, 
     but will return void (or an error or null value depending on reader implementation) if the referenced card has been deleted before attempting to access it.
+    <!-- labels using path references record the designated path to the card instead of a pointer to the card. 
+    this is slower but enables examining cards that may already be deleted -->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<key1: data key2:? key1>')?></code></pre>
@@ -291,10 +293,22 @@ double_number: <double /12.34>
     Keys can be binding references to the cards referenced by other keys, 
     but will return void (or an error or null value depending on reader implementation) if deletion of the referenced card is attempted while a binding reference to it still exists.
     Binding references are prohibited from referencing cards in child scopes, and attempting to do so will result in an interpreter/compiler error.
-    <!-- cards referenced by a binding reference have a hidden internal reference to the key they're bound to  -->
+    <!-- labels using binding references record a pointer to the card.
+    all cards have an additional internal reference count field which is incremented by new binding references and decremented when binding references are deleted/transferred -->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('<key1: data key2:& key1>')?></code></pre>
+    </code>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+    Keys can specify a list or array of one type of references, by placing the keys in question in a list or array.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('<key1: data1 key2: data2 key3:& {key1 key2} >')?></code></pre>
     </code>
   </div>
 </div>

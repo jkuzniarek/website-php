@@ -403,7 +403,7 @@ When the <code>void</code> expression is typically executed it immediately exits
 
 <div class="row">
   <div class="col">
-  The <code>del</code> keyword is a reserved index that is only executed immediately before its parent card is deleted or when a copy of the parent is deleted.
+  The <code>del</code> keyword is a reserved index that is only executed immediately before its parent card is deleted or when a copy of the parent is deleted if defined in a type.
   Changing a card's type does not trigger <code>del</code>.
   </div>
   <div class="col">
@@ -415,6 +415,27 @@ When the <code>void</code> expression is typically executed it immediately exits
     message: fn(-
       out: var)>
   out: my_card.message
+  // prints Bye!
+  >')?></code></pre>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col">
+  The <code>free</code> keyword is used to delete data and references subsequently freeing up a key or index for reuse.
+  Using this keyword triggers execution of any code defined in an card's <code>del</code> index followed by recursively calling free on each internal key and index.
+  Finally the card's internal reference counter is checked and if 0 the memory containing the card is released, otherwise a void is returned.
+  </div>
+  <div class="col">
+<pre class="code"><code><?=htmlspecialchars('<eon
+  my_card: <
+    var: "Bye"
+    del: (-
+      var: ${var "!"})
+    message: fn(-
+      out: var)>
+  out: free my_card
   // prints Bye!
   >')?></code></pre>
   </div>

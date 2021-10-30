@@ -82,7 +82,7 @@ KEYWORD =
 "val"  | "init" | "dest" | "in"   | 
 "out"  | "type" | "src"  | "has"  | 
 "os"   | "vol"  | "void" | "esc"  |
-"$";
+"$"    | "free" ;
 
 MATH:
 "sum"  | "dif"  | "mul"  | "div"  | 
