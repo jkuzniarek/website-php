@@ -266,6 +266,7 @@ double_number: <double /12.34>
 <div class="row">
   <div class="col">
     Key-value pairs can be created using a copy of another key's value.
+    <!-- regular keys/labels are technically owning references, but creating a new key from an old one makes a copy of the referenced data instead of referencing the original-->
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('< key1: data key2: key1>')?></code></pre>
