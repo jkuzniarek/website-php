@@ -20,7 +20,7 @@ $menu_items = [
           <ul class="navbar-nav">
             <?php foreach($menu_items as $item){ ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?=$item['a']?>"><h2><?=$item['text']?></h2></a>
+              <a class="nav-link" href="<?=$sRoot.$item['a']?>"><h2><?=$item['text']?></h2></a>
             </li>
             <?php }?>
           </ul>
