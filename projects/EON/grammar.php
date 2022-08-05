@@ -40,7 +40,7 @@ infix = expression, [EVAL_OPERATOR | ASSIGN_OPERATOR | ACCESS_OPERATOR], express
 
 group = OPEN_DELIMITER, { expression }, CLOSE_DELIMITER;
 
-card = "<", [TYPE, [ "\", expression ]], {NAME | infix}, [ "/", expression ], ">");
+card = ([TYPE], ["{", {NAME | infix}, ["/", expression], "}"] ) | ([TYPE], "/", expression);
 
 primitive = S_INT | U_INT | S_DECIMAL | U_DECIMAL | STRING | BYTES | COMMENT;
 
@@ -65,7 +65,7 @@ COMMENT = ("\\\\", { CHAR }, "\\n") | ("\\*", { CHAR }, "*\\")
 
 Symbols
 ====
-OPEN_DELIMITER = "["  | "("  | "{"  | "(-" | "{:" | "(=";
+OPEN_DELIMITER = "["  | "("  | "{"  | "(-" | "{:" | "(=" | "[:";
 
 CLOSE_DELIMITER = "]"  | ")"  | "}";
 

@@ -22,7 +22,7 @@ include $sRoot.'templates/sidebar.php';
 
     <p>
       <strong>Extended Organizing Notation</strong> 
-      (EON) is a data structure notation and programming language designed as a more user friendly alternative to XML with a JSON-like syntax.
+      (EON) is a data structure notation and programming language designed as a more user friendly alternative to XML with a QML-like syntax.
     </p>
     
     <p>
@@ -36,7 +36,7 @@ include $sRoot.'templates/sidebar.php';
 
     <p>
       Consequently, I believe there is a need for a new data structure language that has both the capabilities of XML and the ease of use of JSON.
-      EON is my response to this need.
+      EON is my solution for this need.
       While developing EON, I also realized that it could be useful to developers to not only have a new object notation, 
       but an accompanying programming language as well.
       Though I am still working on a functioning implementation of EON, I have arrived at a fairly stable specification of what it will look like. 
@@ -47,23 +47,22 @@ include $sRoot.'templates/sidebar.php';
       The EON <strong>Card Model</strong> underlies not just a card's structure, but the architecture of the programming language itself because like in Lisp, code is data too.
       Every EON card has 3 sections: the type, the index, and the body. 
       These are shown in the example below in green, blue, and yellow respectively. 
-      Collectively, these sections are surrounded by a wrapper demarcated by angle brackets (in red below).
     </p>
     <p>
       <table class="mx-auto">
         <tr class="text-center">
-          <td></td>
           <td class="border-right border-left"><span class="badge badge-success">Type</span></td>
+          <td></td>
           <td class="text-info border-right"><span class="badge badge-info">Index</span></td>
           <td class="text-warning border-right"><span class="badge badge-warning">Body</span></td>
           <td></td>
         </tr>
         <tr>
-          <td class="text-danger">&lt;</td>
           <td class="text-success border-right border-left">title &nbsp;</td>
+          <td class="text-danger">{</td>
           <td class="text-info border-right">lang:"en" &nbsp;</td>
           <td class="text-warning border-right">/"Harry Potter"</td>
-          <td class="text-danger">&gt;</td>
+          <td class="text-danger">}</td>
         </tr>
       </table>
     </p>
@@ -76,7 +75,7 @@ include $sRoot.'templates/sidebar.php';
       </li>
       <li>
         The <span class="badge badge-info">Index</span> stores a card's keys and key-value pairs.
-        Cards may have as many keys and key-value pairs as desired, but they must be located directly adjacent to each other.
+        Cards may have as many keys and key-value pairs as desired, but they must be grouped together.
       </li>
       <li>
         The <span class="badge badge-warning">Body</span> stores a card's primary contents either as a single value, another card, list, or array.
@@ -84,8 +83,7 @@ include $sRoot.'templates/sidebar.php';
         The body must always be the last item in a card, and it must be preceded by a <code>/</code>. 
       </li>
       <li>
-        If a card has no <span class="badge badge-success">Type</span> and no <span class="badge badge-info">Index</span>,
-        then the card's wrapper creates a redundant layer of abstraction around the body (which is itself an card) and may be omitted.
+        If a card has a <span class="badge badge-warning">Body</span> but no <span class="badge badge-info">Index</span>, then the card's <code>{}</code> are unnecessary and may be omitted.
       </li>
     </ul>
 
@@ -94,26 +92,26 @@ include $sRoot.'templates/sidebar.php';
     <div class="row">
       <div class="col">
         <label>EON</label>
-<pre class="code"><code><?=htmlspecialchars('<bookstore /{
-  <book category:"cooking" /{
-    <title lang:"en" /"Everyday Italian">
-    <author /"Giada De Laurentiis">
-    <year /2005>
-    <price /30.00>
-  }>
-  <book category:"children" /{ 
-    <title lang:"en" /"Harry Potter">
-    <author /"J K. Rowling">
-    <year /2005>
-    <price /29.99>
-  }>
-  <book category:"web" /{ 
-    <title lang:"en" /"Learning XML">
-    <author /"Erik T. Ray">
-    <year /2003>
-    <price /39.95>
-  }>
-}>')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('bookstore /[
+  book{ category:"cooking" /[
+    title{ lang:"en" /"Everyday Italian" }
+    author /"Giada De Laurentiis"
+    year /2005
+    price /30.00 
+    ]}
+  book{ category:"children" /[ 
+    title{ lang:"en" /"Harry Potter" }
+    author /"J K. Rowling"
+    year /2005
+    price /29.99 
+    ]}
+  book{ category:"web" /[ 
+    title{ lang:"en" /"Learning XML" }
+    author /"Erik T. Ray"
+    year /2003
+    price /39.95 
+    ]}
+  ]')?></code></pre>
       </div>
       <div class="col">
         <label>XML</label>
@@ -140,27 +138,27 @@ include $sRoot.'templates/sidebar.php';
       </div>
     </div>
 
-    <p>Despite the above EON card's 1:1 correllation to the XML object, the data could still be restructured into an even more condensed EON card.</p>
+    <p>Despite the above EON card's 1:1 correllation to the XML object, the data could be further condensed while retaining its improved legibility.</p>
 
     <div class="row">
       <div class="col">
         <label>Restructured EON</label>
-<pre class="code"><code><?=htmlspecialchars('<bookstore /{
-  <book category:"cooking"
-    title: < lang:"en" /"Everyday Italian">
-    author: "Giada De Laurentiis"
-    year: 2005
-    price: 30.00>
-  <book category:"children" 
-    title: < lang:"en" /"Harry Potter">
-    author: "J K. Rowling"
-    year: 2005
-    price: 29.99>
-  <book category:"web" 
-    title: < lang:"en" /"Learning XML">
-    author: "Erik T. Ray"
-    year: 2003
-    price: 39.95>}>')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('bookstore /[
+  book{ category:"cooking" /[
+    title{ lang:"en" /"Everyday Italian" }
+    author /"Giada De Laurentiis"
+    year /2005
+    price /30.00 ]}
+  book{ category:"children" /[ 
+    title{ lang:"en" /"Harry Potter" }
+    author /"J K. Rowling"
+    year /2005
+    price /29.99 ]}
+  book{ category:"web" /[ 
+    title{ lang:"en" /"Learning XML" }
+    author /"Erik T. Ray"
+    year /2003
+    price /39.95 ]}]')?></code></pre>
       </div>
     </div>
 

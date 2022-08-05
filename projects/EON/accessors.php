@@ -20,30 +20,29 @@ include $sRoot.'templates/sidebar.php';
     <a href="grammar.php" class="btn btn-light">Grammar</a>
     <hr>
 
-    <pre class="code"><code><?=htmlspecialchars('tree: <employee red_team name: "Michael Scott" title: "Regional Manager"
-  /{
-    <employee red_team name: "Dwight Scrute" title: "Assistant to the Regional Mgr">
-    <employee blue_team name: "Jim Halpert" 
+    <pre class="code"><code><?=htmlspecialchars('tree: employee{ red_team name: "Michael Scott" title: "Regional Manager"
+  /[
+    employee{ red_team name: "Dwight Scrute" title: "Assistant to the Regional Mgr"}
+    employee{ blue_team name: "Jim Halpert" 
       title: "Head of Sales" 
-      top_customers: {
-        <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
-        <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >}
-      /{
-        <employee red_team name: "Andy Bernard" 
+      top_customers: [
+        customer{ first_name: "John" last_name: "Doe" orders_placed: 4500 }
+        customer{ first_name: "Jane" last_name: "Doe" orders_placed: 2300 }]
+      /[
+        employee{ red_team name: "Andy Bernard" 
           title: "Sales Rep"
-          top_customers: {
-            <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-            <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}>
-        <employee blue_team name: "Phyllis Lapin" 
+          top_customers: [
+            customer{ first_name: "Sam" last_name: "Winchester" orders_placed: 1000 }
+            customer{ first_name: "Dean" last_name: "Winchester" orders_placed: 5 }]}
+        employee{ blue_team name: "Phyllis Lapin" 
           title:"Sales Rep"
-          top_customers: {
-            <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-            <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}>
-      }>
-    <employee blue_team name: "Pam Beesly" title: "Office Administrator">
-  }>')?></code></pre>
+          top_customers: [
+            customer{ first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 }
+            customer{ first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 }]}]}
+    employee{ blue_team name: "Pam Beesly" title: "Office Administrator"}
+  ]}')?></code></pre>
 <p>
-  The card accessor examples below use the above card named <code>tree</code>.
+  The card accessor examples below use the above data named <code>tree</code>.
 </p>
 <hr>
 
@@ -68,7 +67,7 @@ include $sRoot.'templates/sidebar.php';
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree* 
 /* returns: 
-{ "red_team" "name" "title" }
+[ "red_team" "name" "title" ]
 */')?></code></pre>
     </code>
   </div>
@@ -81,9 +80,9 @@ include $sRoot.'templates/sidebar.php';
     This is comparible to a logical OR.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree.{"name" "title"} 
+<pre class="code"><code><?=htmlspecialchars('tree.["name" "title"] 
 /* returns: 
-{ "Michael Scott" "Regional Manager" }
+[ "Michael Scott" "Regional Manager" ]
 */')?></code></pre>
     </code>
   </div>
@@ -92,16 +91,16 @@ include $sRoot.'templates/sidebar.php';
 
 <div class="row">
   <div class="col">
-    A card's listed items are accessed using <code>/</code> followed by the item index. 
+    A list or array's listed items are accessed using <code>/</code> followed by the item index. 
     Numerical indexing starts at 1 <strong>not 0</strong> because indexes <strong>are not</strong> offsets.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree/1 
 /* returns: 
-<employee 
+employee{ 
   red_team
   name: "Dwight Scrute" 
-  title: "Assistant to the Regional Mgr">
+  title: "Assistant to the Regional Mgr"}
 */')?></code></pre>
     </code>
   </div>
@@ -111,48 +110,12 @@ include $sRoot.'templates/sidebar.php';
 <div class="row">
   <div class="col">
     The body of a card can be retrieved without any tags by using the <code>/</code> accessor.
-    If the card is a primitive this will convert the primitive to a byte array.
+    If the data is a primitive this will remove the type and convert the primitive to a byte array.
   </div>
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('integer: 511
 integer/
-// returns [255 1]')?></code></pre>
-    </code>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="col">
-    The entire list that is the body of the example card can be retrieved like so.
-  </div>
-  <div class="col">
-<pre class="code"><code><?=htmlspecialchars('tree/ 
-/* returns the entire list: 
-{
-  <employee red_team name: "Dwight Scrute" title: "Ass. Regional Mgr">
-  <employee blue_team name: "Jim Halpert" 
-    title: "Head of Sales" 
-    top_customers: {
-      <customer first_name: "John" last_name: "Doe" orders_placed: 4500 >
-      <customer first_name: "Jane" last_name: "Doe" orders_placed: 2300 >
-    }
-    /{
-      <employee red_team name: "Andy Bernard" 
-        title: "Sales Rep"
-        top_customers: {
-          <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-          <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >
-        }>
-      <employee blue_team name: "Phyllis Lapin" 
-        title:"Sales Rep"
-        top_customers: {
-          <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-          <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >
-        }>
-    }>
-  <employee blue_team name: "Pam Beesly" title: "Office Administrator">}
-*/')?></code></pre>
+// returns [:255 1]')?></code></pre>
     </code>
   </div>
 </div>
@@ -181,7 +144,7 @@ true/false with this example returning true)
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree#
 /* returns:
-"employee"
+employee
 */')?></code></pre>
     </code>
   </div>
@@ -196,7 +159,7 @@ true/false with this example returning true)
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree/2#employee.name 
 /* returns: 
-{"Andy Bernard" "Phyllis Lapin"}
+["Andy Bernard" "Phyllis Lapin"]
 */')?></code></pre>
     </code>
   </div>
@@ -212,13 +175,13 @@ true/false with this example returning true)
   <div class="col">
 <pre class="code"><code><?=htmlspecialchars('tree/2@top_customers
 /* returns: 
-{
-  {
-    <customer first_name: "Sam" last_name: "Winchester" orders_placed: 1000 >
-    <customer first_name: "Dean" last_name: "Winchester" orders_placed: 5 >}
-  {
-    <customer first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 >
-    <customer first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 >}}
+[
+  [
+    customer{ first_name: "Sam" last_name: "Winchester" orders_placed: 1000 }
+    customer{ first_name: "Dean" last_name: "Winchester" orders_placed: 5 }]
+  [
+    customer{ first_name: "Hansel" last_name: "Schmidt" orders_placed: 500 }
+    customer{ first_name: "Gretel" last_name: "Schmidt" orders_placed: 630 }]]
 */')?></code></pre>
     </code>
   </div>

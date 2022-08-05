@@ -25,14 +25,14 @@ include $sRoot.'templates/sidebar.php';
   <div class="col">
     This program returns the classic "Hello World" message to whatever process called the EON program.
     Whatever value is assigned to the <code>out</code> keyword when the program ends execution will be output by the program.
-    <code>out</code> has a default value of <code><></code> until reassigned.
-    Each complete EON program must be enclosed within <code>&lt;eon &gt;</code> delimiters to indicate it's bounds.
+    <code>out</code> has a default value of <code>{}</code> until reassigned.
+    Each complete EON program must be enclosed within <code>eon{} </code> delimiters to indicate it's bounds.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   out: "Hello World!"
   // returns "Hello World!"
->')?></code></pre>
+}')?></code></pre>
   </div>
 </div>
 <br>
@@ -42,7 +42,7 @@ include $sRoot.'templates/sidebar.php';
   The key-value pairs in a card are accessible from within the card's index and body (here, a list of commands).
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   message: "Hello World!"
   name: "Hello Bob!"
   /(- 
@@ -50,7 +50,7 @@ include $sRoot.'templates/sidebar.php';
     out:+ name)
   /* 
     prints: 
-    Hello World!Hello Bob! */ >')?></code></pre>
+    Hello World!Hello Bob! */ }')?></code></pre>
   </div>
 </div>
 <br>
@@ -65,16 +65,16 @@ include $sRoot.'templates/sidebar.php';
     Processes are named expression lists that are executed when accessed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  printAll: fn <
+<pre class="code"><code><?=htmlspecialchars('eon{
+  printAll: fn {
     my_var: "World"
     /(-
       out: "Hello"
       out:+ my_var
-      out:+ "!" )>
+      out:+ "!" )}
   (-out: printAll)
   /* prints: 
-  HelloWorld! */ >')?></code></pre>
+  HelloWorld! */ }')?></code></pre>
   </div>
 </div>
 <br>
@@ -86,12 +86,12 @@ include $sRoot.'templates/sidebar.php';
   This increases program speed when a process is known to be deterministic like in mathematical functions.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   add5: cfn (-
-    out: sum {in 5})
+    out: sum [in 5])
   /(-out: add5 5)
   /* prints: 
-  10 */ >')?></code></pre>
+  10 */ }')?></code></pre>
   </div>
 </div>
 <br>
@@ -100,17 +100,17 @@ include $sRoot.'templates/sidebar.php';
   <div class="col">
   The <code>pfn</code> keyword is a type of process like <code>fn</code>, 
   but the function executes on each of its inputs concurrently and waits until all are done before progressing.
-  Consequently, the inputs to the function must be in a list <code>{}</code> otherwise <code>void</code> will automatically be returned.
+  Consequently, the inputs to the function must be in a list <code>[]</code> otherwise <code>void</code> will automatically be returned.
   However the <code>src</code> input may be singular to enable other passing in other parameters.
   Outputs are returned in a list in the same order as the inputs.
   <!-- Effectively it's a foreach(input){ out: conc function} that aggregates the outputs back together-->
   This can reduce overall execution time compared to loops when hardware supports concurrency or parallelism.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   add5: pfn (-
-    out: sum {in 5})
-  /(-out: add5 {5 6 7 8})
+    out: sum [in 5])
+  /(-out: add5 [5 6 7 8])
   /* outputs: 
   10 11 12 13 */ >')?></code></pre>
   </div>
@@ -126,44 +126,44 @@ include $sRoot.'templates/sidebar.php';
     Creating a process with <code>:?</code> passes the input in to the process by a pointing reference instead of by copying it, which is the default behavior.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   printHello:? fn(-
     out: "Hello "
-    out:+ in )>')?></code></pre>
+    out:+ in )}')?></code></pre>
   </div>
 </div>
 <br>
 
 <p>
 EON does not have null values in the way that most other programming languages do. 
-Instead other constructs are used depending on the particular context and desired behavior.
-Empty, but initialized, values return <code><></code>, <code>{}</code>, <code>[]</code>, <code>()</code>, <code>""</code>, or <code>0</code>. 
+Instead other constructs are used depending on the particular context and type.
+Empty, but initialized, values return <code>{}</code>, <code>[]</code>, <code>[:]</code>, <code>()</code>, <code>""</code>, or <code>0</code>. 
 Attempting to access an undefined value returns a <code>void</code> card.
 When the <code>void</code> expression is typically executed it immediately exits the current expression list <code>()</code>.
 </p>
 <p>
   The best way to understand how the <code>void</code> keyword works is to think of it as a function whose output triggers a context dependent behavior.
-  It takes the card input into it, if any, and makes it the body of a returned <code>&lt;void &gt;</code> card.
+  It takes the card input into it, if any, and makes it the body of a returned <code>void{}</code> card.
   Within an executing expression list, any expression that evaluates to a card of type <code>void</code>, 
   sets <code>out</code> to the void card's body and ends execution of the expression list.
-  With no input it returns an empty but typed card <code>&lt;void &gt;</code>.
+  With no input it returns an empty but typed card <code>void{}</code>.
   This behavior enables void to fill the roles that break, null, throw, and false keywords in other languages serve, 
-  as well as enabling custom error handling and treatment of errors as data/cards. 
+  as well as enabling custom error handling and treatment of errors as data. 
 </p>
 <br>
 
 <div class="row">
   <div class="col">
-    Tags can be added to an existing card's index by assigning them an empty card <code><></code> and removed by assigning them <code>void</code>.
+    Tags can be added to an existing card's index by assigning them an empty card <code>{}</code> and removed by assigning them <code>void</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  card: < tag1 >
+<pre class="code"><code><?=htmlspecialchars('eon{
+  card: { tag1 }
   /(-
-    card.tag2: <>
+    card.tag2: {}
     card.tag1: void)
-  // now the card is < tag2 >
-  >')?></code></pre>
+  // now the card is { tag2 }
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -173,11 +173,11 @@ When the <code>void</code> expression is typically executed it immediately exits
     You can check if a card has a specified tag, which may result in a <code>void</code> card if it does not.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  (-<tag1 tag2>.tag_3)
+<pre class="code"><code><?=htmlspecialchars('eon{
+  (-{tag1 tag2}.tag_3)
   // if yes, then execution continues
   // if no, then a void card results
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -187,11 +187,11 @@ When the <code>void</code> expression is typically executed it immediately exits
     You can check if a card is a primitive or array.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  (- "string"/[])
+<pre class="code"><code><?=htmlspecialchars('eon{
+  (- "string"/[:])
   // if yes, then execution continues
   // if no, then a void card results
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -201,11 +201,11 @@ When the <code>void</code> expression is typically executed it immediately exits
     You can check if a card is a list.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  (-<tag1 tag2>/{})
+<pre class="code"><code><?=htmlspecialchars('eon{
+  (-{tag1 tag2}/[])
   // if yes, then execution continues
   // if no, then a void card results
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -216,10 +216,10 @@ When the <code>void</code> expression is typically executed it immediately exits
     If the expression list is unordered (executed in parallel) then all expressions in the list are always executed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   try(-
     printAll
-    out: "Success!")>')?></code></pre>
+    out: "Success!")}')?></code></pre>
   </div>
 </div>
 <br>
@@ -230,13 +230,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     Each successive expression list is only executed if the prior's execution was interrupted by a void.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  try{
+<pre class="code"><code><?=htmlspecialchars('eon{
+  try[
     (-
       void
       out: "Success!")
     (-
-      out: "Error!")}>')?></code></pre>
+      out: "Error!")]}')?></code></pre>
   </div>
 </div>
 <br>
@@ -246,13 +246,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>esc</code> keyword immediately ends execution in the current <code>loop</code> (similarly to 'break' in other languages).
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  try{
+<pre class="code"><code><?=htmlspecialchars('eon{
+  try[
     (-
       loop(-
         esc
         out: "Fail!"))
-    (-out: "Loop Completed!")}>')?></code></pre>
+    (-out: "Loop Completed!")]}')?></code></pre>
   </div>
 </div>
 <br>
@@ -262,10 +262,10 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>loop</code> keyword repeatedly executes the commands in the list to its right until the <code>esc</code> keyword is called or the <code>next</code> keyword triggers another iteration.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   loop(-
     printAll
-    esc)>')?></code></pre>
+    esc)}')?></code></pre>
   </div>
 </div>
 <br>
@@ -275,11 +275,11 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>next</code> keyword triggers another iteration of the loop without waiting until the current iteration of the loop has completed.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   loop(-
     out: "This is an infinite loop"
     next
-    esc)>')?></code></pre>
+    esc)}')?></code></pre>
   </div>
 </div>
 <br>
@@ -289,9 +289,9 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>void</code> and <code>esc</code> keywords can be returned to be executed by the encapsulating command-list in order to conditionally exit a command-list (scope) or loop.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   loop
-    try{
+    try[
       (-
         forceExitLoop // outputs void to exit the if
         out: "Fail!")
@@ -300,7 +300,7 @@ When the <code>void</code> expression is typically executed it immediately exits
         out: "Success!" // this is still executed 
         // because the output is not retrieved until after 
         // the or finishes executing or a void/esc has been used
-        )}>')?></code></pre>
+        )]}')?></code></pre>
   </div>
 </div>
 <br>
@@ -311,13 +311,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     In each iteration the current key and its value will be referenced by the reserved names <code>key</code> and <code>val</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   list: [ "hello" "world" ]
   /(-list.loop(-
       out:+ key 
       out:+ val))
     // prints "1hello2world"
-    >')?></code></pre>
+    }')?></code></pre>
   </div>
 </div>
 <br>
@@ -327,7 +327,7 @@ When the <code>void</code> expression is typically executed it immediately exits
     Nested loops are possible by specifying which card the <code>key</code> or <code>val</code> is referencing.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   list1: [ "A" "B" ]
   list2: [ "I" "II"]
   /(-
@@ -338,7 +338,7 @@ When the <code>void</code> expression is typically executed it immediately exits
         out:+ list2.val
         out:+ " "))
     // prints "1AI 1AII 2BI 2BII"
-    >')?></code></pre>
+    }')?></code></pre>
   </div>
 </div>
 <br>
@@ -348,13 +348,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     Attempting to access an undefined name returns a <code>void</code> card.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  try{
+<pre class="code"><code><?=htmlspecialchars('eon{
+  try[
     (-
       undefined
       out: "Success!")
     (-
-      out: "Error!")}>')?></code></pre>
+      out: "Error!")]}')?></code></pre>
   </div>
 </div>
 <br>
@@ -362,21 +362,21 @@ When the <code>void</code> expression is typically executed it immediately exits
 <div class="row">
   <div class="col">
     The <code>$</code> operator concatenates the bodies of a list of cards of the same type and merges their indexes. 
-    The content of duplicate keys is combined into a list <code>{}</code>.
+    The values of duplicate keys are combined into a list <code>[]</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   (-
-    ${"Hello " "World"}
+    $["Hello " "World"]
     // combines into "Hello World"
-    ${ 
-      < tag1 key1: "Hello">
-      < tag2 key1: "World">}
+    $[ 
+      { tag1 key1: "Hello"}
+      { tag2 key1: "World"}]
     // combines into: 
-    // < tag1 tag2 
-    //   key1: {"Hello" "World"}
-    // >
-    )>')?></code></pre>
+    // { tag1 tag2 
+    //   key1: ["Hello" "World"]
+    // }
+    )]')?></code></pre>
   </div>
 </div>
 <br>
@@ -387,16 +387,16 @@ When the <code>void</code> expression is typically executed it immediately exits
     Changing a card's type does not trigger <code>ini</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  my_card: <
+<pre class="code"><code><?=htmlspecialchars('eon{
+  my_card: {
     var: "Hello"
     ini: fn(-
-      var: ${var "!"})
+      var: $[var "!"])
     message: fn(-
-      out: var)>
+      out: var)}
   out: my_card.message
   // prints Hello!
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -407,16 +407,16 @@ When the <code>void</code> expression is typically executed it immediately exits
   Changing a card's type does not trigger <code>del</code>.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  my_card: <
+<pre class="code"><code><?=htmlspecialchars('eon{
+  my_card: {
     var: "Bye"
     del: (-
-      var: ${var "!"})
+      var: $[var "!"])
     message: fn(-
-      out: var)>
+      out: var)}
   out: my_card.message
   // prints Bye!
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -428,16 +428,16 @@ When the <code>void</code> expression is typically executed it immediately exits
   Finally the card's internal reference counter is checked and if 0 the memory containing the card is released, otherwise a void is returned.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  my_card: <
+<pre class="code"><code><?=htmlspecialchars('eon{
+  my_card: {
     var: "Bye"
     del: (-
-      var: ${var "!"})
+      var: $[var "!"])
     message: fn(-
-      out: var)>
+      out: var)}
   out: free my_card
   // prints Bye!
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -447,13 +447,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>in</code> keyword is actually a reserved name to the card passed into a process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   printName: fn(-
-    out: ${"Hi! My name is " in})
+    out: $["Hi! My name is " in])
   myName: "Jane"
   out: printName myName
   // prints Hi! My name is Jane
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -464,13 +464,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     It can be used to not only set the process's output, but to reference it within the process, and modify it prior to the end of the process.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   echo: fn(-
     out: in
-    out: ${out "!"})
+    out: $[out "!"])
   out: echo "Hello"
   // returns "Hello!"
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -482,13 +482,13 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>src</code> keyword accesses the card to the left of the process being called.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   (-
-    type <str 
+    type str{ 
       echo: fn(-out: src)
-      ping: fn(-out: ${src in})>
+      ping: fn(-out: $[src in])}
     "Hello World".echo
-    "Hello World".ping "... and John.")>')?></code></pre>
+    "Hello World".ping "... and John.")}')?></code></pre>
   </div>
 </div>
 <br>
@@ -498,17 +498,17 @@ When the <code>void</code> expression is typically executed it immediately exits
     The <code>has</code> keyword returns <code>void</code> if the left card does not have all the same type, key-value pairs, and body that are in the right card.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   bowl: [ "milk" "cereal" ]
   cup: [ "cereal" "milk" ]
   isBreakfast: fn(-
-    try{
+    try[
       (-
         in.has [ "milk" "cereal" ]
         out: "yes")
-      (-out: "no"))}
+      (-out: "no"))]
   // prints yes
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -516,17 +516,18 @@ When the <code>void</code> expression is typically executed it immediately exits
 <div class="row">
   <div class="col">
     The <code>os</code> keyword provides an interface with the host operating system's API similar to a terminal or CLI.
+    The functions and interface options available depend on the operating system, but there will always be a <code>version</code> function that returns the os name and version.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  os: import "os"
+<pre class="code"><code><?=htmlspecialchars('eon{
   /(-
+    os.version // returns something like "BSD 13.0"
     os.cd "../project/"
     os.git.commit < a m /"commit message">)
     // in Powershell this is equivalent to:
     // cd ../project/
     // git commit -am "commit message" 
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -536,10 +537,10 @@ When the <code>void</code> expression is typically executed it immediately exits
     Key-value pairs can be made volatile (like in C) using the <code>vol</code> keyword so that they are ignored by a compiler's optimizer.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon 
+<pre class="code"><code><?=htmlspecialchars('eon{ 
   key1: "data" 
   key2: "volatile data"
-  /(-vol key2)>')?></code></pre>
+  /(-vol key2)}')?></code></pre>
   </div>
 </div>
 <br>
@@ -555,16 +556,16 @@ When the <code>void</code> expression is typically executed it immediately exits
     Earmarking a concurrent process's output to a variable/list that has been made volatile removes the blocking action of the promise.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon 
+<pre class="code"><code><?=htmlspecialchars('eon{ 
   name: "placeholder" 
   start: "My name is "
   sentence1: ""
   sentance2: ""
   /(-
     name: conc getName // outputs "John" 
-    sentence1: ${ start name "." }
+    sentence1: $[ start name "." ]
     name: vol "placeholder" 
-    sentence2: ${ start name "." }
+    sentence2: $[ start name "." ]
     /* 
     if getName takes 1 sec to finish
     then sentence1 becomes 
@@ -572,7 +573,7 @@ When the <code>void</code> expression is typically executed it immediately exits
     and sentence2 becomes 
     "My name is placeholder."
     */ 
-    )>')?></code></pre>
+    )}')?></code></pre>
   </div>
 </div>
 <br>
@@ -581,19 +582,20 @@ When the <code>void</code> expression is typically executed it immediately exits
   <div class="col">
     The <code>cw</code> keyword returns the code weight of the input statement list. 
     Code weight is the maximum number of statements that may be executed irrespective of what a procedure does.
+    This is an general measure of code complexity
     Statements within loops are counted once.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   cw loop(-
-    try{
+    try[
       (-
         forceExitLoop 
         out: "Fail!")
       (-
         out: fn (void)
-        out: "Success!"))} // returns 4
-  >')?></code></pre>
+        out: "Success!"))] // returns 4
+  }')?></code></pre>
   </div>
 </div>
 <br>
@@ -601,28 +603,28 @@ When the <code>void</code> expression is typically executed it immediately exits
 <div class="row">
   <div class="col">
     The <code>mass</code> keyword returns the code mass of the input card. 
-    Code mass is the size in bytes of a card as is.
+    Code mass is the size in bytes of a card as-is in memory.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   mass "hello" // returns 6
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br> -->
 
 <div class="row">
   <div class="col">
-  The <code>use</code> keyword is used to set the namespace that will be prepended to each subsequent identifier until ns is changed.
+  The <code>use</code> keyword is used to set the namespace that will be prepended to each subsequent identifier until changed again.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   (-
     use "os."
     cd "../project/"
     // prepends "os." to cd
     use "" // "exits" namespace
-    )>')?></code></pre>
+    )}')?></code></pre>
   </div>
 </div>
 <br>
@@ -630,10 +632,11 @@ When the <code>void</code> expression is typically executed it immediately exits
 <div class="row">
   <div class="col">
   The <code>lib</code> keyword indicates that the code in the given file belongs to the named library.
+  This is similar to Golang's package keyword.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
-  lib myLibrary>')?></code></pre>
+<pre class="code"><code><?=htmlspecialchars('eon{
+  lib myLibrary}')?></code></pre>
   </div>
 </div>
 <br>
@@ -643,24 +646,24 @@ When the <code>void</code> expression is typically executed it immediately exits
   The <code>import</code> keyword opens the designated .eon library and returns it as a card.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   myLib: import "./libraries/myLibrary.eon"
   // imported code is now available using myLib 
   // as library name. ie: myLib.printName("Bob")
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
 
 <div class="row">
   <div class="col">
-  The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the current scope and executes it.
+  The <code>insert</code> keyword opens the designated .eon file and directly inserts it into the current scope and executes it as-is.
   </div>
   <div class="col">
-<pre class="code"><code><?=htmlspecialchars('<eon
+<pre class="code"><code><?=htmlspecialchars('eon{
   insert "./helloWorld.eon"
   // prints Hello World!
-  >')?></code></pre>
+  }')?></code></pre>
   </div>
 </div>
 <br>
