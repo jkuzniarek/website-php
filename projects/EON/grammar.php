@@ -34,7 +34,7 @@ include $sRoot.'templates/sidebar.php';
 ====
 expression = (NAME | input | infix | group | card | primitive );
 
-input = expression, expression;
+input = (NAME | infix), expression;
 
 infix = expression, [EVAL_OPERATOR | ASSIGN_OPERATOR | ACCESS_OPERATOR], expression;
 

@@ -101,7 +101,7 @@ include $sRoot.'templates/sidebar.php';
   The <code>pfn</code> keyword is a type of process like <code>fn</code>, 
   but the function executes on each of its inputs concurrently and waits until all are done before progressing.
   Consequently, the inputs to the function must be in a list <code>[]</code> otherwise <code>void</code> will automatically be returned.
-  However the <code>src</code> input may be singular to enable other passing in other parameters.
+  However the <code>src</code> input may be singular to enable passing in other parameters.
   Outputs are returned in a list in the same order as the inputs.
   <!-- Effectively it's a foreach(input){ out: conc function} that aggregates the outputs back together-->
   This can reduce overall execution time compared to loops when hardware supports concurrency or parallelism.
@@ -146,7 +146,7 @@ When the <code>void</code> expression is typically executed it immediately exits
   It takes the card input into it, if any, and makes it the body of a returned <code>void{}</code> card.
   Within an executing expression list, any expression that evaluates to a card of type <code>void</code>, 
   sets <code>out</code> to the void card's body and ends execution of the expression list.
-  With no input it returns an empty but typed card <code>void{}</code>.
+  With no input it simply ends execution of the expression list and returns whatever is assigned to <code>out</code>.
   This behavior enables void to fill the roles that break, null, throw, and false keywords in other languages serve, 
   as well as enabling custom error handling and treatment of errors as data. 
 </p>
