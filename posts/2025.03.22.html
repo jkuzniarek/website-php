@@ -1,0 +1,68 @@
+<div class="border-bottom border-dark">
+  <h1><em>The SRV Design Pattern</em></h1>
+  </div>
+<br>
+<div class="row">
+  <div class="col-lg-10">
+    <p>
+      When it comes to web development I've always found the MVC design pattern to be cumbersome.
+      Though this impression could easily be a byproduct of my experience working with Object Oriented MVC websites in particular, 
+      even my own attempts to organize websites using the MVC design pattern without object oriented code 
+      have been handicapped by the unavoidable client-server architecture of the web.
+      This is not to say that web developers should abandon the MVC pattern, afterall modern programs cannot not exist without it.
+      The essence of the issue is simply that the MVC pattern is only suitable for monolithic systems, 
+      and websites that exist beyond the standalone html page intrinsicly consist of multiple distinct 
+      and networked systems on both sides of the client server dichotomy.</p>
+    <p>
+      At first I tried various ways of partitioning the Models, Views, and Controllers between client and server. 
+      However, I eventually realized that not only could these elements appear in either category, but they frequently appeared in both.
+      Then I tried to come up with a variant of the MVC pattern by swapping out one or two of the patterns components 
+      for other categories of components commonly used in websites.
+      I reasoned that even though an html page could clearly be just a view, it could also operate as a controller like in a Single Page web App (SPA).
+      This also requires a server-side controller-like endpoint to interact with whatever server-side resources are needed by the client though.</p>
+    <p>
+      Strangely enough, the solution came to me while I was researching a way to utilize ReactJS without 
+      either setting up a NodeJS server or embedding a 1 MB Javascript file into my html page.
+      I learned that the developers of ReactJS and similar technologies are all resorting to server-side rendering, 
+      most likely because it's the only way they know how to reliably develop a complex web application while still organizing their code in a MVC pattern.
+      It was at that point that I knew that the MVC pattern was simply and thoroughly unsuited to web development 
+      on its own because it was intended for monolithic entities only. 
+      Ultimately, I found that the client-server dichotomy's namesake analogy was the optimal starting point for the multilithic design pattern that is enumerated below.</p>
+
+    <h2>SRV (Services, Resources, and Views)</h2>
+    <p>
+      The components of the SRV pattern occupy the conceptual spaces that are perpendicular to the components of the MVC pattern.
+      While this design pattern is described and intended for websites, it can theoretically be adapted to other networked architectures 
+      where the user interface and the agent governing resource access are not a single monolithic entity.
+      The MVC pattern should not be entirely abandoned however, because it remains a crucial means of 
+      constructing each of the three SRV components when your design needs to support more complicated features.</p>
+      
+    <p>By extending the aforementioned client-server analogy to other restaurant elements we can simply explain the components of the SRV pattern:</p>
+      
+    <h4>The Views of our application are analogous to the Menus of a restaurant.</h4>
+    <ul>
+      <li>These are the principal user interfaces of the application, and like a menu should be built with the expectation 
+        that the users will inspect it closely and subject it to a wide variety of unexpected behaviors.</li>
+      <li>In web development, these are typically HTML, CSS, and JS files; but they are also any file that may be 
+        sent to a browser unaltered when requested directly by URL.</li>
+      <li>These files are stored in a typical directory tree which is exposed to the user through their browser for reading only, 
+        but can also accommodate a SPA website if desired by the developer.</li></ul>
+      
+    <h4>The Resources of our application are analogous to the Recipes & Ingredients used to fill customer requests.</h4>
+    <ul>
+      <li>These are the common server-side resources like templates, libraries, objects, database connections, 
+        cache, config, and data files available to only the server to use and execute.</li>
+      <li>In web development, these are typically ENV, JSON, CSV, and DAT files.</li>
+      <li>These files are stored in a dedicated "resources" directory which should not be exposed to the user at all.</li></ul>
+      
+    <h4>The Services of our application are analogous to the Workers in a restaurant that attempt to fill each customer's requests.</h4>
+    <ul>
+      <li>These fill the REST requests made by the Views of the application using the Resources designated by the developer.</li>
+      <li>In web development, these can be PHP files or more frequently the request handling executable of the application server itself.</li>
+      <li>These files are stored in a dedicated "services" directory which should be exposed to the user for server-side execution only.</li></ul>
+      
+
+
+
+  </div>
+</div>

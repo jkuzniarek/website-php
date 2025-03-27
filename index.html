@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 bg-light">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jkuzniarek.me</title>
+    <link rel="icon" href="favicon.ico"></link>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"></link>
+
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="./main.js"></script></head>
+
+  
+  <body class="h-100" style="word-wrap: break-word;">
+    <!-- mobile menu -->
+    <nav id="menu_m" 
+      class="navbar navbar-light bg-green d-lg-none w-100" 
+      style="position: fixed; top: 0; z-index: 1030; /*display: none;*/"
+      data-src="menu_m.html"></nav>
+    
+    <div class="container-fluid h-100 ">
+      <div class="row h-100">
+        
+        <!-- wide menu -->
+        <div id="menu_w" 
+          class="col-lg-2 bg-green sidebar d-none d-lg-block h-100 shadow" 
+          style="position: fixed; top: 0; z-index: 1030; /*display: none;*/"
+          data-src="menu_w.html"></div>
+    
+        <div class="col-lg-3 h-100 d-none d-lg-block"></div>
+        <div class="col-lg-9 h-100 container py-4">
+          <!-- this element prevents the page from appearing below the mobile navbar -->
+          <div class="d-lg-none"><br><br><br><br></div>
+          <div id="alert_area" class="mr-5"></div>
+          <div id="content_area" class="mr-5"></div></div>
+        </div></div></body>
+
+  <script>
+
+
+window.addEventListener("hashchange", route)
+route()
+$("#menu_m").find("a.nav-link").each(()=>{$(this).addEventListener("click", updateActiveLinks("#menu_m"))})
+$("#menu_w").find("a.nav-link").each(()=>{$(this).addEventListener("click", updateActiveLinks("#menu_w"))})
+  </script>
+</html>

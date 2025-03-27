@@ -1,0 +1,49 @@
+<div class="border-bottom border-dark">
+  <h1><em>Venture Into Digital Trees</em></h1>
+  </div>
+<br>
+<div class="row">
+  <div class="col-lg-10">
+    <p>
+The Digital Tree, frequently referred to as a Trie, is a data
+structure used primarily for predictive text, autocomplete, and spellchecking
+programs. Its preeminence in these applications is due to the speed of its
+search, insertion, and deletion capabilities, which significantly exceed that
+of Binary Trees and rival that of hash tables. Key to its performance, and in
+contrast to Binary Trees, is its large number of children per node. This is
+the result of an algorithm which, rather than navigating to the child with a
+greater or lesser value, navigates to the child with a matching value. Because
+the choice of children is greater, the Digital Tree has less steps to take
+before traversing all the way down the tree. 
+</p>
+<p>
+While the widely known Binary Tree is intrinsically limited to
+two children per node, only the number of possible sets of characters within a
+string limits the Digital Tree's number of children per node. This is
+frequently broken down further and each node limited to a single character. As
+a result a Digital Tree utilizing a string of only single case alphabetic
+characters would have up to twenty-six children per node. 
+</p>
+<p>
+With only two children per node the Binary Tree's worst case
+lookup speed is O(log<sub>2</sub>N) time, where N is the total number of items in the
+tree. In contrast, the Digital Tree would have a worst case lookup speed in
+this scenario, of O(log<sub>26</sub>N). So if we had N = 100,000 items in each tree than
+the maximum lookup time for a Digital Tree would be O(3.5) while for a Binary
+Tree it would be O(16.6). Furthermore, if the Digital Tree instead utilized
+upper and lower case characters of the alphabet resulting in 52 children per
+node, then the subsequent maximum lookup time for a Digital Tree would be
+O(2.9). 
+</p>
+<p>
+From these simple calculations we can see that the Digital Tree
+is clearly faster than the Binary when it comes to traversing the entire
+tree. It is also apparent that the larger the number of children per node the
+faster the traversal. In addition, it is noteworthy that the above worst case
+lookup times for a Digital Tree are still remarkably close to the best case
+lookup time of a hash table, which is O(1). Furthermore, after taking into
+account collisions and buckets in a hash table, the gap between the two
+narrows quickly. 
+</p>
+  </div>
+</div>

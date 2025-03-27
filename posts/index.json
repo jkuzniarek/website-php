@@ -1,0 +1,77 @@
+[
+    {
+        "date": "2025.03.22",
+        "title": "The SRV Design Pattern",
+        "desc": "When it comes to web development I've always found the MVC design pattern to be cumbersome. However, my frustration has finally led to a new development in website organization."
+    },
+    {
+        "date": "2021.02.08",
+        "title": "The Economic Consequences of Gift Giving",
+        "desc": "An exploration into the origins of palace economies, the economics of gift exchanges, and how this impacts inequality. This post primarily touches on economic anthropology, but you will probably find it interesting if you have an interest in history, social contract theory, inequality, game theory, or human ecology."
+    },
+    {
+        "date": "2021.02.05",
+        "title": "Some Principles of Information",
+        "desc": "I do a lot of reading in my spare time on subjects varying from technology, physics, and economics to others such as linguistics, history, and sociology; and one of the consequences of maintaining such a diversity of interests within human systems is that I tend to ponder how ideas, structures, and other abstractions from each of these worlds can be implemented and harnessed. As a result I have come to some observational and theoretical conclusions about the properties of information and meta-information that I think may be quite useful to those working in computer science, physics, and potentially mathematics and law."
+    },
+    {
+        "date": "2019.06.13",
+        "title": "There's No Accounting For Generosity",
+        "desc": "Is a More Generous Society Possible? Should an individual's labor primarily benefit either oneself or the community? Well... why not both?"
+    },
+    {
+        "date": "2019.05.19",
+        "title": "Null Values Have Ruined Programming",
+        "desc": "0, 1... and null? Null values have transformed simple binary logic into ternary and mucked up programming."
+    },
+    {
+        "date": "2019.01.18",
+        "title": "Outline of the Information Technology Industry",
+        "desc": "Despite a growing awareness of the mystical properties of Code, users still have difficulty recognizing the diversity within the IT industry, never mind differentiating between its fields. This prompted me to come up with an approximate outline of the IT industry in order to bring users some illumination on the subject."
+    },
+    {
+        "date": "2018.03.08",
+        "title": "Documentation Driven Development",
+        "desc": "Based off my experience working in an Agile development environment I've come to the conclusion that unless you don't need any documentation, you should be using Documentation Driven Development."
+    },
+    {
+        "date": "2018.02.28",
+        "title": "My Rebuilt Website is Live!",
+        "desc": "While my homepage discusses a lot of what I got out of rebuilding my website, I would like to go more in-depth into some of the things that prompted me to rebuild it along with a few of the new features."
+    },
+    {
+        "date": "2016.06.07",
+        "title": "US Electoral Tracker",
+        "desc": "This is an R package that tracks the votes in US Presidential elections from 1828-2012. Its creation was the culmination of my Introduction to R Programming course."
+    },
+    {
+        "date": "2016.01.29",
+        "title": "Virtual Machine Security",
+        "desc": "My Health Information Security course culminated with a self directed research project on a topic of my choosing. Knowing their growing role in general, I chose to research the security of virtual machines."
+    },
+    {
+        "date": "2015.11.27",
+        "title": "CA Ribbon Project",
+        "desc": "I was eager to write my own program for generating a cellular automaton by the time that I learned imperative programming, having enthusiastically read Stephen Wolfram's A New Kind Of Science in High School. In the middle of the semester, and before I had even learned the basics of classes and objects within the COP 2931 Programming I course using C++, I initiated my own personal project to create that program."
+    },
+    {
+        "date": "2015.11.20",
+        "title": "Storm Chaser Project",
+        "desc": "This is the Final Project for the COP 2930 Programming II course using Java. We were provided with a data file containing information on all hurricanes from 1960 through 1996 for every six hours while they were at least a Category 1 hurricane."
+    },
+    {
+        "date": "2015.11.09",
+        "title": "Tax Accountant Project",
+        "desc": "Another project assigned during the Programming II course using Java was the Tax Accountant Project. We were given a description of how the tax brackets functioned as well as how the project was intended to output the end results."
+    },
+    {
+        "date": "2015.11.08",
+        "title": "Card Trick Project",
+        "desc": "During the COP 2930 Programming II course using Java, we were assigned a project in which we were to write a program that performed a card trick. We were supplied with a video demonstrating the card trick and also given instructions on how the card trick functions."
+    },
+    {
+        "date": "2015.10.30",
+        "title": "Venture Into Digital Trees",
+        "desc": "The Digital Tree, frequently referred to as a Trie, is a data structure used primarily for predictive text, autocomplete, and spellchecking programs. Its preeminence in these applications is due to the speed of its search, insertion, and deletion capabilities, which significantly exceed that of Binary Trees and rival that of hash tables."
+    }
+]

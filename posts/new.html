@@ -1,0 +1,48 @@
+<div class="border-bottom border-dark">
+  <h1><em>New Post</em></h1>
+  </div>
+<br>
+
+<p>
+  Remember the post body is not the entire html, but just whatever will be placed below the
+  page title. It will be inserted into the #content_area just like this form has been.
+  </p>
+
+<form autocomplete="off">
+  <button class="btn btn-success" type="button" onclick="savePost()">Save Post</button>
+  <div class="form-row mb-3">
+    <div class="col-sm-2">
+      <label>Date ID</label>
+      <input class="form-control" type="text" id="date_ID" placeholder="2018.12.31">
+      </div>
+    <div class="col-sm-10">
+      <label>Title</label>
+      <input class="form-control" type="text" id="title" placeholder="Title">
+      </div></div>
+  <div class="row mb-3">
+    <div class="col">
+      <label>Description</label>
+      <input class="form-control" type="text" id="desc" placeholder="Description">
+      </div></div>
+  <div class="row">
+    <div class="col">
+      <label>HTML</label>
+      <textarea class="form-control" rows="20" id="body" placeholder="Your post's HTML body"></textarea>
+      </div></div></form>
+<script>
+function savePost(){
+  if($("#date_ID").val().trim() == ""){
+    return
+  }
+  $.post("_services/add_post.php", {
+    date_ID: $("#date_ID").val().trim(),
+    title: $("#title").val().trim(),
+    desc: $("#desc").val().trim(),
+    body: $("#body").val().trim()
+  }, (res) => {
+    if(res != ""){
+      alert(res)
+    }
+  })
+}
+</script>

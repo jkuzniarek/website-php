@@ -1,0 +1,229 @@
+<div class="border-bottom border-dark">
+  <h1><em>CA Ribbon Project</em></h1>
+  </div>
+<br>
+<div class="row">
+  <div class="col-lg-10">
+    <p>I was eager to write my own program for generating a cellular automaton by
+  the time that I learned imperative programming, having enthusiastically read
+  Stephen Wolfram's <em>A New Kind Of Science</em> in High School. In the middle of
+  the semester, and before I had even learned the basics of classes and objects
+  within the COP 2931 Programming I course using C++, I initiated my own
+  personal project to create that program. Just as the Hello World program is
+  the archetypical first program for every programmer, the Rule 30 cellular
+  automata was the obvious choice when deciding which rule set to implement.
+  </p>
+  <p>
+  For the sake of preventing overflow within the Xcode Debug area when
+  outputting many iterations, I fixed the width of the resulting 'ribbon' to 25
+  characters and set the loop calculating the next line to retrieve cell values
+  from the given line as if the line was unbounded (the value at index 0 was
+  retrieved following the value at index 24 of the same line). This modification
+  prevented the occurrence of 'border interactions' which would have almost
+  assuredly contaminated the resulting data. However, in making this modification
+  the automaton was prevented from experiencing the unrestricted growth that
+  would have resulted in the usual Rule 30 output. The new consequence of this
+  configuration is that the once predictable edges of expansion now collide
+  with each other resulting in an inevitable end in growth, but a continuation
+  in automaton development with each iteration. 
+  </p>
+  
+  <h3>
+    Example Output
+    </h3><br>
+  <samp><pre>Input a string of 1s and 0s, 25 digits long, to construct first line.
+1 for black, 0 white.
+<kbd>0000000000001000000000000</kbd>
+
+Input how many iterations are sought: <kbd>50</kbd>
+
+            O
+           OOO
+          OO  O
+         OO OOOO
+        OO  O   O
+       OO OOOO OOO
+      OO  O    O  O
+     OO OOOO  OOOOOO
+    OO  O   OOO     O
+   OO OOOO OO  O   OOO
+  OO  O    O OOOO OO  O
+ OO OOOO  OO O    O OOOO
+OO  O   OOO  OO  OO O   O
+  OOOO OO  OOO OOO  OO OO
+OOO    O OOO   O  OOO  O
+O  O  OO O  O OOOOO  OOO
+OOOOOOO  OOOO O    OOO
+O      OOO    OO  OO  O O
+ O    OO  O  OO OOO OOO O
+ OO  OO OOOOOO  O   O   O
+ O OOO  O     OOOO OOO OO
+ O O  OOOO   OO    O   O
+OO OOOO   O OO O  OOO OOO
+   O   O OO O  OOOO   O
+  OOO OO O  OOOO   O OOO
+ OO   O  OOOO   O OO O  O
+ O O OOOOO   O OO O  OOOO
+ O O O    O OO O  OOOO
+OO O OO  OO O  OOOO   O
+O  O O OOO  OOOO   O OOOO
+ OOO O O  OOO   O OO O
+OO   O OOOO  O OO O  OO
+O O OO O   OOO O  OOOO OO
+  O O  OO OO   OOOO    O
+ OO OOOO  O O OO   O  OOO
+ O  O   OOO O O O OOOOO
+OOOOOO OO   O O O O    O
+O      O O OO O O OO  OO
+OO    OO O O  O O O OOO
+O O  OO  O OOOO O O O  OO
+  OOOO OOO O    O O OOOO
+ OO    O   OO  OO O O   O
+ O O  OOO OO OOO  O OO OO
+ O OOOO   O  O  OOO O  O
+OO O   O OOOOOOOO   OOOOO
+   OO OO O       O OO
+  OO  O  OO     OO O O
+ OO OOOOOO O   OO  O OO
+OO  O      OO OO OOO O O
+O OOOO    OO  O  O   O O </pre>
+</samp><br><br>
+
+<h3>
+main.cpp
+</h3><br>
+<code><pre>//  main.cpp
+//  CA Ribbon
+//
+//  Created by Julien Kuzniarek on 10/21/13.
+//
+// Elementary cellular automaton, ribbon, unbounded, rule 30
+
+#include &lt;<var>cstdlib</var>&gt;
+#include &lt;<var>iostream</var>&gt;
+#include &lt;<var>string</var>&gt;
+
+// black = true = 1;
+// white = false = 0;
+using namespace std;
+
+bool rule30(bool, bool, bool );
+bool setcell();
+void printcell(bool);
+
+int main()
+{
+#define <var>linelength</var> 25
+    string <var>firstline</var> = "";
+	bool <var>repcheck</var>[<var>linelength</var>] = {0};
+    unsigned long <var>ribbonwidth</var> = 0;
+    int <var>ribbonlength</var> = 0;
+
+	//input starting line
+    cout &lt;&lt; "Input a string of 1s and 0s, " &lt;&lt; <var>linelength</var> &lt;&lt; " digits long,";
+    cout &lt;&lt; " to construct first line." &lt;&lt; endl &lt;&lt; "1 for black, 0 white. " &lt;&lt; endl;
+    cin &gt;&gt; <var>firstline</var>;
+    <var>ribbonwidth</var> = <var>firstline</var>.length();
+    bool <var>line</var> [<var>linelength</var>] = {0};
+    bool <var>nextline</var> [<var>linelength</var>] = {0};
+    for (int <var>count</var> = 0; <var>count</var> &lt; <var>ribbonwidth</var>; <var>count</var>++)
+    {
+        if (<var>firstline</var>[<var>count</var>] == '1')
+        {
+            <var>line</var>[<var>count</var>] = true;
+        }
+        if (<var>firstline</var>[<var>count</var>] == '0')
+        {
+            <var>line</var>[<var>count</var>] = false;
+        }
+    }
+	//main loop
+    cout &lt;&lt; endl &lt;&lt; "Input how many iterations are sought: ";
+    cin &gt;&gt; <var>ribbonlength</var>;
+    cout &lt;&lt; endl;
+    for (int <var>count1</var> = 0; <var>count1</var> &lt; <var>ribbonlength</var>; <var>count1</var>++)
+    {
+        //calculate next line from line
+        <var>nextline</var>[0] = rule30(<var>line</var>[<var>ribbonwidth</var>-1], <var>line</var>[0], <var>line</var>[1]);
+        for(int <var>num</var> = 1; <var>num</var> &lt; <var>ribbonwidth</var>; <var>num</var>++)
+        {
+            <var>nextline</var>[<var>num</var>] = rule30(<var>line</var>[<var>num</var>-1], <var>line</var>[<var>num</var>], <var>line</var>[<var>num</var>+1]);
+        }
+        <var>nextline</var>[<var>ribbonwidth</var>-1] = rule30(<var>line</var>[<var>ribbonwidth</var>-2], <var>line</var>[<var>ribbonwidth</var>-1], <var>line</var>[0]);
+
+        //print cells then update line with values from next line
+        for (int <var>count2</var> = 0; <var>count2</var> &lt; <var>ribbonwidth</var>; <var>count2</var>++)
+        {
+            printcell(<var>line</var>[<var>count2</var>]);
+            <var>line</var>[<var>count2</var>] = <var>nextline</var>[<var>count2</var>];
+		}
+        cout &lt;&lt; endl;
+		for (int <var>count</var> = 0; (<var>count</var> &lt; <var>linelength</var>); <var>count</var>++)
+		{
+			if (<var>line</var>[<var>count</var>] == <var>repcheck</var>[<var>count</var>] and <var>count</var> == <var>linelength</var>)
+			{
+				<var>ribbonlength</var> = <var>count1</var>;
+			}
+			else
+			{
+				<var>count</var> = <var>linelength</var>;
+			}
+		}
+    }
+}
+void printcell(bool <var>cell</var>)
+{
+	if (<var>cell</var> == true)
+	{
+		cout &lt;&lt; "O";
+	}
+	if (<var>cell</var> == false)
+	{
+		cout &lt;&lt; " ";
+	}
+}
+
+//define rule30 function
+bool rule30( bool <var>cellL</var>, bool <var>cellC</var>, bool <var>cellR</var> )
+{
+    bool <var>returnvalue</var> = true;
+    //true = black
+    //false = white
+    if (<var>cellL</var> == true and <var>cellC</var> == true and <var>cellR</var> == true)
+    {
+        <var>returnvalue</var> = false;
+    }
+    if (<var>cellL</var> == true and <var>cellC</var> == true and <var>cellR</var> == false)
+    {
+		<var>returnvalue</var> = false;
+    }
+    if (<var>cellL</var> == true and <var>cellC</var> == false and <var>cellR</var> == true)
+    {
+		<var>returnvalue</var> = false;
+    }
+    if (<var>cellL</var> == true and <var>cellC</var> == false and <var>cellR</var> == false)
+    {
+		<var>returnvalue</var> = true;
+    }
+    if (<var>cellL</var> == false and <var>cellC</var> == true and <var>cellR</var> == true)
+    {
+		<var>returnvalue</var> = true;
+    }
+    if (<var>cellL</var> == false and <var>cellC</var> == true and <var>cellR</var> == false)
+    {
+		<var>returnvalue</var> = true;
+    }
+    if (<var>cellL</var> == false and <var>cellC</var> == false and <var>cellR</var> == true)
+    {
+		<var>returnvalue</var> = true;
+    }
+    if (<var>cellL</var> == false and <var>cellC</var> == false and <var>cellR</var> == false)
+    {
+		<var>returnvalue</var> = false;
+    }
+    return <var>returnvalue</var>;
+}
+
+</pre></code>
+  </div>
+</div>
