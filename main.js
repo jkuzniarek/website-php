@@ -71,20 +71,8 @@ async function route(){
     // load page
     nav(loc+".html")
 
-    // load submenus
+    // path-specific operations
     // if(loc.includes("path/")){}
-
-    // page specific handling
-    if(loc == "archive"){
-      $.get("posts/index.json", (data) => {
-        let posts = data //JSON.parse(data)
-        for(let i of posts){
-          $("#archive_list").append(`<a href="#posts/${i.date}" class="list-group-item list-group-item-action nostyle-link">
-            <strong>${i.date}</strong> - ${i.title}<br>${i.desc}</a>`)
-        }
-      })
-    }
-
 
   }
 }

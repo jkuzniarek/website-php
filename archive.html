@@ -4,5 +4,14 @@
 <br>
 <div class="row">
   <div class="col-lg-10">
-    <div class="list-group list-group-flush" id="archive_list"></div></div>
-  <div class="col-lg-2"><a href="#posts/new">Add post</a></div>
+    <div class="list-group list-group-flush" id="archive_list"></div>
+  <div class="col-lg-2"><a href="#posts/new">Add post</a></div></div>
+<script>
+  $.get("posts/index.json", (data) => {
+    let posts = data //JSON.parse(data)
+    for(let i of posts){
+      $("#archive_list").append(`<a href="#posts/${i.date}" class="list-group-item list-group-item-action nostyle-link">
+        <strong>${i.date}</strong> - ${i.title}<br>${i.desc}</a>`)
+    }
+  })
+</script>
