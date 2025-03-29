@@ -4,14 +4,12 @@
 
 // loads file designated in e's data-src attribute as html/text inside e
 async function loadSrc(e){
-  e.addClass("text-center")
-  e.html('<div class="spinner-border mt-3"></div>')
+  e.html('<div class="spinner-border mt-3 mx-auto"></div>')
   e.load(e.data('src'))
   if(e.html().trim() != ""){
-    e.html('<div class="spinner-border mt-3"></div>')
+    e.html('<div class="spinner-border mt-3 mx-auto"></div>')
     e.load(e.data('src'))
   }
-  e.removeClass("text-center")
 }
 
 function updateActiveLinks(selector){
